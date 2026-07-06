@@ -5,6 +5,7 @@ import { PopularProjectsWidget } from './components/widgets/PopularProjectsWidge
 import { CategorizedProjectsWidget } from './components/widgets/CategorizedProjectsWidget';
 import { GlobalStatsWidget } from './components/widgets/GlobalStatsWidget';
 import { TopLanguagesWidget } from './components/widgets/TopLanguagesWidget';
+import { CodeFrequencyWidget } from './components/widgets/CodeFrequencyWidget';
 import { LoadingOverlay } from './components/ui/LoadingOverlay';
 import type { Language } from './locales/dictionaries';
 
@@ -29,10 +30,24 @@ interface ProfileData {
     stars: number;
     forks: number;
     url: string;
+    homepageUrl: string | null;
     primaryLanguage: string | null;
     sizeKb: number;
+    isArchived: boolean;
+    isPrivate: boolean;
+    isFork: boolean;
+    createdAt: string;
     updatedAt: string;
+    openIssues: number;
+    openPullRequests: number;
+    license: string | null;
+    watchers: number;
+    collaborators: number;
     totalCommits: number;
+  }[];
+  contributions: {
+    date: string;
+    count: number;
   }[];
 }
 
@@ -192,6 +207,25 @@ function App() {
           <main className="widgets-grid">
             <TopLanguagesWidget languages={profile.topLanguages} theme="dark" lang={lang.code} />
             <TopLanguagesWidget languages={profile.topLanguages} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
+
+      {/* ========================================================
+          WIDGET 6: CODE FREQUENCY
+          ======================================================== */}
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>Code Frequency Widget</h2>
+
+      {LANGUAGES.map((lang) => (
+        <div key={`frequency-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          
+          <main className="widgets-grid" style={{ gridTemplateColumns: '1fr' }}>
+            <CodeFrequencyWidget contributions={profile.contributions} theme="dark" lang={lang.code} />
+            <CodeFrequencyWidget contributions={profile.contributions} theme="light" lang={lang.code} />
           </main>
         </div>
       ))}

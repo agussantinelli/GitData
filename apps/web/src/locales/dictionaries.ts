@@ -18,6 +18,7 @@ export const dictionaries = {
     globalStats: 'Estadísticas Globales',
     issues: 'Issues',
     topLanguages: 'Lenguajes Principales',
+    codeFrequency: 'Frecuencia de Código',
   },
   en: {
     yearsExp: 'years exp.',
@@ -36,6 +37,7 @@ export const dictionaries = {
     globalStats: 'Global Stats',
     issues: 'Issues',
     topLanguages: 'Top Languages',
+    codeFrequency: 'Code Frequency',
   },
   pt: {
     yearsExp: 'anos exp.',
@@ -54,6 +56,7 @@ export const dictionaries = {
     globalStats: 'Estatísticas Globais',
     issues: 'Issues',
     topLanguages: 'Principais Linguagens',
+    codeFrequency: 'Frequência de Código',
   },
   it: {
     yearsExp: 'anni esp.',
@@ -72,6 +75,7 @@ export const dictionaries = {
     globalStats: 'Statistiche Globali',
     issues: 'Issues',
     topLanguages: 'Linguaggi Principali',
+    codeFrequency: 'Frequenza del Codice',
   },
   fr: {
     yearsExp: 'ans exp.',
@@ -90,5 +94,6 @@ export const dictionaries = {
     globalStats: 'Statistiques Globales',
     issues: 'Issues',
     topLanguages: 'Langages Principaux',
+    codeFrequency: 'Fréquence de Code',
   },
 };
