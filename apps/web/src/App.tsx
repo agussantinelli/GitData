@@ -4,6 +4,7 @@ import { PersonalInfoWidget } from './components/widgets/PersonalInfoWidget';
 import { PopularProjectsWidget } from './components/widgets/PopularProjectsWidget';
 import { CategorizedProjectsWidget } from './components/widgets/CategorizedProjectsWidget';
 import { GlobalStatsWidget } from './components/widgets/GlobalStatsWidget';
+import { LoadingOverlay } from './components/ui/LoadingOverlay';
 import type { Language } from './locales/dictionaries';
 
 // Tipo base extraído (en un proyecto real estaría compartido en un workspace de shared types)
@@ -64,19 +65,9 @@ function App() {
       });
   }, []);
 
-  if (loading) return (
-    <div className="loading-overlay">
-      <div className="spinner"></div>
-      <div>Extrayendo tu ADN técnico...</div>
-    </div>
-  );
+  if (loading) return <LoadingOverlay message="Extrayendo tu ADN técnico..." />;
+  if (error) return <LoadingOverlay error={error} />;
   
-  if (error) return (
-    <div className="loading-overlay" style={{background: 'rgba(50, 0, 0, 0.9)'}}>
-      <div style={{color: '#ef4444', fontSize: '2rem', marginBottom: '1rem'}}>⚠️</div>
-      <div style={{color: '#ef4444'}}>Error: {error}</div>
-    </div>
-  );
   if (!profile) return null;
 
   return (
