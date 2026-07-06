@@ -230,6 +230,19 @@ export class OctokitGithubRepository implements IGithubRepository {
       const milestones = [];
       milestones.push({ date: user.createdAt, title: 'Account Created', description: 'Joined the GitHub community.' });
       
+      if (projects.length > 0) {
+        // Find the oldest repository
+        const oldestProject = [...projects].sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())[0];
+        milestones.push({ 
+          date: oldestProject.createdAt, 
+          title: 'First Public Repo', 
+          description: `Created ${oldestProject.name}.` 
+        });
+      }
+      
+      // Sort milestones chronologically
+      milestones.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      
       return {
         username,
         name: user.name,
