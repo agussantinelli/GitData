@@ -1,20 +1,21 @@
-import { Octokit } from 'octokit';
 import { IGithubRepository } from '../../domain/repositories/IGithubRepository';
 import { DeveloperProfile, Project } from '../../domain/entities/Profile';
 
 export class OctokitGithubRepository implements IGithubRepository {
-  private octokit: Octokit;
+  private token?: string;
 
   constructor(token?: string) {
-    const auth = token || process.env.GITHUB_TOKEN;
-    if (!auth) {
+    this.token = token || process.env.GITHUB_TOKEN;
+    if (!this.token) {
       console.warn('⚠️ GITHUB_TOKEN is not defined. Requests will fail if they require authentication.');
     }
-    
-    this.octokit = new Octokit({ auth });
   }
 
   async getProfileAndRepos(username: string): Promise<DeveloperProfile> {
+    const octokitModule = await Function('return import("octokit")')() as typeof import('octokit');
+    const Octokit = octokitModule.Octokit;
+    const octokit = new Octokit({ auth: this.token });
+
     const query = `
       query userInfo($login: String!) {
         user(login: $login) {
@@ -47,7 +48,7 @@ export class OctokitGithubRepository implements IGithubRepository {
     `;
 
     try {
-      const response: any = await this.octokit.graphql(query, { login: username });
+      const response: any = await octokit.graphql(query, { login: username });
       const user = response.user;
 
       if (!user) {
