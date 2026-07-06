@@ -12,7 +12,7 @@ export const dictionaries = {
     forks: 'Forks',
     updated: 'Actualizado',
     topStars: 'Mejores Valorados',
-    recentlyUpdated: 'Actualizados Recientemente',
+    recentlyUpdated: 'Recientes',
     mostCommits: 'Con Más Actividad',
   },
   en: {
@@ -26,7 +26,7 @@ export const dictionaries = {
     forks: 'Forks',
     updated: 'Updated',
     topStars: 'Top Rated',
-    recentlyUpdated: 'Recently Updated',
+    recentlyUpdated: 'Recent',
     mostCommits: 'Most Active',
   },
   pt: {
@@ -40,7 +40,7 @@ export const dictionaries = {
     forks: 'Forks',
     updated: 'Atualizado',
     topStars: 'Mais Bem Avaliados',
-    recentlyUpdated: 'Atualizados Recentemente',
+    recentlyUpdated: 'Recentes',
     mostCommits: 'Com Mais Atividade',
   },
   it: {
@@ -54,7 +54,7 @@ export const dictionaries = {
     forks: 'Fork',
     updated: 'Aggiornato',
     topStars: 'Più Votati',
-    recentlyUpdated: 'Aggiornati di Recente',
+    recentlyUpdated: 'Recenti',
     mostCommits: 'Più Attivi',
   },
   fr: {
@@ -68,7 +68,7 @@ export const dictionaries = {
     forks: 'Forks',
     updated: 'Mis à jour',
     topStars: 'Les Mieux Notés',
-    recentlyUpdated: 'Mis à Jour Récemment',
+    recentlyUpdated: 'Récents',
     mostCommits: 'Les Plus Actifs',
   },
 };

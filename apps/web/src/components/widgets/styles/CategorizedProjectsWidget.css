@@ -1,7 +1,13 @@
 .widget-categories {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .widget-categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .category-section {

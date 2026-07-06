@@ -59,10 +59,6 @@ export const PopularProjectsWidget: React.FC<PopularProjectsWidgetProps> = ({
                 )}
               </div>
               
-              <p className="project-description">
-                {repo.description || 'No description provided.'}
-              </p>
-
               <div className="project-footer">
                 <span className="project-stat">
                   <FaStar className="project-stat-icon" />
