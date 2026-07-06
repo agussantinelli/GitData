@@ -21,8 +21,18 @@ export class OctokitGithubRepository implements IGithubRepository {
         user(login: $login) {
           name
           bio
+          company
+          location
+          websiteUrl
+          twitterUsername
+          createdAt
           followers {
             totalCount
+          }
+          contributionsCollection {
+            totalCommitContributions
+            totalPullRequestContributions
+            totalIssueContributions
           }
           repositories(first: 50, ownerAffiliations: OWNER, orderBy: {field: STARGAZERS, direction: DESC}) {
             nodes {
@@ -30,6 +40,7 @@ export class OctokitGithubRepository implements IGithubRepository {
               description
               url
               stargazerCount
+              forkCount
               primaryLanguage {
                 name
               }
@@ -64,6 +75,7 @@ export class OctokitGithubRepository implements IGithubRepository {
         name: repo.name,
         description: repo.description,
         stars: repo.stargazerCount,
+        forks: repo.forkCount,
         url: repo.url
       }));
 
@@ -90,10 +102,16 @@ export class OctokitGithubRepository implements IGithubRepository {
         username,
         name: user.name,
         bio: user.bio,
+        company: user.company,
+        location: user.location,
+        websiteUrl: user.websiteUrl,
+        twitterUsername: user.twitterUsername,
+        createdAt: user.createdAt,
         followers: user.followers?.totalCount || 0,
         stats: {
-          commits: 0,
-          prs: 0,
+          commits: user.contributionsCollection?.totalCommitContributions || 0,
+          prs: user.contributionsCollection?.totalPullRequestContributions || 0,
+          issues: user.contributionsCollection?.totalIssueContributions || 0,
           stars: totalStars,
         },
         topLanguages,
