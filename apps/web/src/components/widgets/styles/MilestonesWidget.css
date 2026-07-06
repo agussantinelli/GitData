@@ -1,0 +1,82 @@
+.widget-milestones {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.widget-milestones-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 1rem;
+}
+
+.widget-milestones-header h2 {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.milestones-icon {
+  font-size: 1.5rem;
+  color: #a855f7; /* Purple */
+}
+
+.milestones-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-left: 10px;
+  border-left: 2px solid var(--glass-border);
+  margin-left: 10px;
+  margin-top: 0.5rem;
+}
+
+.milestone-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.milestone-item::before {
+  content: '';
+  position: absolute;
+  left: -15px; /* Adjust based on padding/margin */
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #a855f7;
+  box-shadow: 0 0 8px rgba(168,85,247,0.6);
+}
+
+.milestone-year-bubble {
+  background: var(--glass-bg);
+  color: var(--text-color);
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  font-size: 0.85rem;
+}
+
+.milestone-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.milestone-title {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.milestone-desc {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
