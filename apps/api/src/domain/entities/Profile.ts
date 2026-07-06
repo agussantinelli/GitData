@@ -23,6 +23,8 @@ export interface Project {
   openPullRequests: number;
   license: string | null;
   watchers: number;
+  collaborators: number;
+  totalCommits: number;
 }
 
 export interface DeveloperProfile {

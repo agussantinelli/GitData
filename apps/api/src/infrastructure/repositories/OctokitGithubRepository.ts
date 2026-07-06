@@ -61,6 +61,18 @@ export class OctokitGithubRepository implements IGithubRepository {
               pullRequests(states: OPEN) {
                 totalCount
               }
+              collaborators {
+                totalCount
+              }
+              defaultBranchRef {
+                target {
+                  ... on Commit {
+                    history {
+                      totalCount
+                    }
+                  }
+                }
+              }
               primaryLanguage {
                 name
               }
@@ -108,7 +120,9 @@ export class OctokitGithubRepository implements IGithubRepository {
         openIssues: repo.issues?.totalCount || 0,
         openPullRequests: repo.pullRequests?.totalCount || 0,
         license: repo.licenseInfo?.name || null,
-        watchers: repo.watchers?.totalCount || 0
+        watchers: repo.watchers?.totalCount || 0,
+        collaborators: repo.collaborators?.totalCount || 0,
+        totalCommits: repo.defaultBranchRef?.target?.history?.totalCount || 0
       }));
 
       repos.forEach((repo: any) => {
