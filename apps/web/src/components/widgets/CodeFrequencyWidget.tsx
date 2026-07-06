@@ -42,17 +42,33 @@ export const CodeFrequencyWidget: React.FC<CodeFrequencyWidgetProps> = ({
           <h2>{t.codeFrequency}</h2>
         </div>
 
-        <div className="frequency-heatmap">
-          {visibleContributions.map((day, idx) => (
-            <div 
-              key={idx} 
-              className={`heatmap-cell level-${getIntensityLevel(day.count)}`} 
-              title={`${day.date}: ${day.count} commits`}
-            />
-          ))}
+        <div className="frequency-heatmap-container">
+          <div className="frequency-heatmap">
+            {visibleContributions.map((day, idx) => (
+              <div 
+                key={idx} 
+                className={`heatmap-cell level-${getIntensityLevel(day.count)}`} 
+                title={`${day.date}: ${day.count} commits`}
+              />
+            ))}
+            
+            {visibleContributions.length === 0 && (
+              <p className="no-data">No hay datos de frecuencia disponibles.</p>
+            )}
+          </div>
           
-          {visibleContributions.length === 0 && (
-            <p className="no-data">No hay datos de frecuencia disponibles.</p>
+          {visibleContributions.length > 0 && (
+            <div className="frequency-legend">
+              <span className="legend-text">Menos</span>
+              <div className="legend-cells">
+                <div className="heatmap-cell level-0" />
+                <div className="heatmap-cell level-1" />
+                <div className="heatmap-cell level-2" />
+                <div className="heatmap-cell level-3" />
+                <div className="heatmap-cell level-4" />
+              </div>
+              <span className="legend-text">Más</span>
+            </div>
           )}
         </div>
       </Card>
