@@ -15,6 +15,8 @@ export const dictionaries = {
     recentlyUpdated: 'Recientes',
     mostCommits: 'Con Más Actividad',
     projectOverview: 'Resumen de Proyectos',
+    globalStats: 'Estadísticas Globales',
+    issues: 'Issues',
   },
   en: {
     yearsExp: 'years exp.',
@@ -30,6 +32,8 @@ export const dictionaries = {
     recentlyUpdated: 'Recent',
     mostCommits: 'Most Active',
     projectOverview: 'Projects Overview',
+    globalStats: 'Global Stats',
+    issues: 'Issues',
   },
   pt: {
     yearsExp: 'anos exp.',
@@ -45,6 +49,8 @@ export const dictionaries = {
     recentlyUpdated: 'Recentes',
     mostCommits: 'Com Mais Atividade',
     projectOverview: 'Resumo de Projetos',
+    globalStats: 'Estatísticas Globais',
+    issues: 'Issues',
   },
   it: {
     yearsExp: 'anni esp.',
@@ -60,6 +66,8 @@ export const dictionaries = {
     recentlyUpdated: 'Recenti',
     mostCommits: 'Più Attivi',
     projectOverview: 'Panoramica Progetti',
+    globalStats: 'Statistiche Globali',
+    issues: 'Issues',
   },
   fr: {
     yearsExp: 'ans exp.',
@@ -75,5 +83,7 @@ export const dictionaries = {
     recentlyUpdated: 'Récents',
     mostCommits: 'Les Plus Actifs',
     projectOverview: 'Aperçu des Projets',
+    globalStats: 'Statistiques Globales',
+    issues: 'Issues',
   },
 };
