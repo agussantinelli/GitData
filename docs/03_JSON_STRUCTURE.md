@@ -23,7 +23,16 @@ El objeto raíz contiene la identidad, métricas globales y la colección de pro
   "followers": 4, // number
   "stats": { ... }, // Objeto ProfileStats
   "topLanguages": ["TypeScript", "Java", "C#", "HTML", "CSS"], // Array de lenguajes ordenados por uso (máx 5)
-  "projects": [ ... ] // Arreglo de objetos Project (máx 50)
+  "projects": [ ... ], // Arreglo de objetos Project (máx 50)
+  
+  // 🔹 Métricas Avanzadas (Expansión)
+  "contributions": [ ... ], // Arreglo con la actividad de 365 días { date, count }
+  "achievements": [ ... ],  // Arreglo de Trofeos inferidos
+  "timeOfDay": { "morning": 15, "afternoon": 25, "night": 10 }, // Distribución horaria gruesa
+  "hourlyFrequency": [0,0,5,10,0, ...], // Arreglo de 24 posiciones (commits por hora)
+  "activityStream": [ ... ], // Arreglo de los últimos 10 eventos REST
+  "techRadar": { "frontend": 12000, "backend": 5000, "devops": 100 }, // Bytes por pilar
+  "milestones": [ ... ] // Hitos históricos { date, title, description }
 }
 ```
 
@@ -92,3 +101,45 @@ Gracias a este nivel de detalle, un Frontend en React puede crear interfaces muy
 - Calcular años de experiencia: `new Date().getFullYear() - new Date(createdAt).getFullYear()`.
 - Destacar proyectos pesados: Ordenar por `sizeKb`.
 - Etiquetar mantenibilidad: Si `openIssues > 10`, mostrar un badge de "Necesita ayuda".
+
+---
+
+## 🔮 Estructuras de Inferencia (Métricas Avanzadas)
+
+Estos objetos no existen en GitHub de forma nativa, son calculados algorítmicamente por GitData:
+
+### Achievements (Trofeos)
+```json
+"achievements": [
+  {
+    "id": "pull-shark",
+    "title": "Pull Shark",
+    "description": "Has contributed multiple PRs.",
+    "icon": "🦈"
+  }
+]
+```
+
+### Activity Stream (Eventos REST)
+```json
+"activityStream": [
+  {
+    "id": "1234567890",
+    "type": "PushEvent",
+    "repo": "agussantinelli/GitData",
+    "date": "2026-07-06T20:50:34Z",
+    "description": "Push" // Tipo de evento parseado
+  }
+]
+```
+
+### Milestones (Línea de Tiempo)
+```json
+"milestones": [
+  {
+    "date": "2025-03-20T02:03:16Z",
+    "title": "Account Created",
+    "description": "Joined the GitHub community."
+  }
+]
+```
