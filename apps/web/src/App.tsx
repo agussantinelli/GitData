@@ -6,6 +6,12 @@ import { CategorizedProjectsWidget } from './components/widgets/CategorizedProje
 import { GlobalStatsWidget } from './components/widgets/GlobalStatsWidget';
 import { TopLanguagesWidget } from './components/widgets/TopLanguagesWidget';
 import { CodeFrequencyWidget } from './components/widgets/CodeFrequencyWidget';
+import { AchievementsWidget } from './components/widgets/AchievementsWidget';
+import { TimeOfDayWidget } from './components/widgets/TimeOfDayWidget';
+import { ActivityStreamWidget } from './components/widgets/ActivityStreamWidget';
+import { TechRadarWidget } from './components/widgets/TechRadarWidget';
+import { MilestonesWidget } from './components/widgets/MilestonesWidget';
+import { HourlyFrequencyWidget } from './components/widgets/HourlyFrequencyWidget';
 import { LoadingOverlay } from './components/ui/LoadingOverlay';
 import type { Language } from './locales/dictionaries';
 
@@ -49,6 +55,35 @@ interface ProfileData {
     date: string;
     count: number;
   }[];
+  achievements: {
+    id: string;
+    title: string;
+    description: string;
+    icon: string;
+  }[];
+  timeOfDay: {
+    morning: number;
+    afternoon: number;
+    night: number;
+  };
+  activityStream: {
+    id: string;
+    type: string;
+    repo: string;
+    date: string;
+    description: string;
+  }[];
+  techRadar: {
+    frontend: number;
+    backend: number;
+    devops: number;
+  };
+  milestones: {
+    date: string;
+    title: string;
+    description: string;
+  }[];
+  hourlyFrequency: number[];
 }
 
 const LANGUAGES: { code: Language; label: string; flag: string }[] = [
@@ -226,6 +261,40 @@ function App() {
           <main className="widgets-grid" style={{ gridTemplateColumns: '1fr' }}>
             <CodeFrequencyWidget contributions={profile.contributions} theme="dark" lang={lang.code} />
             <CodeFrequencyWidget contributions={profile.contributions} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
+
+      {/* ========================================================
+          WIDGETS 7-11: THE EXPANSION (Mega Grid)
+          ======================================================== */}
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>The Final Expansion Widgets</h2>
+
+      {LANGUAGES.map((lang) => (
+        <div key={`expansion-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          
+          <main className="widgets-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+            <AchievementsWidget achievements={profile.achievements} theme="dark" lang={lang.code} />
+            <AchievementsWidget achievements={profile.achievements} theme="light" lang={lang.code} />
+
+            <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="dark" lang={lang.code} />
+            <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="light" lang={lang.code} />
+
+            <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="dark" lang={lang.code} />
+            <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="light" lang={lang.code} />
+
+            <ActivityStreamWidget activityStream={profile.activityStream} theme="dark" lang={lang.code} />
+            <ActivityStreamWidget activityStream={profile.activityStream} theme="light" lang={lang.code} />
+
+            <TechRadarWidget techRadar={profile.techRadar} theme="dark" lang={lang.code} />
+            <TechRadarWidget techRadar={profile.techRadar} theme="light" lang={lang.code} />
+
+            <MilestonesWidget milestones={profile.milestones} theme="dark" lang={lang.code} />
+            <MilestonesWidget milestones={profile.milestones} theme="light" lang={lang.code} />
           </main>
         </div>
       ))}
