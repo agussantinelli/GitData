@@ -34,6 +34,14 @@ export class OctokitGithubRepository implements IGithubRepository {
             totalPullRequestContributions
             totalIssueContributions
             restrictedContributionsCount
+            contributionCalendar {
+              weeks {
+                contributionDays {
+                  contributionCount
+                  date
+                }
+              }
+            }
           }
           repositories(first: 50, ownerAffiliations: OWNER, orderBy: {field: STARGAZERS, direction: DESC}) {
             nodes {
@@ -150,6 +158,18 @@ export class OctokitGithubRepository implements IGithubRepository {
           percentage: totalBytes > 0 ? Math.round((languageMap[lang] / totalBytes) * 100) : 0
         }));
 
+      const contributions: { date: string; count: number }[] = [];
+      if (user.contributionsCollection?.contributionCalendar?.weeks) {
+        user.contributionsCollection.contributionCalendar.weeks.forEach((week: any) => {
+          week.contributionDays.forEach((day: any) => {
+            contributions.push({
+              date: day.date,
+              count: day.contributionCount,
+            });
+          });
+        });
+      }
+
       return {
         username,
         name: user.name,
@@ -168,8 +188,9 @@ export class OctokitGithubRepository implements IGithubRepository {
         },
         topLanguages,
         projects,
+        contributions,
       };
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching data from GitHub:', error);
       throw error;
     }

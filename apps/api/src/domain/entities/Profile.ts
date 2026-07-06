@@ -32,6 +32,11 @@ export interface LanguageStat {
   percentage: number;
 }
 
+export interface ContributionDay {
+  date: string;
+  count: number;
+}
+
 export interface DeveloperProfile {
   username: string;
   name: string | null;
@@ -45,4 +50,5 @@ export interface DeveloperProfile {
   stats: ProfileStats;
   topLanguages: LanguageStat[];
   projects: Project[];
+  contributions: ContributionDay[];
 }
