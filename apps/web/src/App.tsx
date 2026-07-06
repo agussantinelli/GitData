@@ -22,7 +22,7 @@ interface ProfileData {
     issues: number;
     stars: number;
   };
-  topLanguages: string[];
+  topLanguages: { name: string; percentage: number }[];
   projects: {
     name: string;
     description: string | null;
@@ -49,21 +49,44 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch Global ÚNICO para optimizar la carga
   useEffect(() => {
-    fetch('http://localhost:3000/api/profile?username=agussantinelli')
-      .then((res) => {
-        if (!res.ok) throw new Error('Error fetching data');
-        return res.json();
-      })
+    let isMounted = true;
+    
+    const fetchWithRetry = async (url: string, maxWaitMs = 30000, intervalMs = 2000) => {
+      const startTime = Date.now();
+      
+      while (Date.now() - startTime < maxWaitMs) {
+        try {
+          const res = await fetch(url);
+          if (!res.ok) throw new Error('Error de servidor al extraer datos');
+          return await res.json();
+        } catch (err: any) {
+          // Si el tiempo límite se agotó, lanzamos el error
+          if (Date.now() - startTime >= maxWaitMs) {
+            throw new Error('Servidor inalcanzable (Timeout de 30s)');
+          }
+          // Si no, esperamos 2 segundos y reintentamos
+          await new Promise(resolve => setTimeout(resolve, intervalMs));
+        }
+      }
+      throw new Error('Servidor inalcanzable (Timeout de 30s)');
+    };
+
+    fetchWithRetry('http://localhost:3000/api/profile?username=agussantinelli')
       .then((data) => {
-        setProfile(data);
-        setLoading(false);
+        if (isMounted) {
+          setProfile(data);
+          setLoading(false);
+        }
       })
       .catch((err) => {
-        setError(err.message);
-        setLoading(false);
+        if (isMounted) {
+          setError(err.message);
+          setLoading(false);
+        }
       });
+      
+    return () => { isMounted = false; };
   }, []);
 
   if (loading) return <LoadingOverlay message="Extrayendo tu ADN técnico..." />;
