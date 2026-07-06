@@ -37,6 +37,39 @@ export interface ContributionDay {
   count: number;
 }
 
+export interface Achievement {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface TimeOfDay {
+  morning: number;
+  afternoon: number;
+  night: number;
+}
+
+export interface ActivityEvent {
+  id: string;
+  type: string;
+  repo: string;
+  date: string;
+  description: string;
+}
+
+export interface TechRadar {
+  frontend: number;
+  backend: number;
+  devops: number;
+}
+
+export interface Milestone {
+  date: string;
+  title: string;
+  description: string;
+}
+
 export interface DeveloperProfile {
   username: string;
   name: string | null;
@@ -51,4 +84,10 @@ export interface DeveloperProfile {
   topLanguages: LanguageStat[];
   projects: Project[];
   contributions: ContributionDay[];
+  achievements: Achievement[];
+  timeOfDay: TimeOfDay;
+  activityStream: ActivityEvent[];
+  techRadar: TechRadar;
+  milestones: Milestone[];
+  hourlyFrequency: number[];
 }

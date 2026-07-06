@@ -170,6 +170,66 @@ export class OctokitGithubRepository implements IGithubRepository {
         });
       }
 
+      // --- LIVE ACTIVITY STREAM & TIME OF DAY (REST API) ---
+      let publicEvents: any[] = [];
+      try {
+        const eventsRes = await octokit.request('GET /users/{username}/events/public', {
+          username: username,
+          per_page: 50
+        });
+        publicEvents = eventsRes.data;
+      } catch (e) {
+        console.warn('Could not fetch REST events', e);
+      }
+
+      const activityStream = publicEvents.slice(0, 10).map((ev: any) => ({
+        id: ev.id,
+        type: ev.type,
+        repo: ev.repo?.name || 'Unknown',
+        date: ev.created_at,
+        description: ev.type.replace('Event', '')
+      }));
+
+      let morning = 0, afternoon = 0, night = 0;
+      const hourlyFrequency = new Array(24).fill(0);
+
+      publicEvents.forEach((ev: any) => {
+        const hour = new Date(ev.created_at).getHours();
+        hourlyFrequency[hour]++;
+
+        if (hour >= 6 && hour < 12) morning++;
+        else if (hour >= 12 && hour < 20) afternoon++;
+        else night++;
+      });
+      const timeOfDay = { morning, afternoon, night };
+
+      // --- TECH RADAR (CATEGORIZED) ---
+      let frontend = 0, backend = 0, devops = 0;
+      const feLangs = ['HTML', 'CSS', 'SCSS', 'JavaScript', 'TypeScript', 'Vue', 'React', 'Svelte'];
+      const beLangs = ['Java', 'C#', 'Python', 'PHP', 'Ruby', 'Go', 'Rust', 'C++', 'C'];
+      Object.keys(languageMap).forEach(lang => {
+        if (feLangs.includes(lang)) frontend += languageMap[lang];
+        else if (beLangs.includes(lang)) backend += languageMap[lang];
+        else devops += languageMap[lang];
+      });
+      const techRadar = { frontend, backend, devops };
+
+      // --- ACHIEVEMENTS INFERENCE ---
+      const achievements = [];
+      const prs = user.contributionsCollection?.totalPullRequestContributions || 0;
+      const issues = user.contributionsCollection?.totalIssueContributions || 0;
+      const followers = user.followers?.totalCount || 0;
+
+      if (prs >= 5) achievements.push({ id: 'pull-shark', title: 'Pull Shark', description: 'Has contributed multiple PRs.', icon: '🦈' });
+      if (issues >= 5) achievements.push({ id: 'bug-hunter', title: 'Bug Hunter', description: 'Reported many issues.', icon: '🐛' });
+      if (followers >= 10) achievements.push({ id: 'influencer', title: 'Influencer', description: 'Has a solid follower base.', icon: '🌟' });
+      if (night > morning && night > afternoon) achievements.push({ id: 'night-owl', title: 'Night Owl', description: 'Codes mostly at night.', icon: '🦉' });
+      else if (morning > afternoon && morning > night) achievements.push({ id: 'early-bird', title: 'Early Bird', description: 'Codes in the morning.', icon: '🌅' });
+
+      // --- MILESTONES ---
+      const milestones = [];
+      milestones.push({ date: user.createdAt, title: 'Account Created', description: 'Joined the GitHub community.' });
+      
       return {
         username,
         name: user.name,
@@ -182,13 +242,19 @@ export class OctokitGithubRepository implements IGithubRepository {
         followers: user.followers?.totalCount || 0,
         stats: {
           commits: (user.contributionsCollection?.totalCommitContributions || 0) + (user.contributionsCollection?.restrictedContributionsCount || 0),
-          prs: user.contributionsCollection?.totalPullRequestContributions || 0,
-          issues: user.contributionsCollection?.totalIssueContributions || 0,
+          prs,
+          issues,
           stars: totalStars,
         },
         topLanguages,
         projects,
         contributions,
+        achievements,
+        timeOfDay,
+        activityStream,
+        techRadar,
+        milestones,
+        hourlyFrequency,
       };
     } catch (error: any) {
       console.error('Error fetching data from GitHub:', error);
