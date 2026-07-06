@@ -30,7 +30,7 @@
 </p>
 
 <p align="justify">
-  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b>, diseñado para manejar cálculos pesados, gestionar el Rate-Limiting de la API de GitHub y mantener una caché eficiente. Por el otro, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en <b>"Super Mini Layouts"</b> —widgets e interfaces UI ultraligeras, elegantes y dinámicas— permitiendo integrar estas métricas de forma perfecta en portfolios, dashboards o cualquier plataforma externa que necesite validar el talento real de un programador.
+  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b>, diseñado para manejar cálculos pesados, gestionar el Rate-Limiting de la API de GitHub y mantener una caché eficiente. Por el otro, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en una <b>Landing Page Showcase</b> de "Super Mini Layouts". Estos widgets ultraligeros cuentan con <b>Soporte Multilingüe (i18n en 5 idiomas)</b> y <b>Soporte Multitema simultáneo (Light / Dark)</b> mediante un diseño premium tipo Glassmorphism, listos para integrarse en portfolios o plataformas externas.
 </p>
 
 <hr>
@@ -123,6 +123,8 @@ GitData/
 <ul>
     <li><b>🚀 fastify:</b> Reglas para definir endpoints, plugins y lógica de negocio pura en el backend (apps/api).</li>
     <li><b>⚛️ react-vite:</b> Lineamientos para desarrollar los "Mini Layouts" en el frontend (apps/web) usando componentes puros y estilos modernos.</li>
+    <li><b>🎨 css-structure:</b> Regla estricta para confinar todos los archivos CSS dentro de subcarpetas <code>styles/</code> relativas a cada componente.</li>
+    <li><b>🧩 widget-i18n-architecture:</b> Arquitectura de diseño de Widgets con soporte nativo para <i>i18n</i> (diccionarios) y temas (Light/Dark variables).</li>
     <li><b>🌍 global-context:</b> Directriz maestra que obliga al cumplimiento de la arquitectura de Monorepo.</li>
     <li><b>📚 global-skills:</b> Directorio maestro que indexa todas las habilidades de arquitectura disponibles en el proyecto.</li>
     <li><b>🧹 code-quality:</b> Guías de Clean Code, SOLID y política de "No Comments".</li>
