@@ -11,10 +11,10 @@
 /.nyc_output
 
 # Production
-/dist
-/build
-/*/dist
-/*/build
+dist/
+build/
+**/dist
+**/build
 
 # Logs
 logs
