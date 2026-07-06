@@ -7,6 +7,10 @@ export const dictionaries = {
     stars: 'Estrellas',
     prs: 'PRs',
     followers: 'Seguidores',
+    popularProjects: 'Proyectos Destacados',
+    viewCode: 'Ver Código',
+    forks: 'Forks',
+    updated: 'Actualizado',
   },
   en: {
     yearsExp: 'years exp.',
@@ -14,6 +18,10 @@ export const dictionaries = {
     stars: 'Stars',
     prs: 'PRs',
     followers: 'Followers',
+    popularProjects: 'Popular Projects',
+    viewCode: 'View Code',
+    forks: 'Forks',
+    updated: 'Updated',
   },
   pt: {
     yearsExp: 'anos exp.',
@@ -21,6 +29,10 @@ export const dictionaries = {
     stars: 'Estrelas',
     prs: 'PRs',
     followers: 'Seguidores',
+    popularProjects: 'Projetos Populares',
+    viewCode: 'Ver Código',
+    forks: 'Forks',
+    updated: 'Atualizado',
   },
   it: {
     yearsExp: 'anni esp.',
@@ -28,6 +40,10 @@ export const dictionaries = {
     stars: 'Stelle',
     prs: 'PRs',
     followers: 'Follower',
+    popularProjects: 'Progetti Popolari',
+    viewCode: 'Vedi Codice',
+    forks: 'Fork',
+    updated: 'Aggiornato',
   },
   fr: {
     yearsExp: 'ans exp.',
@@ -35,5 +51,9 @@ export const dictionaries = {
     stars: 'Étoiles',
     prs: 'PRs',
     followers: 'Abonnés',
+    popularProjects: 'Projets Populaires',
+    viewCode: 'Voir le Code',
+    forks: 'Forks',
+    updated: 'Mis à jour',
   },
 };
