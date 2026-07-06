@@ -1,5 +1,5 @@
 import React from 'react';
-import './Badge.css';
+import './styles/Badge.css';
 
 interface BadgeProps {
   children: React.ReactNode;

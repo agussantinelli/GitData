@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card } from '../ui/Card';
 import { Avatar } from '../ui/Avatar';
 import { Badge } from '../ui/Badge';
-import './PersonalInfoWidget.css';
+import './styles/PersonalInfoWidget.css';
 
 interface ProfileData {
   name: string;
