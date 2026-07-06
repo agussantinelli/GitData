@@ -41,6 +41,46 @@
 </p>
 
 <hr>
+<h2>🛠️ Stack Tecnológico (Monorepo)</h2>
+
+<table>
+  <thead>
+    <tr style="background-color: #1a1a1a;">
+      <th>Capa</th>
+      <th>Tecnología</th>
+      <th>Propósito</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Backend (API)</b></td>
+      <td>Fastify + TypeScript</td>
+      <td>Servidor ultrarrápido con arquitectura de rutas modulares para procesar datos de GitHub.</td>
+    </tr>
+    <tr>
+      <td><b>Integración GitHub</b></td>
+      <td>Octokit + GraphQL</td>
+      <td>Uso de la API GraphQL de GitHub para obtener datos masivos sin impactar los Rate Limits.</td>
+    </tr>
+    <tr>
+      <td><b>Frontend (Web)</b></td>
+      <td>React + Vite</td>
+      <td>Vistas ligeras (Mini Layouts) con un diseño visual moderno y animaciones sutiles.</td>
+    </tr>
+    <tr>
+      <td><b>Gestión</b></td>
+      <td>pnpm Workspaces</td>
+      <td>Administración centralizada de dependencias y scripts de orquestación.</td>
+    </tr>
+    <tr>
+      <td><b>Configuración</b></td>
+      <td>Dotenv</td>
+      <td>Gestión segura del Personal Access Token para las llamadas a la API.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
 <h2>📊 Datos Extraídos (ADN Técnico)</h2>
 
 <p align="justify">
@@ -90,46 +130,7 @@
 </ul>
 
 <hr>
-<h2>🛠️ Stack Tecnológico (Monorepo)</h2>
 
-<table>
-  <thead>
-    <tr style="background-color: #1a1a1a;">
-      <th>Capa</th>
-      <th>Tecnología</th>
-      <th>Propósito</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Backend (API)</b></td>
-      <td>Fastify + TypeScript</td>
-      <td>Servidor ultrarrápido con arquitectura de rutas modulares para procesar datos de GitHub.</td>
-    </tr>
-    <tr>
-      <td><b>Integración GitHub</b></td>
-      <td>Octokit + GraphQL</td>
-      <td>Uso de la API GraphQL de GitHub para obtener datos masivos sin impactar los Rate Limits.</td>
-    </tr>
-    <tr>
-      <td><b>Frontend (Web)</b></td>
-      <td>React + Vite</td>
-      <td>Vistas ligeras (Mini Layouts) con un diseño visual moderno y animaciones sutiles.</td>
-    </tr>
-    <tr>
-      <td><b>Gestión</b></td>
-      <td>pnpm Workspaces</td>
-      <td>Administración centralizada de dependencias y scripts de orquestación.</td>
-    </tr>
-    <tr>
-      <td><b>Configuración</b></td>
-      <td>Dotenv</td>
-      <td>Gestión segura del Personal Access Token para las llamadas a la API.</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr>
 <h2>📦 Estructura del Proyecto</h2>
 
 <pre>
