@@ -37,6 +37,13 @@
 </p>
 
 <hr>
+<h2>🐙 ¿Qué es Octokit?</h2>
+
+<p align="justify">
+  <b><a href="https://github.com/octokit" target="_blank">Octokit</a></b> es el SDK (Kit de Desarrollo de Software) oficial proporcionado por GitHub. En <b>GitData</b>, utilizamos Octokit en combinación con la <b>API GraphQL de GitHub</b> para realizar consultas masivas y altamente eficientes. Esto nos permite extraer en un solo viaje de red docenas de repositorios, estadísticas de lenguajes y métricas de contribución, superando las limitaciones tradicionales de la API REST y garantizando respuestas ultrarrápidas para nuestros layouts.
+</p>
+
+<hr>
 <h2>🛠️ Stack Tecnológico (Monorepo)</h2>
 
 <table>
