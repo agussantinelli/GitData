@@ -19,6 +19,10 @@
 /* =========================================
    Themes
    ========================================= */
+.theme-dark, .theme-light {
+  color: var(--text-color);
+}
+
 .theme-dark {
   --bg-color: var(--p3-black);
   --text-color: var(--p3-off-white);
@@ -35,9 +39,9 @@
 .theme-light {
   --bg-color: var(--p3-off-white);
   --text-color: var(--p3-black);
-  --text-muted: #4a4a4a;
-  --glass-bg: rgba(0, 0, 0, 0.03);
-  --glass-border: rgba(0, 0, 0, 0.08);
+  --text-muted: #555555;
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(0, 0, 0, 0.1);
   --glass-shadow: rgba(0, 0, 0, 0.05);
   --card-hover-border: rgba(44, 163, 245, 0.6);
   --card-hover-shadow: rgba(44, 163, 245, 0.25);

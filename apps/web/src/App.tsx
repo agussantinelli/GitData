@@ -20,12 +20,12 @@ interface ProfileData {
   topLanguages: string[];
 }
 
-const LANGUAGES: { code: Language; label: string }[] = [
-  { code: 'es', label: '🇪🇸 Español' },
-  { code: 'en', label: '🇬🇧 English' },
-  { code: 'pt', label: '🇧🇷 Português' },
-  { code: 'it', label: '🇮🇹 Italiano' },
-  { code: 'fr', label: '🇫🇷 Français' },
+const LANGUAGES: { code: Language; label: string; flag: string }[] = [
+  { code: 'es', label: 'Español', flag: 'es' },
+  { code: 'en', label: 'English', flag: 'gb' },
+  { code: 'pt', label: 'Português', flag: 'br' },
+  { code: 'it', label: 'Italiano', flag: 'it' },
+  { code: 'fr', label: 'Français', flag: 'fr' },
 ];
 
 function App() {
@@ -65,7 +65,10 @@ function App() {
 
       {LANGUAGES.map((lang) => (
         <div key={lang.code} className="language-section">
-          <h3 className="language-title">{lang.label}</h3>
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
 
           <main className="widgets-grid">
             {/* Widget en Modo Oscuro */}
