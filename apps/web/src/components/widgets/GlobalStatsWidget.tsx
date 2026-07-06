@@ -56,12 +56,6 @@ export const GlobalStatsWidget: React.FC<GlobalStatsWidgetProps> = ({
           </div>
 
           <div className="kpi-card">
-            <FaExclamationCircle className="kpi-icon" style={{ color: '#f97316' }} />
-            <h3 className="kpi-value">{stats.issues.toLocaleString(lang)}</h3>
-            <p className="kpi-label">{t.issues}</p>
-          </div>
-
-          <div className="kpi-card">
             <FaUserFriends className="kpi-icon" style={{ color: '#8b5cf6' }} />
             <h3 className="kpi-value">{followers.toLocaleString(lang)}</h3>
             <p className="kpi-label">{t.followers}</p>
