@@ -1,5 +1,8 @@
 # Dependencies
 /node_modules
+*/node_modules
+**/node_modules
+
 /.pnp
 .pnp.js
 
@@ -10,6 +13,8 @@
 # Production
 /dist
 /build
+/*/dist
+/*/build
 
 # Logs
 logs
@@ -69,3 +74,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 # Temporary files
 .temp
 .tmp
+
+# Vite
+*.local
+.eslintcache
