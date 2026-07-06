@@ -25,6 +25,17 @@ Asegúrate de tener instaladas las siguientes herramientas antes de comenzar:
    pnpm install
    ```
 
+3. **Configurar Variables de Entorno (Requisito Crítico):**
+   Dado que GitData usa consultas híbridas (GraphQL + REST) para generar métricas inferidas, **necesitas un Token de GitHub**.
+   - Ve a [GitHub Developer Settings](https://github.com/settings/tokens) y crea un "Personal Access Token" (clásico o fine-grained) con permisos básicos para leer perfiles y repositorios públicos.
+   - Crea un archivo `.env` dentro de la carpeta del backend (`apps/api/`):
+   ```bash
+   # apps/api/.env
+   GITHUB_TOKEN=ghp_tuTokenSecretoAqui...
+   PORT=3000
+   ```
+   *(Nota: Sin este token, el backend fallará al intentar renderizar los widgets avanzados).*
+
 ## 🛠️ Ejecución en Modo Desarrollo
 
 Levantar todo el ecosistema es sumamente sencillo. Desde la raíz del proyecto ejecuta:
