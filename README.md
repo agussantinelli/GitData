@@ -52,8 +52,8 @@
     </tr>
     <tr>
       <td><b>Integración GitHub</b></td>
-      <td>Octokit + GraphQL</td>
-      <td>Uso de la API GraphQL de GitHub para obtener datos masivos sin impactar los Rate Limits.</td>
+      <td>Octokit (GraphQL + REST)</td>
+      <td>Estrategia híbrida: GraphQL para datos relacionales y REST para feeds de actividad en tiempo real.</td>
     </tr>
     <tr>
       <td><b>Frontend (Web)</b></td>
@@ -115,6 +115,11 @@
   <li><b>🔥 Popular Projects Widget:</b> Destaca los 5 repositorios más exitosos (ordenados por estrellas). Perfecto para demostrar impacto, calidad y reconocimiento por parte de la comunidad.</li>
   <li><b>📂 Categorized Projects Widget:</b> Un panel analítico súper compacto que clasifica los proyectos en tres áreas clave: Mejores Valorados (Stars), Actualizados Recientemente (Updates) y Con Más Actividad (Commits). Ideal para demostrar versatilidad y mantenimiento activo.</li>
   <li><b>📈 Global Stats Widget:</b> Un dashboard de tipo KPI que recopila los números masivos del perfil (Total de Commits, Estrellas Totales, Issues, PRs y Seguidores). Diseñado para golpear visualmente e impresionar con el volumen histórico de experiencia.</li>
+  <li><b>🕸️ Tech Radar Widget:</b> Clasifica matemáticamente el historial de lenguajes en pilares (Frontend, Backend, DevOps) mostrando tu balance técnico.</li>
+  <li><b>🏆 Achievements Widget:</b> Motor de inferencia que desbloquea medallas virtuales (ej. "Pull Shark") basado en umbrales de contribución.</li>
+  <li><b>🕒 Dev Clock & Hourly Frequency:</b> Gráficos de actividad de 24 horas que deducen la intensidad y hábitos de programación diarios.</li>
+  <li><b>📡 Activity Stream:</b> Una terminal interactiva en vivo que muestra los últimos eventos (Pushes, Issues) consultados mediante la API REST.</li>
+  <li><b>🚀 Milestones Timeline:</b> Línea de tiempo cronológica resaltando los hitos históricos (Creación, Primer Repo, Récords).</li>
 </ul>
 
 <hr>
@@ -152,6 +157,8 @@ GitData/
     <li><b>⚛️ react-vite:</b> Lineamientos para desarrollar los "Mini Layouts" en el frontend (apps/web) usando componentes puros y estilos modernos.</li>
     <li><b>🎨 css-structure:</b> Regla estricta para confinar todos los archivos CSS dentro de subcarpetas <code>styles/</code> relativas a cada componente.</li>
     <li><b>🧩 widget-i18n-architecture:</b> Arquitectura de diseño de Widgets con soporte nativo para <i>i18n</i> (diccionarios) y temas (Light/Dark variables).</li>
+    <li><b>🔗 github-api-hybrid:</b> Estrategia de red para el consumo simultáneo de GraphQL (datos estructurales) y REST (eventos en tiempo real).</li>
+    <li><b>🧠 widget-inference:</b> Reglas del motor matemático del backend para la deducción de métricas complejas (horarios, medallas, pilares) sin bases de datos.</li>
     <li><b>🌍 global-context:</b> Directriz maestra que obliga al cumplimiento de la arquitectura de Monorepo.</li>
     <li><b>📚 global-skills:</b> Directorio maestro que indexa todas las habilidades de arquitectura disponibles en el proyecto.</li>
     <li><b>🧹 code-quality:</b> Guías de Clean Code, SOLID y política de "No Comments".</li>
