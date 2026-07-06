@@ -1,0 +1,28 @@
+.gitdata-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.gitdata-badge.primary {
+  background: rgba(44, 163, 245, 0.15); /* cyan-blue */
+  color: var(--p3-cyan-blue);
+  border: 1px solid rgba(44, 163, 245, 0.3);
+}
+
+.gitdata-badge.secondary {
+  background: rgba(245, 45, 140, 0.15); /* neon-pink */
+  color: var(--p3-neon-pink);
+  border: 1px solid rgba(245, 45, 140, 0.3);
+}
+
+.gitdata-badge.outline {
+  background: transparent;
+  color: var(--p3-off-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}

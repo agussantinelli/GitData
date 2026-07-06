@@ -1,0 +1,7 @@
+.gitdata-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid transparent;
+  background: linear-gradient(var(--p3-black), var(--p3-black)) padding-box,
+              linear-gradient(135deg, var(--p3-cyan-blue), var(--p3-neon-pink)) border-box;
+}
