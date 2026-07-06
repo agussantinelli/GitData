@@ -1,10 +1,6 @@
 import { FastifyPluginAsync } from 'fastify';
-import { GithubService } from '../../services/github.service';
 
 const profileRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
-  // Initialize the GithubService
-  const githubService = new GithubService();
-
   fastify.get('/', async (request: any, reply) => {
     const username = request.query.username;
     
@@ -13,7 +9,8 @@ const profileRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> =
     }
 
     try {
-      const profileData = await githubService.getProfileAndRepos(username);
+      // Access GithubService via the fastify instance
+      const profileData = await fastify.github.getProfileAndRepos(username);
       return profileData;
     } catch (error: any) {
       fastify.log.error(error);

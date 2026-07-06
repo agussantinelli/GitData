@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import dotenv from 'dotenv';
+import githubPlugin from './plugins/github';
 
 // Import modular routes
 import rootRoutes from './routes/root';
@@ -16,6 +17,9 @@ const server = Fastify({
 server.register(cors, {
   origin: '*' // Update this in production
 });
+
+// Register plugins
+server.register(githubPlugin);
 
 // Register routes
 server.register(rootRoutes);
