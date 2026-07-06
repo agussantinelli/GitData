@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
-import { FaFire, FaStar, FaCodeBranch, FaArchive, FaClock } from 'react-icons/fa';
+import { FaFire, FaStar, FaCodeBranch, FaArchive, FaClock, FaHistory } from 'react-icons/fa';
 import { dictionaries, type Language } from '../../locales/dictionaries';
 import './styles/PopularProjectsWidget.css';
 
@@ -14,6 +14,7 @@ interface Project {
   primaryLanguage: string | null;
   sizeKb: number;
   updatedAt: string;
+  totalCommits: number;
 }
 
 interface PopularProjectsWidgetProps {
@@ -70,6 +71,10 @@ export const PopularProjectsWidget: React.FC<PopularProjectsWidgetProps> = ({
                 <span className="project-stat">
                   <FaCodeBranch className="project-stat-icon" />
                   {repo.forks}
+                </span>
+                <span className="project-stat">
+                  <FaHistory className="project-stat-icon" />
+                  {repo.totalCommits}
                 </span>
                 <span className="project-stat">
                   <FaArchive className="project-stat-icon" />

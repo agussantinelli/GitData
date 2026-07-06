@@ -28,6 +28,7 @@ interface ProfileData {
     primaryLanguage: string | null;
     sizeKb: number;
     updatedAt: string;
+    totalCommits: number;
   }[];
 }
 
