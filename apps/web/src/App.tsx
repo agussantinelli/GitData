@@ -64,8 +64,19 @@ function App() {
       });
   }, []);
 
-  if (loading) return <div className="loading-container">Cargando datos del servidor...</div>;
-  if (error) return <div className="loading-container" style={{ color: 'red' }}>Error: {error}</div>;
+  if (loading) return (
+    <div className="loading-overlay">
+      <div className="spinner"></div>
+      <div>Extrayendo tu ADN técnico...</div>
+    </div>
+  );
+  
+  if (error) return (
+    <div className="loading-overlay" style={{background: 'rgba(50, 0, 0, 0.9)'}}>
+      <div style={{color: '#ef4444', fontSize: '2rem', marginBottom: '1rem'}}>⚠️</div>
+      <div style={{color: '#ef4444'}}>Error: {error}</div>
+    </div>
+  );
   if (!profile) return null;
 
   return (
