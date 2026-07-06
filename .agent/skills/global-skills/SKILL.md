@@ -14,6 +14,7 @@ This skill serves as a central index for all architectural guidelines in the Git
 - **[code-quality](file:///c:/Users/Agus/Documents/GitData/.agent/skills/code-quality/SKILL.md)**: SOLID principles and "No Comments" policy.
 - **[clean-architecture](file:///c:/Users/Agus/Documents/GitData/.agent/skills/clean-architecture/SKILL.md)**: Strict separation of concerns (Domain, Application, Infrastructure, Interfaces) for GitData API.
 - **[css-structure](file:///c:/Users/Agus/Documents/GitData/.agent/skills/css-structure/SKILL.md)**: Mandatory rule to keep CSS files inside a styles/ folder.
+- **[widget-i18n-architecture](file:///c:/Users/Agus/Documents/GitData/.agent/skills/widget-i18n-architecture/SKILL.md)**: Architecture rules for building UI widgets, i18n locales, and multi-theme logic.
 - **[global-context](file:///c:/Users/Agus/Documents/GitData/.agent/skills/global-context/SKILL.md)**: The "Master Rule" enforcing the monorepo architecture.
 - **[no-browser](file:///c:/Users/Agus/Documents/GitData/.agent/skills/no-browser/SKILL.md)**: Total prohibition of the browser subagent.
 - **[node](file:///c:/Users/Agus/Documents/GitData/.agent/skills/node/SKILL.md)**: Node.js runtime configuration and best practices.
