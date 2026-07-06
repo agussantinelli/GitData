@@ -163,7 +163,6 @@ GitData/
 
 <hr>
 
-<hr/>
 <h2 align="left">⚖️ Licencia</h2>
 
 <p align="left">
