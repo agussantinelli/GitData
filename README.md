@@ -64,6 +64,32 @@
 </ul>
 
 <hr>
+<h2>🧩 Colección de Widgets (Super Mini Layouts)</h2>
+
+<p align="justify">
+  El Frontend de GitData no es un sitio web tradicional, sino un ecosistema de <b>Widgets</b> independientes, ultra-compactos y diseñados para ser incrustados en portafolios, blogs o firmas de correo. Cada widget cumple un propósito específico:
+</p>
+
+<ul>
+  <li><b>🪪 Profile Card Widget:</b> Presenta la identidad del desarrollador, su biografía, años de experiencia y su Top 5 de lenguajes de programación. Ideal como "tarjeta de presentación técnica".</li>
+  <li><b>🔥 Popular Projects Widget:</b> Destaca los 5 repositorios más exitosos (ordenados por estrellas). Perfecto para demostrar impacto, calidad y reconocimiento por parte de la comunidad.</li>
+  <li><b>📂 Categorized Projects Widget:</b> Un panel analítico súper compacto que clasifica los proyectos en tres áreas clave: Mejores Valorados (Stars), Actualizados Recientemente (Updates) y Con Más Actividad (Commits). Ideal para demostrar versatilidad y mantenimiento activo.</li>
+  <li><b>📈 Global Stats Widget:</b> Un dashboard de tipo KPI que recopila los números masivos del perfil (Total de Commits, Estrellas Totales, Issues, PRs y Seguidores). Diseñado para golpear visualmente e impresionar con el volumen histórico de experiencia.</li>
+</ul>
+
+<hr>
+<h2>🎨 Variantes y Personalización (i18n & Temas)</h2>
+
+<p align="justify">
+  Todos los widgets de la colección están construidos bajo una arquitectura estricta que garantiza que se adapten a cualquier entorno externo sin romper su estética premium (Glassmorphism):
+</p>
+
+<ul>
+  <li><b>🌗 Soporte Multitema (Dark / Light):</b> Los widgets heredan automáticamente un set de variables CSS según el tema seleccionado. En modo oscuro lucen paneles translúcidos sobre fondos profundos, y en modo claro ofrecen tarjetas opalinas impecables.</li>
+  <li><b>🌍 Soporte Multilingüe (i18n):</b> El sistema incluye diccionarios nativos para renderizar cada texto, número y fecha en 5 idiomas diferentes: <b>Español, Inglés, Portugués, Italiano y Francés</b>. Los números masivos se formatean automáticamente respetando la cultura de cada idioma (ej: <code>1,000</code> vs <code>1.000</code>).</li>
+</ul>
+
+<hr>
 <h2>🛠️ Stack Tecnológico (Monorepo)</h2>
 
 <table>
