@@ -1,0 +1,27 @@
+:root {
+  /* =========================================
+     🎨 PALETA 1: Vibrant & Balance (Imagen 1)
+     ========================================= */
+  --p1-yellow-orange: #FBB233;
+  --p1-deep-magenta: #C82559;
+  --p1-hot-pink: #FF00FF;
+  --p1-light-blue: #33A1F2;
+  --p1-dark-navy: #080812;
+
+  /* =========================================
+     🎨 PALETA 2: Dark & Warm (Imagen 2)
+     ========================================= */
+  --p2-dark-grey: #443737;
+  --p2-almost-black: #272121;
+  --p2-pure-red: #FF0000;
+  --p2-orange-red: #FF4D00;
+
+  /* =========================================
+     🎨 PALETA 3: Cyberpunk / Neon (Imagen 3)
+     ========================================= */
+  --p3-black: #111111;
+  --p3-cyan-blue: #2CA3F5;
+  --p3-neon-pink: #F52D8C;
+  --p3-lime-green: #30F548;
+  --p3-off-white: #F4F5F7;
+}
