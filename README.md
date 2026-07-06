@@ -29,7 +29,11 @@
 <h2>🎯 Objetivo y Propósito</h2>
 
 <p align="justify">
-  <b>GitData</b> es el motor analítico detrás de la <b>"Ficha Técnica"</b> definitiva del desarrollador. Este proyecto, estructurado como un Monorepo, combina una API de altísimo rendimiento con interfaces UI ultraligeras ("Super Mini Layouts") para mostrar métricas clave de GitHub.
+  <b>GitData</b> nace con la misión de ir más allá de las simples estadísticas, convirtiéndose en el motor analítico definitivo para extraer y exponer el verdadero <b>"ADN Técnico"</b> de un desarrollador. En lugar de limitarse a contar estrellas o commits, el objetivo es procesar en profundidad el historial de contribuciones en GitHub para destacar los verdaderos patrones de especialización, la calidad del código y aquellos proyectos o "joyas ocultas" que realmente demuestran el talento y la experiencia detrás de cada perfil.
+</p>
+
+<p align="justify">
+  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b>, diseñado para manejar cálculos pesados, gestionar el Rate-Limiting de la API de GitHub y mantener una caché eficiente. Por el otro, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en <b>"Super Mini Layouts"</b> —widgets e interfaces UI ultraligeras, elegantes y dinámicas— permitiendo integrar estas métricas de forma perfecta en portfolios, dashboards o cualquier plataforma externa que necesite validar el talento real de un programador.
 </p>
 
 <hr>
