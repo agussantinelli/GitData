@@ -8,13 +8,15 @@
     "start": "node dist/server.js"
   },
   "dependencies": {
-    "fastify": "^5.2.1",
     "@fastify/cors": "^10.0.2",
+    "dotenv": "^17.4.2",
+    "fastify": "^5.2.1",
+    "octokit": "^5.0.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5.7.3",
     "@types/node": "^22.10.7",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
   }
 }
