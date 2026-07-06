@@ -44,6 +44,29 @@
 </p>
 
 <hr>
+<h2>📊 Datos Extraídos (ADN Técnico)</h2>
+
+<p align="justify">
+  Gracias a la potencia de GraphQL, <b>GitData</b> es capaz de extraer en tiempo real una cantidad masiva de metadata altamente detallada por cada perfil. Toda esta información se procesa mediante <b>Clean Architecture</b> y se expone de forma estructurada:
+</p>
+
+<ul>
+  <li><b>Identidad y Trayectoria:</b> Nombre, bio, empresa, ubicación, website, Twitter y <b>fecha exacta de creación de la cuenta</b> (ideal para calcular antigüedad).</li>
+  <li><b>Actividad Real (Último Año):</b> Total de commits (incluyendo contribuciones en <b>repositorios privados</b>), pull requests e issues abiertos.</li>
+  <li><b>Dominio Tecnológico:</b> Top 5 de lenguajes más utilizados (calculado en base al tamaño en bytes de cada repositorio).</li>
+  <li><b>Análisis de Proyectos (Sin Límites):</b> Procesamos hasta 50 repositorios principales ordenados por estrellas, extrayendo de cada uno:
+    <ul>
+      <li>Estadísticas sociales: Estrellas, Forks, Watchers.</li>
+      <li>Métricas de código: Tamaño exacto en KB, Lenguaje principal, Total de Commits Históricos.</li>
+      <li>Estado de mantenimiento: Issues abiertos, Pull Requests pendientes.</li>
+      <li>Metadatos: Fechas de creación/actualización, Licencia oficial, URL del Deploy (Homepage).</li>
+      <li>Tipología: Banderas booleanas (<code>isArchived</code>, <code>isPrivate</code>, <code>isFork</code>) para filtrado avanzado.</li>
+      <li>Colaboración: Cantidad de colaboradores activos en el repositorio.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
 <h2>🛠️ Stack Tecnológico (Monorepo)</h2>
 
 <table>
