@@ -14,6 +14,7 @@ export const dictionaries = {
     topStars: 'Mejores Valorados',
     recentlyUpdated: 'Recientes',
     mostCommits: 'Con Más Actividad',
+    projectOverview: 'Resumen de Proyectos',
   },
   en: {
     yearsExp: 'years exp.',
@@ -28,6 +29,7 @@ export const dictionaries = {
     topStars: 'Top Rated',
     recentlyUpdated: 'Recent',
     mostCommits: 'Most Active',
+    projectOverview: 'Projects Overview',
   },
   pt: {
     yearsExp: 'anos exp.',
@@ -42,6 +44,7 @@ export const dictionaries = {
     topStars: 'Mais Bem Avaliados',
     recentlyUpdated: 'Recentes',
     mostCommits: 'Com Mais Atividade',
+    projectOverview: 'Resumo de Projetos',
   },
   it: {
     yearsExp: 'anni esp.',
@@ -56,6 +59,7 @@ export const dictionaries = {
     topStars: 'Più Votati',
     recentlyUpdated: 'Recenti',
     mostCommits: 'Più Attivi',
+    projectOverview: 'Panoramica Progetti',
   },
   fr: {
     yearsExp: 'ans exp.',
@@ -70,5 +74,6 @@ export const dictionaries = {
     topStars: 'Les Mieux Notés',
     recentlyUpdated: 'Récents',
     mostCommits: 'Les Plus Actifs',
+    projectOverview: 'Aperçu des Projets',
   },
 };

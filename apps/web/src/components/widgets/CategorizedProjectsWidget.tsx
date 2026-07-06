@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Card } from '../ui/Card';
-import { FaStar, FaClock, FaHistory } from 'react-icons/fa';
+import { FaStar, FaClock, FaHistory, FaFolderOpen } from 'react-icons/fa';
 import { dictionaries, type Language } from '../../locales/dictionaries';
 import './styles/CategorizedProjectsWidget.css';
 
@@ -64,31 +64,38 @@ export const CategorizedProjectsWidget: React.FC<CategorizedProjectsWidgetProps>
 
   return (
     <div className={`theme-${theme}`}>
-      <Card className="widget-categories">
+      <Card className="widget-categories-card">
         
-        {/* Top Stars Section */}
-        <section className="category-section">
-          <h3 className="category-title"><FaStar style={{color: '#eab308'}} /> {t.topStars}</h3>
-          <div className="category-list">
-            {topStars.map(repo => renderProjectItem(repo, 'stars'))}
-          </div>
-        </section>
+        <div className="widget-categories-header">
+          <FaFolderOpen style={{ fontSize: '1.5rem', color: '#8b5cf6' }} />
+          <h2>{t.projectOverview}</h2>
+        </div>
 
-        {/* Recently Updated Section */}
-        <section className="category-section">
-          <h3 className="category-title"><FaClock style={{color: '#3b82f6'}} /> {t.recentlyUpdated}</h3>
-          <div className="category-list">
-            {recentUpdates.map(repo => renderProjectItem(repo, 'date'))}
-          </div>
-        </section>
+        <div className="widget-categories-grid">
+          {/* Top Stars Section */}
+          <section className="category-section">
+            <h3 className="category-title"><FaStar style={{color: '#eab308'}} /> {t.topStars}</h3>
+            <div className="category-list">
+              {topStars.map(repo => renderProjectItem(repo, 'stars'))}
+            </div>
+          </section>
 
-        {/* Most Commits Section */}
-        <section className="category-section">
-          <h3 className="category-title"><FaHistory style={{color: '#10b981'}} /> {t.mostCommits}</h3>
-          <div className="category-list">
-            {mostCommits.map(repo => renderProjectItem(repo, 'commits'))}
-          </div>
-        </section>
+          {/* Recently Updated Section */}
+          <section className="category-section">
+            <h3 className="category-title"><FaClock style={{color: '#3b82f6'}} /> {t.recentlyUpdated}</h3>
+            <div className="category-list">
+              {recentUpdates.map(repo => renderProjectItem(repo, 'date'))}
+            </div>
+          </section>
+
+          {/* Most Commits Section */}
+          <section className="category-section">
+            <h3 className="category-title"><FaHistory style={{color: '#10b981'}} /> {t.mostCommits}</h3>
+            <div className="category-list">
+              {mostCommits.map(repo => renderProjectItem(repo, 'commits'))}
+            </div>
+          </section>
+        </div>
 
       </Card>
     </div>
