@@ -13,6 +13,7 @@ This skill serves as a central index for all architectural guidelines in the Git
 - **[react-vite](file:///c:/Users/Agus/Documents/GitData/.agent/skills/react-vite/SKILL.md)**: Rules for React components, "mini layouts", and frontend architecture.
 - **[code-quality](file:///c:/Users/Agus/Documents/GitData/.agent/skills/code-quality/SKILL.md)**: SOLID principles and "No Comments" policy.
 - **[clean-architecture](file:///c:/Users/Agus/Documents/GitData/.agent/skills/clean-architecture/SKILL.md)**: Strict separation of concerns (Domain, Application, Infrastructure, Interfaces) for GitData API.
+- **[css-structure](file:///c:/Users/Agus/Documents/GitData/.agent/skills/css-structure/SKILL.md)**: Mandatory rule to keep CSS files inside a styles/ folder.
 - **[global-context](file:///c:/Users/Agus/Documents/GitData/.agent/skills/global-context/SKILL.md)**: The "Master Rule" enforcing the monorepo architecture.
 - **[no-browser](file:///c:/Users/Agus/Documents/GitData/.agent/skills/no-browser/SKILL.md)**: Total prohibition of the browser subagent.
 - **[node](file:///c:/Users/Agus/Documents/GitData/.agent/skills/node/SKILL.md)**: Node.js runtime configuration and best practices.
