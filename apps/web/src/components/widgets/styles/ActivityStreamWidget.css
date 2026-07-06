@@ -1,0 +1,96 @@
+.widget-activity-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.widget-activity-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 1rem;
+}
+
+.widget-activity-header h2 {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.activity-icon {
+  font-size: 1.5rem;
+  color: #10b981; /* Emerald */
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.activity-list::-webkit-scrollbar {
+  width: 6px;
+}
+.activity-list::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 3px;
+}
+
+.activity-item {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.activity-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 15px;
+  bottom: -20px;
+  width: 2px;
+  background-color: var(--glass-border);
+}
+
+.activity-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.activity-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.activity-desc {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.activity-type {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.activity-repo {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.activity-date {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
