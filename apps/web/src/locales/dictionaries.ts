@@ -17,6 +17,7 @@ export const dictionaries = {
     projectOverview: 'Resumen de Proyectos',
     globalStats: 'Estadísticas Globales',
     issues: 'Issues',
+    topLanguages: 'Lenguajes Principales',
   },
   en: {
     yearsExp: 'years exp.',
@@ -34,6 +35,7 @@ export const dictionaries = {
     projectOverview: 'Projects Overview',
     globalStats: 'Global Stats',
     issues: 'Issues',
+    topLanguages: 'Top Languages',
   },
   pt: {
     yearsExp: 'anos exp.',
@@ -51,6 +53,7 @@ export const dictionaries = {
     projectOverview: 'Resumo de Projetos',
     globalStats: 'Estatísticas Globais',
     issues: 'Issues',
+    topLanguages: 'Principais Linguagens',
   },
   it: {
     yearsExp: 'anni esp.',
@@ -68,6 +71,7 @@ export const dictionaries = {
     projectOverview: 'Panoramica Progetti',
     globalStats: 'Statistiche Globali',
     issues: 'Issues',
+    topLanguages: 'Linguaggi Principali',
   },
   fr: {
     yearsExp: 'ans exp.',
@@ -85,5 +89,6 @@ export const dictionaries = {
     projectOverview: 'Aperçu des Projets',
     globalStats: 'Statistiques Globales',
     issues: 'Issues',
+    topLanguages: 'Langages Principaux',
   },
 };

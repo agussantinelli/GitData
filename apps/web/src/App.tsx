@@ -4,6 +4,7 @@ import { PersonalInfoWidget } from './components/widgets/PersonalInfoWidget';
 import { PopularProjectsWidget } from './components/widgets/PopularProjectsWidget';
 import { CategorizedProjectsWidget } from './components/widgets/CategorizedProjectsWidget';
 import { GlobalStatsWidget } from './components/widgets/GlobalStatsWidget';
+import { TopLanguagesWidget } from './components/widgets/TopLanguagesWidget';
 import { LoadingOverlay } from './components/ui/LoadingOverlay';
 import type { Language } from './locales/dictionaries';
 
@@ -149,6 +150,25 @@ function App() {
           <main className="widgets-grid">
             <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="dark" lang={lang.code} />
             <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
+
+      {/* ========================================================
+          WIDGET 5: TOP LANGUAGES 
+          ======================================================== */}
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>Top Languages Widget</h2>
+
+      {LANGUAGES.map((lang) => (
+        <div key={`languages-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          
+          <main className="widgets-grid">
+            <TopLanguagesWidget languages={profile.topLanguages} theme="dark" lang={lang.code} />
+            <TopLanguagesWidget languages={profile.topLanguages} theme="light" lang={lang.code} />
           </main>
         </div>
       ))}
