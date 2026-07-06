@@ -1,5 +1,10 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
+import dotenv from 'dotenv';
+import { GithubService } from './services/github.service';
+
+// Load environment variables
+dotenv.config();
 
 const server = Fastify({
   logger: true
@@ -9,25 +14,27 @@ server.register(cors, {
   origin: '*' // Update this in production
 });
 
+// Initialize the GithubService
+const githubService = new GithubService();
+
 server.get('/', async (request, reply) => {
   return { hello: 'world', message: 'GitData Fastify API is running!' };
 });
 
-server.get('/api/profile', async (request, reply) => {
-  // Dummy git data for the mini layouts
-  return {
-    username: "agussantinelli",
-    stats: {
-      commits: 1543,
-      prs: 42,
-      stars: 128
-    },
-    topLanguages: ["TypeScript", "JavaScript", "HTML"],
-    projects: [
-      { name: "GitData", description: "API Engine for Git stats" },
-      { name: "Portfolio", description: "Personal website" }
-    ]
-  };
+server.get('/api/profile', async (request: any, reply) => {
+  const username = request.query.username;
+  
+  if (!username) {
+    return reply.status(400).send({ error: 'The "username" query parameter is required.' });
+  }
+
+  try {
+    const profileData = await githubService.getProfileAndRepos(username);
+    return profileData;
+  } catch (error: any) {
+    server.log.error(error);
+    return reply.status(500).send({ error: 'Failed to fetch data from GitHub', details: error.message });
+  }
 });
 
 const start = async () => {
