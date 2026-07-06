@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './styles/App.css';
 import { PersonalInfoWidget } from './components/widgets/PersonalInfoWidget';
 import { PopularProjectsWidget } from './components/widgets/PopularProjectsWidget';
+import { CategorizedProjectsWidget } from './components/widgets/CategorizedProjectsWidget';
 import type { Language } from './locales/dictionaries';
 
 // Tipo base extraído (en un proyecto real estaría compartido en un workspace de shared types)
@@ -107,6 +108,25 @@ function App() {
           <main className="widgets-grid">
             <PopularProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
             <PopularProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
+
+      {/* ========================================================
+          WIDGET 3: CATEGORIZED PROJECTS 
+          ======================================================== */}
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>Categorized Projects Widget</h2>
+
+      {LANGUAGES.map((lang) => (
+        <div key={`categorized-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          
+          <main className="widgets-grid">
+            <CategorizedProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
+            <CategorizedProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
           </main>
         </div>
       ))}

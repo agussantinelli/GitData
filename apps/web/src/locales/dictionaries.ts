@@ -11,6 +11,9 @@ export const dictionaries = {
     viewCode: 'Ver Código',
     forks: 'Forks',
     updated: 'Actualizado',
+    topStars: 'Mejores Valorados',
+    recentlyUpdated: 'Actualizados Recientemente',
+    mostCommits: 'Con Más Actividad',
   },
   en: {
     yearsExp: 'years exp.',
@@ -22,6 +25,9 @@ export const dictionaries = {
     viewCode: 'View Code',
     forks: 'Forks',
     updated: 'Updated',
+    topStars: 'Top Rated',
+    recentlyUpdated: 'Recently Updated',
+    mostCommits: 'Most Active',
   },
   pt: {
     yearsExp: 'anos exp.',
@@ -33,6 +39,9 @@ export const dictionaries = {
     viewCode: 'Ver Código',
     forks: 'Forks',
     updated: 'Atualizado',
+    topStars: 'Mais Bem Avaliados',
+    recentlyUpdated: 'Atualizados Recentemente',
+    mostCommits: 'Com Mais Atividade',
   },
   it: {
     yearsExp: 'anni esp.',
@@ -44,6 +53,9 @@ export const dictionaries = {
     viewCode: 'Vedi Codice',
     forks: 'Fork',
     updated: 'Aggiornato',
+    topStars: 'Più Votati',
+    recentlyUpdated: 'Aggiornati di Recente',
+    mostCommits: 'Più Attivi',
   },
   fr: {
     yearsExp: 'ans exp.',
@@ -55,5 +67,8 @@ export const dictionaries = {
     viewCode: 'Voir le Code',
     forks: 'Forks',
     updated: 'Mis à jour',
+    topStars: 'Les Mieux Notés',
+    recentlyUpdated: 'Mis à Jour Récemment',
+    mostCommits: 'Les Plus Actifs',
   },
 };
