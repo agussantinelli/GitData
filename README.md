@@ -34,62 +34,6 @@
 </p>
 
 <hr>
-<h2>🐙 ¿Qué es Octokit?</h2>
-
-<p align="justify">
-  <b><a href="https://github.com/octokit" target="_blank">Octokit</a></b> es el SDK (Kit de Desarrollo de Software) oficial proporcionado por GitHub. En <b>GitData</b>, utilizamos Octokit en combinación con la <b>API GraphQL de GitHub</b> para realizar consultas masivas y altamente eficientes. Esto nos permite extraer en un solo viaje de red docenas de repositorios, estadísticas de lenguajes y métricas de contribución, superando las limitaciones tradicionales de la API REST y garantizando respuestas ultrarrápidas para nuestros layouts.
-</p>
-
-<hr>
-<h2>📊 Datos Extraídos (ADN Técnico)</h2>
-
-<p align="justify">
-  Gracias a la potencia de GraphQL, <b>GitData</b> es capaz de extraer en tiempo real una cantidad masiva de metadata altamente detallada por cada perfil. Toda esta información se procesa mediante <b>Clean Architecture</b> y se expone de forma estructurada:
-</p>
-
-<ul>
-  <li><b>Identidad y Trayectoria:</b> Nombre, bio, empresa, ubicación, website, Twitter y <b>fecha exacta de creación de la cuenta</b> (ideal para calcular antigüedad).</li>
-  <li><b>Actividad Real (Último Año):</b> Total de commits (incluyendo contribuciones en <b>repositorios privados</b>), pull requests e issues abiertos.</li>
-  <li><b>Dominio Tecnológico:</b> Top 5 de lenguajes más utilizados (calculado en base al tamaño en bytes de cada repositorio).</li>
-  <li><b>Análisis de Proyectos (Sin Límites):</b> Procesamos hasta 50 repositorios principales ordenados por estrellas, extrayendo de cada uno:
-    <ul>
-      <li>Estadísticas sociales: Estrellas, Forks, Watchers.</li>
-      <li>Métricas de código: Tamaño exacto en KB, Lenguaje principal, Total de Commits Históricos.</li>
-      <li>Estado de mantenimiento: Issues abiertos, Pull Requests pendientes.</li>
-      <li>Metadatos: Fechas de creación/actualización, Licencia oficial, URL del Deploy (Homepage).</li>
-      <li>Tipología: Banderas booleanas (<code>isArchived</code>, <code>isPrivate</code>, <code>isFork</code>) para filtrado avanzado.</li>
-      <li>Colaboración: Cantidad de colaboradores activos en el repositorio.</li>
-    </ul>
-  </li>
-</ul>
-
-<hr>
-<h2>🧩 Colección de Widgets (Super Mini Layouts)</h2>
-
-<p align="justify">
-  El Frontend de GitData no es un sitio web tradicional, sino un ecosistema de <b>Widgets</b> independientes, ultra-compactos y diseñados para ser incrustados en portafolios, blogs o firmas de correo. Cada widget cumple un propósito específico:
-</p>
-
-<ul>
-  <li><b>🪪 Profile Card Widget:</b> Presenta la identidad del desarrollador, su biografía, años de experiencia y su Top 5 de lenguajes de programación. Ideal como "tarjeta de presentación técnica".</li>
-  <li><b>🔥 Popular Projects Widget:</b> Destaca los 5 repositorios más exitosos (ordenados por estrellas). Perfecto para demostrar impacto, calidad y reconocimiento por parte de la comunidad.</li>
-  <li><b>📂 Categorized Projects Widget:</b> Un panel analítico súper compacto que clasifica los proyectos en tres áreas clave: Mejores Valorados (Stars), Actualizados Recientemente (Updates) y Con Más Actividad (Commits). Ideal para demostrar versatilidad y mantenimiento activo.</li>
-  <li><b>📈 Global Stats Widget:</b> Un dashboard de tipo KPI que recopila los números masivos del perfil (Total de Commits, Estrellas Totales, Issues, PRs y Seguidores). Diseñado para golpear visualmente e impresionar con el volumen histórico de experiencia.</li>
-</ul>
-
-<hr>
-<h2>🎨 Variantes y Personalización (i18n & Temas)</h2>
-
-<p align="justify">
-  Todos los widgets de la colección están construidos bajo una arquitectura estricta que garantiza que se adapten a cualquier entorno externo sin romper su estética premium (Glassmorphism):
-</p>
-
-<ul>
-  <li><b>🌗 Soporte Multitema (Dark / Light):</b> Los widgets heredan automáticamente un set de variables CSS según el tema seleccionado. En modo oscuro lucen paneles translúcidos sobre fondos profundos, y en modo claro ofrecen tarjetas opalinas impecables.</li>
-  <li><b>🌍 Soporte Multilingüe (i18n):</b> El sistema incluye diccionarios nativos para renderizar cada texto, número y fecha en 5 idiomas diferentes: <b>Español, Inglés, Portugués, Italiano y Francés</b>. Los números masivos se formatean automáticamente respetando la cultura de cada idioma (ej: <code>1,000</code> vs <code>1.000</code>).</li>
-</ul>
-
-<hr>
 <h2>🛠️ Stack Tecnológico (Monorepo)</h2>
 
 <table>
@@ -130,6 +74,63 @@
 </table>
 
 <hr>
+<h2>📊 Datos Extraídos (ADN Técnico)</h2>
+
+<p align="justify">
+  Gracias a la potencia de GraphQL, <b>GitData</b> es capaz de extraer en tiempo real una cantidad masiva de metadata altamente detallada por cada perfil. Toda esta información se procesa mediante <b>Clean Architecture</b> y se expone de forma estructurada:
+</p>
+
+<ul>
+  <li><b>Identidad y Trayectoria:</b> Nombre, bio, empresa, ubicación, website, Twitter y <b>fecha exacta de creación de la cuenta</b> (ideal para calcular antigüedad).</li>
+  <li><b>Actividad Real (Último Año):</b> Total de commits (incluyendo contribuciones en <b>repositorios privados</b>), pull requests e issues abiertos.</li>
+  <li><b>Dominio Tecnológico:</b> Top 5 de lenguajes más utilizados (calculado en base al tamaño en bytes de cada repositorio).</li>
+  <li><b>Análisis de Proyectos (Sin Límites):</b> Procesamos hasta 50 repositorios principales ordenados por estrellas, extrayendo de cada uno:
+    <ul>
+      <li>Estadísticas sociales: Estrellas, Forks, Watchers.</li>
+      <li>Métricas de código: Tamaño exacto en KB, Lenguaje principal, Total de Commits Históricos.</li>
+      <li>Estado de mantenimiento: Issues abiertos, Pull Requests pendientes.</li>
+      <li>Metadatos: Fechas de creación/actualización, Licencia oficial, URL del Deploy (Homepage).</li>
+      <li>Tipología: Banderas booleanas (<code>isArchived</code>, <code>isPrivate</code>, <code>isFork</code>) para filtrado avanzado.</li>
+      <li>Colaboración: Cantidad de colaboradores activos en el repositorio.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+<h2>🐙 ¿Qué es Octokit?</h2>
+
+<p align="justify">
+  <b><a href="https://github.com/octokit" target="_blank">Octokit</a></b> es el SDK (Kit de Desarrollo de Software) oficial proporcionado por GitHub. En <b>GitData</b>, utilizamos Octokit en combinación con la <b>API GraphQL de GitHub</b> para realizar consultas masivas y altamente eficientes. Esto nos permite extraer en un solo viaje de red docenas de repositorios, estadísticas de lenguajes y métricas de contribución, superando las limitaciones tradicionales de la API REST y garantizando respuestas ultrarrápidas para nuestros layouts.
+</p>
+
+<hr>
+<h2>🧩 Colección de Widgets (Super Mini Layouts)</h2>
+
+<p align="justify">
+  El Frontend de GitData no es un sitio web tradicional, sino un ecosistema de <b>Widgets</b> independientes, ultra-compactos y diseñados para ser incrustados en portafolios, blogs o firmas de correo. Cada widget cumple un propósito específico:
+</p>
+
+<ul>
+  <li><b>🪪 Profile Card Widget:</b> Presenta la identidad del desarrollador, su biografía, años de experiencia y su Top 5 de lenguajes de programación. Ideal como "tarjeta de presentación técnica".</li>
+  <li><b>🔥 Popular Projects Widget:</b> Destaca los 5 repositorios más exitosos (ordenados por estrellas). Perfecto para demostrar impacto, calidad y reconocimiento por parte de la comunidad.</li>
+  <li><b>📂 Categorized Projects Widget:</b> Un panel analítico súper compacto que clasifica los proyectos en tres áreas clave: Mejores Valorados (Stars), Actualizados Recientemente (Updates) y Con Más Actividad (Commits). Ideal para demostrar versatilidad y mantenimiento activo.</li>
+  <li><b>📈 Global Stats Widget:</b> Un dashboard de tipo KPI que recopila los números masivos del perfil (Total de Commits, Estrellas Totales, Issues, PRs y Seguidores). Diseñado para golpear visualmente e impresionar con el volumen histórico de experiencia.</li>
+</ul>
+
+<hr>
+<h2>🎨 Variantes y Personalización (i18n & Temas)</h2>
+
+<p align="justify">
+  Todos los widgets de la colección están construidos bajo una arquitectura estricta que garantiza que se adapten a cualquier entorno externo sin romper su estética premium (Glassmorphism):
+</p>
+
+<ul>
+  <li><b>🌗 Soporte Multitema (Dark / Light):</b> Los widgets heredan automáticamente un set de variables CSS según el tema seleccionado. En modo oscuro lucen paneles translúcidos sobre fondos profundos, y en modo claro ofrecen tarjetas opalinas impecables.</li>
+  <li><b>🌍 Soporte Multilingüe (i18n):</b> El sistema incluye diccionarios nativos para renderizar cada texto, número y fecha en 5 idiomas diferentes: <b>Español, Inglés, Portugués, Italiano y Francés</b>. Los números masivos se formatean automáticamente respetando la cultura de cada idioma (ej: <code>1,000</code> vs <code>1.000</code>).</li>
+</ul>
+
+<hr>
+
 <h2>📦 Estructura del Proyecto</h2>
 
 <pre>
