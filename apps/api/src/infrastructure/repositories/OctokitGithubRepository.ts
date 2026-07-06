@@ -33,6 +33,7 @@ export class OctokitGithubRepository implements IGithubRepository {
             totalCommitContributions
             totalPullRequestContributions
             totalIssueContributions
+            restrictedContributionsCount
           }
           repositories(first: 50, ownerAffiliations: OWNER, orderBy: {field: STARGAZERS, direction: DESC}) {
             nodes {
@@ -41,6 +42,25 @@ export class OctokitGithubRepository implements IGithubRepository {
               url
               stargazerCount
               forkCount
+              homepageUrl
+              diskUsage
+              isArchived
+              isPrivate
+              isFork
+              createdAt
+              updatedAt
+              licenseInfo {
+                name
+              }
+              watchers {
+                totalCount
+              }
+              issues(states: OPEN) {
+                totalCount
+              }
+              pullRequests(states: OPEN) {
+                totalCount
+              }
               primaryLanguage {
                 name
               }
@@ -71,12 +91,24 @@ export class OctokitGithubRepository implements IGithubRepository {
       let totalStars = 0;
       const languageMap: Record<string, number> = {};
 
-      const projects: Project[] = repos.slice(0, 3).map((repo: any) => ({
+      const projects: Project[] = repos.map((repo: any) => ({
         name: repo.name,
         description: repo.description,
         stars: repo.stargazerCount,
         forks: repo.forkCount,
-        url: repo.url
+        url: repo.url,
+        homepageUrl: repo.homepageUrl || null,
+        primaryLanguage: repo.primaryLanguage?.name || null,
+        sizeKb: repo.diskUsage || 0,
+        isArchived: repo.isArchived || false,
+        isPrivate: repo.isPrivate || false,
+        isFork: repo.isFork || false,
+        createdAt: repo.createdAt,
+        updatedAt: repo.updatedAt,
+        openIssues: repo.issues?.totalCount || 0,
+        openPullRequests: repo.pullRequests?.totalCount || 0,
+        license: repo.licenseInfo?.name || null,
+        watchers: repo.watchers?.totalCount || 0
       }));
 
       repos.forEach((repo: any) => {
@@ -109,7 +141,7 @@ export class OctokitGithubRepository implements IGithubRepository {
         createdAt: user.createdAt,
         followers: user.followers?.totalCount || 0,
         stats: {
-          commits: user.contributionsCollection?.totalCommitContributions || 0,
+          commits: (user.contributionsCollection?.totalCommitContributions || 0) + (user.contributionsCollection?.restrictedContributionsCount || 0),
           prs: user.contributionsCollection?.totalPullRequestContributions || 0,
           issues: user.contributionsCollection?.totalIssueContributions || 0,
           stars: totalStars,

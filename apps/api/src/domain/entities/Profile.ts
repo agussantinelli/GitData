@@ -11,6 +11,18 @@ export interface Project {
   stars: number;
   forks: number;
   url: string;
+  homepageUrl: string | null;
+  primaryLanguage: string | null;
+  sizeKb: number;
+  isArchived: boolean;
+  isPrivate: boolean;
+  isFork: boolean;
+  createdAt: string;
+  updatedAt: string;
+  openIssues: number;
+  openPullRequests: number;
+  license: string | null;
+  watchers: number;
 }
 
 export interface DeveloperProfile {
