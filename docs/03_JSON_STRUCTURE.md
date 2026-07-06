@@ -25,7 +25,7 @@ El objeto raíz contiene la identidad, métricas globales y la colección de pro
   "topLanguages": ["TypeScript", "Java", "C#", "HTML", "CSS"], // Array de lenguajes ordenados por uso (máx 5)
   "projects": [ ... ], // Arreglo de objetos Project (máx 50)
   
-  // 🔹 Métricas Avanzadas (Expansión)
+  // 🔹 Métricas de Widgets
   "contributions": [ ... ], // Arreglo con la actividad de 365 días { date, count }
   "achievements": [ ... ],  // Arreglo de Trofeos inferidos
   "timeOfDay": { "morning": 15, "afternoon": 25, "night": 10 }, // Distribución horaria gruesa
@@ -104,9 +104,18 @@ Gracias a este nivel de detalle, un Frontend en React puede crear interfaces muy
 
 ---
 
-## 🔮 Estructuras de Inferencia (Métricas Avanzadas)
+## 🔮 Estructuras de Inferencia y Actividad
 
-Estos objetos no existen en GitHub de forma nativa, son calculados algorítmicamente por GitData:
+Estos objetos no existen en GitHub de forma nativa tal como se presentan; son procesados algorítmicamente o agregados por GitData.
+
+### Contributions (Frecuencia de Código)
+```json
+"contributions": [
+  { "date": "2026-07-06", "count": 12 },
+  { "date": "2026-07-07", "count": 0 }
+]
+```
+Arreglo lineal con los últimos 365 días de actividad, ideal para gráficos de barras o heatmaps.
 
 ### Achievements (Trofeos)
 ```json
@@ -119,6 +128,36 @@ Estos objetos no existen en GitHub de forma nativa, son calculados algorítmicam
   }
 ]
 ```
+Trofeos desbloqueados automáticamente al superar umbrales de métricas globales.
+
+### Tech Radar (Pilares Tecnológicos)
+```json
+"techRadar": {
+  "frontend": 120000,
+  "backend": 85000,
+  "devops": 15000
+}
+```
+Mapeo de los bytes totales de código agrupados en tres categorías arquitectónicas.
+
+### Time Of Day (Horarios de Trabajo)
+```json
+"timeOfDay": {
+  "morning": 15,
+  "afternoon": 32,
+  "night": 5,
+  "lateNight": 0
+}
+```
+Frecuencia de commits agrupada en franjas horarias grandes.
+
+### Hourly Frequency (Frecuencia por Hora Exacta)
+```json
+"hourlyFrequency": [
+  0, 0, 5, 12, 45, 10, ... // 24 posiciones (0-23 hrs)
+]
+```
+Distribución exacta de la actividad pública en un arreglo de 24 posiciones.
 
 ### Activity Stream (Eventos REST)
 ```json
@@ -132,6 +171,7 @@ Estos objetos no existen en GitHub de forma nativa, son calculados algorítmicam
   }
 ]
 ```
+La terminal en vivo. Basado en la API REST de GitHub para asegurar máxima frescura.
 
 ### Milestones (Línea de Tiempo)
 ```json
@@ -143,3 +183,4 @@ Estos objetos no existen en GitHub de forma nativa, son calculados algorítmicam
   }
 ]
 ```
+Hitos históricos ordenados cronológicamente desde la creación de la cuenta.
