@@ -61,6 +61,21 @@
       <td>Vistas ligeras (Mini Layouts) con un diseño visual moderno y animaciones sutiles.</td>
     </tr>
     <tr>
+      <td><b>Iconografía UI</b></td>
+      <td>React Icons</td>
+      <td>Uso de SVGs vectoriales para evitar inconsistencias de renderizado de emojis nativos entre SOs.</td>
+    </tr>
+    <tr>
+      <td><b>Estilos (UI)</b></td>
+      <td>Vanilla CSS (Glassmorphism)</td>
+      <td>Variables CSS puras para soporte nativo Multitema (Light/Dark) sin frameworks pesados.</td>
+    </tr>
+    <tr>
+      <td><b>Validación de Datos</b></td>
+      <td>Zod</td>
+      <td>Validación estricta de esquemas y tipado fuerte para los parámetros en Fastify.</td>
+    </tr>
+    <tr>
       <td><b>Gestión</b></td>
       <td>pnpm Workspaces</td>
       <td>Administración centralizada de dependencias y scripts de orquestación.</td>
