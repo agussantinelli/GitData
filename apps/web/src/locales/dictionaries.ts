@@ -19,6 +19,10 @@ export const dictionaries = {
     issues: 'Issues',
     topLanguages: 'Lenguajes Principales',
     codeFrequency: 'Frecuencia de Código',
+    currentStreak: 'Racha Actual',
+    longestStreak: 'Racha Máxima',
+    totalPeriod: 'Total Periodo',
+    codeFreqDesc: 'Últimos 5 meses. Una racha indica días consecutivos con al menos un aporte de código.',
   },
   en: {
     yearsExp: 'years exp.',
@@ -38,6 +42,10 @@ export const dictionaries = {
     issues: 'Issues',
     topLanguages: 'Top Languages',
     codeFrequency: 'Code Frequency',
+    currentStreak: 'Current Streak',
+    longestStreak: 'Longest Streak',
+    totalPeriod: 'Total Period',
+    codeFreqDesc: 'Last 5 months. A streak indicates consecutive days with at least one code contribution.',
   },
   pt: {
     yearsExp: 'anos exp.',
@@ -57,6 +65,10 @@ export const dictionaries = {
     issues: 'Issues',
     topLanguages: 'Principais Linguagens',
     codeFrequency: 'Frequência de Código',
+    currentStreak: 'Sequência Atual',
+    longestStreak: 'Sequência Máxima',
+    totalPeriod: 'Total no Período',
+    codeFreqDesc: 'Últimos 5 meses. Uma sequência indica dias consecutivos com pelo menos uma contribuição de código.',
   },
   it: {
     yearsExp: 'anni esp.',
@@ -76,6 +88,10 @@ export const dictionaries = {
     issues: 'Issues',
     topLanguages: 'Linguaggi Principali',
     codeFrequency: 'Frequenza del Codice',
+    currentStreak: 'Striscia Attuale',
+    longestStreak: 'Striscia Massima',
+    totalPeriod: 'Totale Periodo',
+    codeFreqDesc: 'Ultimi 5 mesi. Una striscia indica giorni consecutivi con almeno un contributo di codice.',
   },
   fr: {
     yearsExp: 'ans exp.',
@@ -95,5 +111,9 @@ export const dictionaries = {
     issues: 'Issues',
     topLanguages: 'Langages Principaux',
     codeFrequency: 'Fréquence de Code',
+    currentStreak: 'Série Actuelle',
+    longestStreak: 'Série Maximale',
+    totalPeriod: 'Total Période',
+    codeFreqDesc: 'Les 5 derniers mois. Une série indique des jours consécutifs avec au moins une contribution de code.',
   },
 };

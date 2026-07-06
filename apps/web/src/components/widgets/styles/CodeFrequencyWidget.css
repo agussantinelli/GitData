@@ -15,12 +15,58 @@
 .widget-frequency-header h2 {
   font-size: 1.25rem;
   color: var(--text-color);
+  margin: 0 0 0.15rem 0;
+}
+
+.frequency-title-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.frequency-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
   margin: 0;
+  line-height: 1.3;
 }
 
 .frequency-icon {
   font-size: 1.5rem;
   color: var(--primary-color);
+}
+
+.frequency-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.frequency-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  padding: 0.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+}
+
+.frequency-stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-color);
+}
+
+.frequency-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+  text-align: center;
 }
 
 .frequency-heatmap-container {

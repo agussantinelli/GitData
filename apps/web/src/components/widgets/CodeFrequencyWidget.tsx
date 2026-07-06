@@ -34,12 +34,49 @@ export const CodeFrequencyWidget: React.FC<CodeFrequencyWidgetProps> = ({
     return 4;
   };
 
+  // Calcular estadísticas de rachas
+  let currentStreak = 0;
+  let maxStreak = 0;
+  let totalPeriod = 0;
+  let tempStreak = 0;
+
+  visibleContributions.forEach(day => {
+    totalPeriod += day.count;
+    if (day.count > 0) {
+      tempStreak++;
+      if (tempStreak > maxStreak) {
+        maxStreak = tempStreak;
+      }
+    } else {
+      tempStreak = 0;
+    }
+  });
+  currentStreak = tempStreak;
+
   return (
     <div className={`theme-${theme}`}>
       <Card className="widget-code-frequency">
         <div className="widget-frequency-header">
           <FaCodeBranch className="frequency-icon" />
-          <h2>{t.codeFrequency}</h2>
+          <div className="frequency-title-area">
+            <h2>{t.codeFrequency}</h2>
+            <p className="frequency-desc">{t.codeFreqDesc}</p>
+          </div>
+        </div>
+
+        <div className="frequency-stats">
+          <div className="frequency-stat-item">
+            <span className="frequency-stat-value gradient-text">{totalPeriod}</span>
+            <span className="frequency-stat-label">{t.totalPeriod}</span>
+          </div>
+          <div className="frequency-stat-item">
+            <span className="frequency-stat-value">{currentStreak}</span>
+            <span className="frequency-stat-label">{t.currentStreak}</span>
+          </div>
+          <div className="frequency-stat-item">
+            <span className="frequency-stat-value">{maxStreak}</span>
+            <span className="frequency-stat-label">{t.longestStreak}</span>
+          </div>
         </div>
 
         <div className="frequency-heatmap-container">
