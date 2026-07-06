@@ -51,7 +51,12 @@
     <tr>
       <td><b>Backend (API)</b></td>
       <td>Fastify + TypeScript</td>
-      <td>Servidor ultrarrápido para procesar y cachear datos de GitHub.</td>
+      <td>Servidor ultrarrápido con arquitectura de rutas modulares para procesar datos de GitHub.</td>
+    </tr>
+    <tr>
+      <td><b>Integración GitHub</b></td>
+      <td>Octokit + GraphQL</td>
+      <td>Uso de la API GraphQL de GitHub para obtener datos masivos sin impactar los Rate Limits.</td>
     </tr>
     <tr>
       <td><b>Frontend (Web)</b></td>
@@ -62,6 +67,11 @@
       <td><b>Gestión</b></td>
       <td>pnpm Workspaces</td>
       <td>Administración centralizada de dependencias y scripts de orquestación.</td>
+    </tr>
+    <tr>
+      <td><b>Configuración</b></td>
+      <td>Dotenv</td>
+      <td>Gestión segura del Personal Access Token para las llamadas a la API.</td>
     </tr>
   </tbody>
 </table>
