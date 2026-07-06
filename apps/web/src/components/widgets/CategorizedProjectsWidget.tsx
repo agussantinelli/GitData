@@ -53,11 +53,11 @@ export const CategorizedProjectsWidget: React.FC<CategorizedProjectsWidgetProps>
       <div className="category-item-main">
         <h4 className="category-item-name">{repo.name}</h4>
         <span className="category-item-meta">{repo.primaryLanguage || 'Unknown'}</span>
-      </div>
-      <div className="category-item-stat">
-        {highlight === 'stars' && <><FaStar style={{color: '#eab308'}} /> {repo.stars}</>}
-        {highlight === 'date' && <><FaClock style={{color: '#3b82f6'}} /> {formatDate(repo.updatedAt)}</>}
-        {highlight === 'commits' && <><FaHistory style={{color: '#10b981'}} /> {repo.totalCommits}</>}
+        <div className="category-item-stat">
+          {highlight === 'stars' && <><FaStar style={{color: '#eab308'}} /> {repo.stars}</>}
+          {highlight === 'date' && <><FaClock style={{color: '#3b82f6'}} /> {formatDate(repo.updatedAt)}</>}
+          {highlight === 'commits' && <><FaHistory style={{color: '#10b981'}} /> {repo.totalCommits}</>}
+        </div>
       </div>
     </a>
   );
