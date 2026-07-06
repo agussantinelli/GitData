@@ -20,6 +20,8 @@ This skill serves as a central index for all architectural guidelines in the Git
 - **[node](file:///c:/Users/Agus/Documents/GitData/.agent/skills/node/SKILL.md)**: Node.js runtime configuration and best practices.
 - **[readme-auto-sync](file:///c:/Users/Agus/Documents/GitData/.agent/skills/readme-auto-sync/SKILL.md)**: Mandatory automated README syncing.
 - **[test-enforcement](file:///c:/Users/Agus/Documents/GitData/.agent/skills/test-enforcement/SKILL.md)**: Mandatory testing for business logic.
+- **[github-api-hybrid](file:///c:/Users/Agus/Documents/GitData/.agent/skills/github-api-hybrid/SKILL.md)**: Guidelines for hybrid API querying (GraphQL + REST).
+- **[widget-inference](file:///c:/Users/Agus/Documents/GitData/.agent/skills/widget-inference/SKILL.md)**: Backend mathematical inference for advanced widgets.
 
 ## 🛠️ Usage guidelines
 1. **Consistency**: Follow Fastify and React patterns strictly in their respective apps.
