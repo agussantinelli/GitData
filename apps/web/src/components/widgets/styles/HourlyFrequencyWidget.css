@@ -15,7 +15,19 @@
 .widget-hourly-header h2 {
   font-size: 1.25rem;
   color: var(--text-color);
+  margin: 0 0 0.15rem 0;
+}
+
+.hourly-title-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.hourly-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
   margin: 0;
+  line-height: 1.3;
 }
 
 .hourly-icon {

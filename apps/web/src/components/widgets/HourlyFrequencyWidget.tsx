@@ -24,7 +24,10 @@ export const HourlyFrequencyWidget: React.FC<HourlyFrequencyWidgetProps> = ({
       <Card className="widget-hourly">
         <div className="widget-hourly-header">
           <FaClock className="hourly-icon" />
-          <h2>{t.hourlyActivity}</h2>
+          <div className="hourly-title-area">
+            <h2>{t.hourlyActivity}</h2>
+            <p className="hourly-desc">{t.hourlyActivityDesc}</p>
+          </div>
         </div>
 
         <div className="hourly-chart-container">
