@@ -27,6 +27,11 @@ export interface Project {
   totalCommits: number;
 }
 
+export interface LanguageStat {
+  name: string;
+  percentage: number;
+}
+
 export interface DeveloperProfile {
   username: string;
   name: string | null;
@@ -38,6 +43,6 @@ export interface DeveloperProfile {
   createdAt: string;
   followers: number;
   stats: ProfileStats;
-  topLanguages: string[];
+  topLanguages: LanguageStat[];
   projects: Project[];
 }

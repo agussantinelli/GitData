@@ -5,7 +5,7 @@ import { dictionaries, type Language } from '../../locales/dictionaries';
 import './styles/TopLanguagesWidget.css';
 
 interface TopLanguagesWidgetProps {
-  languages: string[];
+  languages: { name: string; percentage: number }[];
   theme?: 'light' | 'dark';
   lang?: Language;
 }
@@ -26,10 +26,7 @@ export const TopLanguagesWidget: React.FC<TopLanguagesWidgetProps> = ({
     return colors[index] || '#a0a0a0';
   };
 
-  // Determine pseudo-width for progress bar (100%, 85%, 70%, 55%, 40%)
-  const getRankWidth = (index: number) => {
-    return `${100 - (index * 15)}%`;
-  };
+
 
   return (
     <div className={`theme-${theme}`}>
@@ -42,18 +39,21 @@ export const TopLanguagesWidget: React.FC<TopLanguagesWidgetProps> = ({
 
         <div className="languages-list">
           {top5.map((language, idx) => (
-            <div key={language} className="language-item">
+            <div key={language.name} className="language-item">
               <div className="language-rank">{idx + 1}</div>
               <div className="language-info">
                 <div className="language-name-row">
                   <FaCode className="language-icon" style={{ color: getRankColor(idx) }} />
-                  <h3 className="language-name">{language}</h3>
+                  <h3 className="language-name">{language.name}</h3>
+                  <span style={{ marginLeft: 'auto', fontWeight: 'bold', color: 'var(--text-color)' }}>
+                    {language.percentage}%
+                  </span>
                 </div>
                 <div className="language-progress-track">
                   <div 
                     className="language-progress-bar" 
                     style={{ 
-                      width: getRankWidth(idx),
+                      width: `${language.percentage}%`,
                       backgroundColor: getRankColor(idx)
                     }}
                   />

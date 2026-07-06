@@ -18,7 +18,7 @@ interface ProfileData {
     issues: number;
     stars: number;
   };
-  topLanguages: string[];
+  topLanguages: { name: string; percentage: number }[];
 }
 
 interface PersonalInfoWidgetProps {
@@ -50,9 +50,9 @@ export const PersonalInfoWidget: React.FC<PersonalInfoWidgetProps> = ({
 
         <p className="widget-bio">{data.bio}</p>
 
-        <div className="widget-languages">
-          {data.topLanguages.map((l) => (
-            <Badge key={l} variant="secondary">{l}</Badge>
+        <div className="widget-skills">
+          {data.topLanguages.map((lang, idx) => (
+            <Badge key={idx} variant="secondary">{lang.name}</Badge>
           ))}
         </div>
 

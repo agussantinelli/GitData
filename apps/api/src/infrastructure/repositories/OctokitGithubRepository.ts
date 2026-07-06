@@ -140,9 +140,15 @@ export class OctokitGithubRepository implements IGithubRepository {
         }
       });
 
+      const totalBytes = Object.values(languageMap).reduce((acc, bytes) => acc + bytes, 0);
+
       const topLanguages = Object.keys(languageMap)
         .sort((a, b) => languageMap[b] - languageMap[a])
-        .slice(0, 5);
+        .slice(0, 5)
+        .map(lang => ({
+          name: lang,
+          percentage: totalBytes > 0 ? Math.round((languageMap[lang] / totalBytes) * 100) : 0
+        }));
 
       return {
         username,

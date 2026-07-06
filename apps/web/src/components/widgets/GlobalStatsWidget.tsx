@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '../ui/Card';
-import { FaGlobe, FaHistory, FaCodeBranch, FaExclamationCircle, FaStar, FaUserFriends } from 'react-icons/fa';
+import { FaGlobe, FaHistory, FaCodeBranch, FaStar, FaUserFriends } from 'react-icons/fa';
 import { dictionaries, type Language } from '../../locales/dictionaries';
 import './styles/GlobalStatsWidget.css';
 
