@@ -266,33 +266,101 @@ function App() {
       ))}
 
       {/* ========================================================
-          WIDGETS 7-11: THE EXPANSION (Mega Grid)
+          WIDGET 7: ACHIEVEMENTS
           ======================================================== */}
-      <h2 className="section-title" style={{ marginTop: '4rem' }}>The Final Expansion Widgets</h2>
-
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>Achievements Widget</h2>
       {LANGUAGES.map((lang) => (
-        <div key={`expansion-${lang.code}`} className="language-section">
+        <div key={`achievements-${lang.code}`} className="language-section">
           <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
             <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
             {lang.label}
           </h3>
-          
-          <main className="widgets-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+          <main className="widgets-grid">
             <AchievementsWidget achievements={profile.achievements} theme="dark" lang={lang.code} />
             <AchievementsWidget achievements={profile.achievements} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
 
+      {/* ========================================================
+          WIDGET 8: TIME OF DAY
+          ======================================================== */}
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>Time of Day Widget</h2>
+      {LANGUAGES.map((lang) => (
+        <div key={`timeofday-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          <main className="widgets-grid">
             <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="dark" lang={lang.code} />
             <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
 
+      {/* ========================================================
+          WIDGET 9: HOURLY FREQUENCY
+          ======================================================== */}
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>Hourly Frequency Widget</h2>
+      {LANGUAGES.map((lang) => (
+        <div key={`hourly-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          <main className="widgets-grid">
             <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="dark" lang={lang.code} />
             <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
 
+      {/* ========================================================
+          WIDGET 10: ACTIVITY STREAM
+          ======================================================== */}
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>Activity Stream Widget</h2>
+      {LANGUAGES.map((lang) => (
+        <div key={`activity-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          <main className="widgets-grid">
             <ActivityStreamWidget activityStream={profile.activityStream} theme="dark" lang={lang.code} />
             <ActivityStreamWidget activityStream={profile.activityStream} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
 
+      {/* ========================================================
+          WIDGET 11: TECH RADAR
+          ======================================================== */}
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>Tech Radar Widget</h2>
+      {LANGUAGES.map((lang) => (
+        <div key={`techradar-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          <main className="widgets-grid">
             <TechRadarWidget techRadar={profile.techRadar} theme="dark" lang={lang.code} />
             <TechRadarWidget techRadar={profile.techRadar} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
 
+      {/* ========================================================
+          WIDGET 12: MILESTONES
+          ======================================================== */}
+      <h2 className="section-title" style={{ marginTop: '4rem' }}>Milestones Widget</h2>
+      {LANGUAGES.map((lang) => (
+        <div key={`milestones-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          <main className="widgets-grid">
             <MilestonesWidget milestones={profile.milestones} theme="dark" lang={lang.code} />
             <MilestonesWidget milestones={profile.milestones} theme="light" lang={lang.code} />
           </main>
