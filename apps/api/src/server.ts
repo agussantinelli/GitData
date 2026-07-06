@@ -1,7 +1,10 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import dotenv from 'dotenv';
-import { GithubService } from './services/github.service';
+
+// Import modular routes
+import rootRoutes from './routes/root';
+import profileRoutes from './routes/profile';
 
 // Load environment variables
 dotenv.config();
@@ -14,28 +17,9 @@ server.register(cors, {
   origin: '*' // Update this in production
 });
 
-// Initialize the GithubService
-const githubService = new GithubService();
-
-server.get('/', async (request, reply) => {
-  return { hello: 'world', message: 'GitData Fastify API is running!' };
-});
-
-server.get('/api/profile', async (request: any, reply) => {
-  const username = request.query.username;
-  
-  if (!username) {
-    return reply.status(400).send({ error: 'The "username" query parameter is required.' });
-  }
-
-  try {
-    const profileData = await githubService.getProfileAndRepos(username);
-    return profileData;
-  } catch (error: any) {
-    server.log.error(error);
-    return reply.status(500).send({ error: 'Failed to fetch data from GitHub', details: error.message });
-  }
-});
+// Register routes
+server.register(rootRoutes);
+server.register(profileRoutes, { prefix: '/api/profile' });
 
 const start = async () => {
   try {
