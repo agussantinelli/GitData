@@ -64,6 +64,12 @@
   font-size: 1.8rem;
 }
 
+.achievement-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .achievement-title {
   font-size: 0.85rem;
   font-weight: 600;
