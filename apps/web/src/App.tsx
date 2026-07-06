@@ -1,8 +1,59 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import './styles/App.css';
 import { PersonalInfoWidget } from './components/widgets/PersonalInfoWidget';
+import type { Language } from './locales/dictionaries';
+
+// Tipo base extraído (en un proyecto real estaría compartido en un workspace de shared types)
+interface ProfileData {
+  name: string;
+  username: string;
+  bio: string;
+  location: string;
+  followers: number;
+  createdAt: string;
+  stats: {
+    commits: number;
+    prs: number;
+    issues: number;
+    stars: number;
+  };
+  topLanguages: string[];
+}
+
+const LANGUAGES: { code: Language; label: string }[] = [
+  { code: 'es', label: '🇪🇸 Español' },
+  { code: 'en', label: '🇬🇧 English' },
+  { code: 'pt', label: '🇧🇷 Português' },
+  { code: 'it', label: '🇮🇹 Italiano' },
+  { code: 'fr', label: '🇫🇷 Français' },
+];
 
 function App() {
+  const [profile, setProfile] = useState<ProfileData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch Global ÚNICO para optimizar la carga
+  useEffect(() => {
+    fetch('http://localhost:3000/api/profile?username=agussantinelli')
+      .then((res) => {
+        if (!res.ok) throw new Error('Error fetching data');
+        return res.json();
+      })
+      .then((data) => {
+        setProfile(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div className="loading-container">Cargando datos del servidor...</div>;
+  if (error) return <div className="loading-container" style={{ color: 'red' }}>Error: {error}</div>;
+  if (!profile) return null;
+
   return (
     <div className="landing-container">
       <header className="landing-header">
@@ -10,14 +61,22 @@ function App() {
         <p>Explora el ADN Técnico a través de nuestros Super Mini Layouts impulsados por React y Fastify.</p>
       </header>
 
-      <main className="widgets-grid">
-        <PersonalInfoWidget />
-        
-        {/* Placeholder para futuros widgets */}
-        <div style={{ opacity: 0.5, border: '1px dashed rgba(255,255,255,0.2)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem', minHeight: '300px' }}>
-          <p style={{ color: '#a0a0a0' }}>+ Próximo Widget (Proyectos)</p>
+      <h2 className="section-title">Profile Card Widget</h2>
+
+      {LANGUAGES.map((lang) => (
+        <div key={lang.code} className="language-section">
+          <h3 className="language-title">{lang.label}</h3>
+
+          <main className="widgets-grid">
+            {/* Widget en Modo Oscuro */}
+            <PersonalInfoWidget data={profile} theme="dark" lang={lang.code} />
+
+            {/* Widget en Modo Claro */}
+            <PersonalInfoWidget data={profile} theme="light" lang={lang.code} />
+          </main>
         </div>
-      </main>
+      ))}
+
     </div>
   );
 }

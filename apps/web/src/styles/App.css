@@ -1,5 +1,5 @@
 .landing-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 4rem 2rem;
   display: flex;
@@ -30,9 +30,40 @@
   margin: 0 auto;
 }
 
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.language-section {
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.language-title {
+  font-size: 1.25rem;
+  color: var(--p3-cyan-blue);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
 .widgets-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
   width: 100%;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.5rem;
+  color: var(--p3-cyan-blue);
 }

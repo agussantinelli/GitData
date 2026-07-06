@@ -5,8 +5,8 @@
 
 .gitdata-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 40px rgba(44, 163, 245, 0.15);
-  border-color: rgba(44, 163, 245, 0.3);
+  box-shadow: 0 8px 40px var(--card-hover-shadow);
+  border-color: var(--card-hover-border);
 }
 
 .gitdata-card-interactive {

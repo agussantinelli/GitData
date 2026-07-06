@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card } from '../ui/Card';
 import { Avatar } from '../ui/Avatar';
 import { Badge } from '../ui/Badge';
+import { dictionaries, type Language } from '../../locales/dictionaries';
 import './styles/PersonalInfoWidget.css';
 
 interface ProfileData {
@@ -20,71 +21,60 @@ interface ProfileData {
   topLanguages: string[];
 }
 
-export const PersonalInfoWidget: React.FC = () => {
-  const [profile, setProfile] = useState<ProfileData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+interface PersonalInfoWidgetProps {
+  data: ProfileData;
+  theme?: 'light' | 'dark';
+  lang?: Language;
+}
 
-  useEffect(() => {
-    fetch('http://localhost:3000/api/profile?username=agussantinelli')
-      .then((res) => {
-        if (!res.ok) throw new Error('Error fetching data');
-        return res.json();
-      })
-      .then((data) => {
-        setProfile(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <Card><p>Cargando ADN Técnico...</p></Card>;
-  if (error) return <Card><p>Error: {error}</p></Card>;
-  if (!profile) return null;
-
-  const yearsExp = new Date().getFullYear() - new Date(profile.createdAt).getFullYear();
+export const PersonalInfoWidget: React.FC<PersonalInfoWidgetProps> = ({ 
+  data, 
+  theme = 'dark', 
+  lang = 'es' 
+}) => {
+  const t = dictionaries[lang];
+  const yearsExp = new Date().getFullYear() - new Date(data.createdAt).getFullYear();
 
   return (
-    <Card className="widget-personal">
-      <div className="widget-header">
-        <Avatar src={`https://github.com/${profile.username}.png`} alt={profile.name} size={80} />
-        <div className="widget-titles">
-          <h2>{profile.name}</h2>
-          <p>
-            <span className="gradient-text">@{profile.username}</span> • {profile.location} • {yearsExp} años exp.
-          </p>
+    <div className={`theme-${theme}`}>
+      <Card className="widget-personal">
+        <div className="widget-header">
+          <Avatar src={`https://github.com/${data.username}.png`} alt={data.name} size={80} />
+          <div className="widget-titles">
+            <h2>{data.name}</h2>
+            <p>
+              <span className="gradient-text">@{data.username}</span> • {data.location} • {yearsExp} {t.yearsExp}
+            </p>
+          </div>
         </div>
-      </div>
 
-      <p className="widget-bio">{profile.bio}</p>
+        <p className="widget-bio">{data.bio}</p>
 
-      <div className="widget-languages">
-        {profile.topLanguages.map((lang) => (
-          <Badge key={lang} variant="secondary">{lang}</Badge>
-        ))}
-      </div>
+        <div className="widget-languages">
+          {data.topLanguages.map((l) => (
+            <Badge key={l} variant="secondary">{l}</Badge>
+          ))}
+        </div>
 
-      <div className="widget-stats">
-        <div className="stat-item">
-          <span className="stat-value gradient-text">{profile.stats.commits}</span>
-          <span className="stat-label">Commits</span>
+        <div className="widget-stats">
+          <div className="stat-item">
+            <span className="stat-value gradient-text">{data.stats.commits}</span>
+            <span className="stat-label">{t.commits}</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-value">{data.stats.stars}</span>
+            <span className="stat-label">{t.stars}</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-value">{data.stats.prs}</span>
+            <span className="stat-label">{t.prs}</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-value">{data.followers}</span>
+            <span className="stat-label">{t.followers}</span>
+          </div>
         </div>
-        <div className="stat-item">
-          <span className="stat-value">{profile.stats.stars}</span>
-          <span className="stat-label">Estrellas</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-value">{profile.stats.prs}</span>
-          <span className="stat-label">PRs</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-value">{profile.followers}</span>
-          <span className="stat-label">Seguidores</span>
-        </div>
-      </div>
-    </Card>
+      </Card>
+    </div>
   );
 };
