@@ -14,10 +14,10 @@
   <img src="https://img.shields.io/badge/Vite-6.0.5-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite Badge"/>
   <img src="https://img.shields.io/badge/Node.js-22.10.7-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node Badge"/>
   <img src="https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS Badge"/>
-  <img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white" alt="GraphQL Badge"/>
-  <img src="https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white" alt="Zod Badge"/>
-  <img src="https://img.shields.io/badge/React%20Icons-E91E63?style=for-the-badge&logo=react&logoColor=white" alt="React Icons Badge"/>
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 Badge"/>
+  <img src="https://img.shields.io/badge/GraphQL-API-E10098?style=for-the-badge&logo=graphql&logoColor=white" alt="GraphQL Badge"/>
+  <img src="https://img.shields.io/badge/Zod-3.23.8-3E67B1?style=for-the-badge&logo=zod&logoColor=white" alt="Zod Badge"/>
+  <img src="https://img.shields.io/badge/React%20Icons-5.7.0-E91E63?style=for-the-badge&logo=react&logoColor=white" alt="React Icons Badge"/>
+  <img src="https://img.shields.io/badge/CSS3-Standard-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 Badge"/>
   <img src="https://img.shields.io/badge/pnpm-10.30.3-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm Badge">
 </p>
 </div>
