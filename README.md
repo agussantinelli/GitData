@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1 align="center">🛡️ Git Data – API</h1>
+<h1 align="center">🛡️ Git Data – Monorepo</h1>
 
 <p align="center">
   <a href="https://github.com/agussantinelli" target="_blank" style="text-decoration: none;">
@@ -12,15 +12,12 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/NestJS-10.0.0-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS Badge"/>
-  <img src="https://img.shields.io/badge/Node.js-20.0.0-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node Badge"/>
-  <img src="https://img.shields.io/badge/TypeScript-5.0.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS Badge"/>
-  <img src="https://img.shields.io/badge/pnpm-10.0.0-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm Badge">
-  <img src="https://img.shields.io/badge/Octokit-SDK-white?style=for-the-badge&logo=github&logoColor=black" alt="Octokit Badge"/>
-  <img src="https://img.shields.io/badge/Zod-Validation-3E67B1?style=for-the-badge&logo=zod&logoColor=white" alt="Zod Badge"/>
-  <img src="https://img.shields.io/badge/Vitest-Testing-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest Badge"/>
-  <img src="https://img.shields.io/badge/Swagger-API%20Docs-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="Swagger Badge"/>
-  <img src="https://img.shields.io/badge/Redis-Caching-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis Badge"/>
+  <img src="https://img.shields.io/badge/Fastify-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify Badge"/>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Badge"/>
+  <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite Badge"/>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node Badge"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS Badge"/>
+  <img src="https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm Badge">
 </p>
 </div>
 
@@ -32,99 +29,49 @@
 <h2>🎯 Objetivo y Propósito</h2>
 
 <p align="justify">
-  <b>GitData</b> no es solo un visualizador de repositorios; es el motor analítico detrás de la <b>"Ficha Técnica"</b> definitiva del desarrollador. En un mercado saturado de métricas superficiales, nuestro propósito es transformar el historial de GitHub en una narrativa técnica coherente, permitiendo que el talento real brille a través de datos precisos y curados.
+  <b>GitData</b> es el motor analítico detrás de la <b>"Ficha Técnica"</b> definitiva del desarrollador. Este proyecto, estructurado como un Monorepo, combina una API de altísimo rendimiento con interfaces UI ultraligeras ("Super Mini Layouts") para mostrar métricas clave de GitHub.
 </p>
 
-<ul>
-  <li><b>🧠 Motor de ADN Técnico:</b> Algoritmos avanzados para desglosar la verdadera esencia del stack tecnológico (Frontend vs Backend vs Polyglot).</li>
-  <li><b>🔍 Curaduría de "Proyectos Joya":</b> Identificación inteligente de repositorios destacados mediante análisis de impacto y calidad arquitectónica.</li>
-  <li><b>📈 Reconstrucción de Timeline:</b> Extracción de hitos productivos para visualizar la evolución tecnológica a lo largo de los años.</li>
-  <li><b>📡 API de Inteligencia de Perfil:</b> Provee datos estructurados para el Modo Reclutador y Modo Developer del cliente.</li>
-</ul>
-
-<blockquote>
-  <p>
-    <i>"Nuestra misión es proveer la infraestructura de datos necesaria para que cada desarrollador pueda contar su historia técnica con la profundidad que merece."</i>
-  </p>
-</blockquote>
-
 <hr>
-<h2>🛠️ Stack Tecnológico</h2>
+<h2>🛠️ Stack Tecnológico (Monorepo)</h2>
 
 <table>
   <thead>
     <tr style="background-color: #1a1a1a;">
-      <th>Categoría</th>
+      <th>Capa</th>
       <th>Tecnología</th>
       <th>Propósito</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>Framework</b></td>
-      <td>NestJS</td>
-      <td>Arquitectura modular, mantenible y altamente testeable.</td>
+      <td><b>Backend (API)</b></td>
+      <td>Fastify + TypeScript</td>
+      <td>Servidor ultrarrápido para procesar y cachear datos de GitHub.</td>
     </tr>
     <tr>
-      <td><b>Language</b></td>
-      <td>TypeScript</td>
-      <td>Contratos de interfaces robustos entre capas (Domain/Infra).</td>
+      <td><b>Frontend (Web)</b></td>
+      <td>React + Vite</td>
+      <td>Vistas ligeras (Mini Layouts) con un diseño visual moderno y animaciones sutiles.</td>
     </tr>
     <tr>
-      <td><b>External SDK</b></td>
-      <td>Octokit (GitHub)</td>
-      <td>Comunicación fluida y tipada con la API oficial de GitHub.</td>
-    </tr>
-    <tr>
-      <td><b>Validation</b></td>
-      <td>Zod</td>
-      <td>Sanitización de DTOs y garantía de integridad de datos.</td>
-    </tr>
-    <tr>
-      <td><b>Caching</b></td>
-      <td>Redis / In-Memory</td>
-      <td>Mitigación de Rate-Limits y optimización de latencia.</td>
-    </tr>
-    <tr>
-      <td><b>Testing</b></td>
-      <td>Vitest</td>
-      <td>Pruebas unitarias de algoritmos y lógica de dominio.</td>
+      <td><b>Gestión</b></td>
+      <td>pnpm Workspaces</td>
+      <td>Administración centralizada de dependencias y scripts de orquestación.</td>
     </tr>
   </tbody>
 </table>
+
 <hr>
-
-<h2>🏗️ Arquitectura y Diseño</h2>
-<p>El servidor está diseñado para ser agnóstico a la infraestructura, centrando su valor en el <b>Dominio</b>.</p>
-
-<ul>
-  <li><b>Entidades/Dominio:</b> Lógica pura para el cálculo del "Radar de ADN" y "The Hidden Gem".</li>
-  <li><b>Casos de Uso:</b> Orquestación de servicios (ej. <code>AnalyzeUserProfile</code>).</li>
-  <li><b>Infraestructura:</b> Adaptadores para Octokit (GitHub API), caché de datos y persistencia.</li>
-  <li><b>Seguridad:</b> Implementación de Rate Limiting y validación estricta con Zod.</li>
-</ul>
-
-<hr />
-
-<h2>🚀 Características Principales</h2>
-<ul>
-  <li><b>⚡ Algoritmos Big O:</b> Procesamiento de JSONs masivos de la API de GitHub optimizado para baja latencia.</li>
-  <li><b>🛡️ Resiliencia de API:</b> Estrategia multi-capa de caché (Redis + In-Memory) para mitigar Rate Limits.</li>
-  <li><b>📊 Engine de Análisis:</b> Categorización inteligente de perfiles y detección automática de especialización técnica.</li>
-  <li><b>📝 Docs Proactivas:</b> Swagger/OpenAPI integrado para introspección y testing inmediato de endpoints.</li>
-</ul>
-
-<hr />
-
 <h2>📦 Estructura del Proyecto</h2>
 
 <pre>
-src/
-├── domain/          # Lógica de Negocio Pura (Entities, Value Objects)
-├── use-cases/       # Servicios de Aplicación (Lógica de Orquestación)
-├── infrastructure/  # Controladores, Módulos Externos, API GitHub
-├── shared/          # DTOs, Decoradores, Excepciones Globales
-└── main.ts          # Punto de entrada de la aplicación
+GitData/
+├── apps/
+│   ├── api/        # 🚀 Backend Fastify (Endpoints y lógica pura)
+│   └── web/        # 🎨 Frontend React+Vite (Mini layouts y Widgets)
+├── pnpm-workspace.yaml
+└── package.json    # Scripts de orquestación global
 </pre>
 
 <hr />
@@ -150,36 +97,28 @@ src/
 <table>
   <thead>
     <tr>
-      <th>Comando</th>
+      <th>Comando (desde la raíz)</th>
       <th>Descripción</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td><p><code>pnpm install</code></p></td>
+      <td>Instala y enlaza todas las dependencias del Monorepo.</td>
+    </tr>
+    <tr>
       <td><p><code>pnpm dev</code></p></td>
-      <td>Inicia el servidor en modo desarrollo con <b>Hot Reload</b> activo.</td>
+      <td>Inicia simultáneamente el servidor <b>Fastify</b> y la app <b>React</b> en modo desarrollo.</td>
     </tr>
     <tr>
       <td><p><code>pnpm build</code></p></td>
-      <td>Compila el proyecto generando los archivos de producción en la carpeta <code>dist/</code>.</td>
-    </tr>
-    <tr>
-      <td><p><code>pnpm start</code></p></td>
-      <td>Inicia la aplicación compilada en el entorno local.</td>
+      <td>Compila ambos proyectos preparándolos para producción.</td>
     </tr>
   </tbody>
 </table>
 
-<hr />
+<hr>
 
-<h2>👥 Equipo</h2>
-    <a href="https://github.com/agussantinelli" target="_blank">
-        <img src="https://img.shields.io/badge/👤%20Agustín%20Santinelli-agussantinelli-000000?style=for-the-badge&logo=github&logoColor=white" alt="Agus"/>
-    </a>
-    <a href="https://github.com/martin-ratti" target="_blank">
-        <img src="https://img.shields.io/badge/👤%20Martín%20Ratti-martin--ratti-000000?style=for-the-badge&logo=github&logoColor=white" alt="Martin"/>
-    </a>
-    
 <hr/>
 <h2 align="left">⚖️ Licencia</h2>
 
