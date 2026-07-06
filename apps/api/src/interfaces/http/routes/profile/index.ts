@@ -9,8 +9,8 @@ const profileRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> =
     }
 
     try {
-      // Access GithubService via the fastify instance
-      const profileData = await fastify.github.getProfileAndRepos(username);
+      // Access the Application Use Case injected via fastify plugin
+      const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
       return profileData;
     } catch (error: any) {
       fastify.log.error(error);

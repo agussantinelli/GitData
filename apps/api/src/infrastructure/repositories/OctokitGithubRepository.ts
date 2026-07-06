@@ -1,20 +1,8 @@
 import { Octokit } from 'octokit';
+import { IGithubRepository } from '../../domain/repositories/IGithubRepository';
+import { DeveloperProfile, Project } from '../../domain/entities/Profile';
 
-export interface GithubProfileData {
-  username: string;
-  name: string | null;
-  bio: string | null;
-  followers: number;
-  stats: {
-    commits: number;
-    prs: number;
-    stars: number;
-  };
-  topLanguages: string[];
-  projects: { name: string; description: string | null; stars: number; url: string }[];
-}
-
-export class GithubService {
+export class OctokitGithubRepository implements IGithubRepository {
   private octokit: Octokit;
 
   constructor(token?: string) {
@@ -26,7 +14,7 @@ export class GithubService {
     this.octokit = new Octokit({ auth });
   }
 
-  async getProfileAndRepos(username: string): Promise<GithubProfileData> {
+  async getProfileAndRepos(username: string): Promise<DeveloperProfile> {
     const query = `
       query userInfo($login: String!) {
         user(login: $login) {
@@ -71,7 +59,7 @@ export class GithubService {
       let totalStars = 0;
       const languageMap: Record<string, number> = {};
 
-      const projects = repos.slice(0, 3).map((repo: any) => ({
+      const projects: Project[] = repos.slice(0, 3).map((repo: any) => ({
         name: repo.name,
         description: repo.description,
         stars: repo.stargazerCount,
@@ -93,7 +81,6 @@ export class GithubService {
         }
       });
 
-      // Sort languages by size
       const topLanguages = Object.keys(languageMap)
         .sort((a, b) => languageMap[b] - languageMap[a])
         .slice(0, 5);
@@ -104,7 +91,7 @@ export class GithubService {
         bio: user.bio,
         followers: user.followers?.totalCount || 0,
         stats: {
-          commits: 0, // GraphQL doesn't easily expose total commits across all repos in a single simple query without complex timeline traversal, setting to 0 for now.
+          commits: 0,
           prs: 0,
           stars: totalStars,
         },

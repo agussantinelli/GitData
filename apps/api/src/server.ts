@@ -1,11 +1,13 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import dotenv from 'dotenv';
-import githubPlugin from './plugins/github';
 
-// Import modular routes
-import rootRoutes from './routes/root';
-import profileRoutes from './routes/profile';
+// Import Infrastructure Plugins
+import githubPlugin from './infrastructure/fastify-plugins/github.plugin';
+
+// Import Interfaces (Routes)
+import rootRoutes from './interfaces/http/routes/root';
+import profileRoutes from './interfaces/http/routes/profile';
 
 // Load environment variables
 dotenv.config();
@@ -18,10 +20,10 @@ server.register(cors, {
   origin: '*' // Update this in production
 });
 
-// Register plugins
+// Register Plugins (Injects Use Cases into fastify)
 server.register(githubPlugin);
 
-// Register routes
+// Register Routes (Controllers)
 server.register(rootRoutes);
 server.register(profileRoutes, { prefix: '/api/profile' });
 
