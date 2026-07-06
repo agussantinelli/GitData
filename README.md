@@ -34,7 +34,7 @@
 </p>
 
 <p align="justify">
-  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b>, diseñado para manejar cálculos pesados, gestionar el Rate-Limiting de la API de GitHub y mantener una caché eficiente. Por el otro, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en una <b>Landing Page Showcase</b> de "Super Mini Layouts". Estos widgets ultraligeros cuentan con <b>Soporte Multilingüe (i18n en 5 idiomas)</b> y <b>Soporte Multitema simultáneo (Light / Dark)</b> mediante un diseño premium tipo Glassmorphism, listos para integrarse en portfolios o plataformas externas.
+  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b> que funciona como un auténtico <b>Motor de Inferencia Matemática</b>, combinando consultas <b>híbridas (GraphQL + REST)</b> para deducir patrones que GitHub no expone nativamente (como horarios de trabajo, ramas tecnológicas y trofeos). Por el otro lado, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en una <b>Landing Page Showcase</b> de 9 "Super Mini Layouts". Estos widgets inmersivos cuentan con <b>Soporte Multilingüe (i18n en 5 idiomas)</b> y <b>Soporte Multitema (Light / Dark)</b> mediante un diseño premium purista (Vanilla CSS y Glassmorphism), listos para integrarse en portfolios o plataformas externas.
 </p>
 
 <hr>
