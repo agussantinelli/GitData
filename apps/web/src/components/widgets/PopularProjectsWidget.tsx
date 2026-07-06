@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
+import { FaFire, FaStar, FaCodeBranch, FaArchive, FaClock } from 'react-icons/fa';
 import { dictionaries, type Language } from '../../locales/dictionaries';
 import './styles/PopularProjectsWidget.css';
 
@@ -43,7 +44,7 @@ export const PopularProjectsWidget: React.FC<PopularProjectsWidgetProps> = ({
     <div className={`theme-${theme}`}>
       <Card className="widget-projects">
         <div className="widget-projects-header">
-          <span style={{ fontSize: '1.5rem' }}>🔥</span>
+          <FaFire style={{ fontSize: '1.5rem', color: '#ff5e00' }} />
           <h2>{t.popularProjects}</h2>
         </div>
 
@@ -63,19 +64,19 @@ export const PopularProjectsWidget: React.FC<PopularProjectsWidgetProps> = ({
 
               <div className="project-footer">
                 <span className="project-stat">
-                  <span className="project-stat-icon">⭐</span>
+                  <FaStar className="project-stat-icon" />
                   {repo.stars}
                 </span>
                 <span className="project-stat">
-                  <span className="project-stat-icon">🍴</span>
+                  <FaCodeBranch className="project-stat-icon" />
                   {repo.forks}
                 </span>
                 <span className="project-stat">
-                  <span className="project-stat-icon">📦</span>
+                  <FaArchive className="project-stat-icon" />
                   {formatSize(repo.sizeKb)}
                 </span>
                 <span className="project-stat">
-                  <span className="project-stat-icon">🕒</span>
+                  <FaClock className="project-stat-icon" />
                   {t.updated} {formatDate(repo.updatedAt)}
                 </span>
                 <a href={repo.url} target="_blank" rel="noopener noreferrer" className="project-link">
