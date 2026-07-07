@@ -53,3 +53,7 @@ Aquí detallamos qué información y qué impacto genera cada uno.
 ### 12. 🏁 Milestones Widget (Inferencia)
 **¿Qué es?** Una línea de tiempo cronológica histórica (Ej. Creación de cuenta, Primer Repo, Mayor Proyecto).
 **¿Qué implica?** Trayectoria y evolución narrativa. Convierte un montón de métricas sueltas en una historia lineal, mostrando cómo el desarrollador empezó con repositorios pequeños y fue evolucionando hasta lograr el reconocimiento de la comunidad.
+
+### 13. ⚖️ Code-Life Balance Widget (Inferencia)
+**¿Qué es?** Un gráfico que divide estrictamente todo tu código del último año en dos grupos: Weekdays (Lunes a Viernes) y Weekends (Sábados y Domingos).
+**¿Qué implica?** Pasión vs. Trabajo. Demuestra a un reclutador que la programación es tu hobby genuino, no solo un empleo de oficina de 9 a 6.
