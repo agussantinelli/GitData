@@ -10,6 +10,7 @@ import githubPlugin from './infrastructure/fastify-plugins/github.plugin';
 // Import Interfaces (Routes)
 import rootRoutes from './interfaces/http/routes/root';
 import profileRoutes from './interfaces/http/routes/profile';
+import svgRoutes from './interfaces/http/routes/svg/index';
 
 // Load environment variables
 dotenv.config();
@@ -72,6 +73,7 @@ if (process.env.API_KEY) {
 server.register(githubPlugin);
 server.register(rootRoutes);
 server.register(profileRoutes, { prefix: '/api/profile' });
+server.register(svgRoutes, { prefix: '/api/svg' });
 
 const start = async () => {
   try {
