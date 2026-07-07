@@ -34,7 +34,17 @@ El porcentaje de bytes en cada pilar define si eres un desarrollador puramente F
 
 ---
 
-## 3. Logros y Trofeos (Achievements)
+## 3. Code-Life Balance (Pasión vs. Trabajo)
+
+Recorre los 365 días del calendario de contribuciones. Convierte cada fecha a un objeto `Date` y extrae su día de la semana (`getDay()`).
+- Si es `0` (Domingo) o `6` (Sábado), suma el volumen al contador `weekends`.
+- Cualquier otro número suma al contador `weekdays`.
+
+Esto deduce si el programador utiliza su tiempo personal de fin de semana para contribuir al código (hobby/pasión) o si su actividad está puramente atada a horarios laborales de oficina.
+
+---
+
+## 4. Logros y Trofeos (Achievements)
 
 Un sistema de "Gamificación" que desbloquea medallas si el perfil supera ciertos umbrales estrictos.
 
