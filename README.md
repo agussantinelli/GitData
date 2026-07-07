@@ -121,6 +121,7 @@
       <li>Colaboración: Cantidad de colaboradores activos en el repositorio.</li>
     </ul>
   </li>
+  <li><b>Inferencia Analítica:</b> Deducciones algorítmicas de horarios de trabajo (Mañana/Tarde/Noche), balance de días laborables vs. fines de semana (Code-Life Balance), pilares arquitectónicos y desbloqueo de trofeos ocultos.</li>
 </ul>
 
 <hr>
@@ -140,6 +141,7 @@
   <li><b>🕒 Dev Clock & Hourly Frequency:</b> Gráficos de actividad de 24 horas que deducen la intensidad y hábitos de programación diarios.</li>
   <li><b>📡 Activity Stream:</b> Una terminal interactiva en vivo que muestra los últimos eventos (Pushes, Issues) consultados mediante la API REST.</li>
   <li><b>🚀 Milestones Timeline:</b> Línea de tiempo cronológica resaltando los hitos históricos (Creación, Primer Repo, Récords).</li>
+  <li><b>⚖️ Code-Life Balance:</b> Gráfico de barras que divide estrictamente tu código del último año en dos grupos: Días Laborables y Fines de Semana, demostrando pasión y dedicación.</li>
 </ul>
 
 <hr>
