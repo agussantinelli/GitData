@@ -37,7 +37,7 @@ export const renderCategorizedProjectsSVG = ({ projects, theme, lang }: Categori
       <line x1="0" y1="40" x2="${width - 48}" y2="40" stroke="${theme.glassBorder}" stroke-width="1" />
     </g>
   `;
-  currentY += 60;
+  currentY += 80;
 
   // Three columns
   const colWidth = (width - 48 - 40) / 3; // 40px gap total (20px each)
