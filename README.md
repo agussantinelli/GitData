@@ -265,6 +265,10 @@ GitData/
       <td>Inicia simultáneamente el servidor <b>Fastify</b> y la app <b>React</b> en modo desarrollo.</td>
     </tr>
     <tr>
+      <td><p><code>pnpm test</code></p></td>
+      <td>Ejecuta todas las suites de prueba unitarias (Vitest) en backend y frontend.</td>
+    </tr>
+    <tr>
       <td><p><code>pnpm build</code></p></td>
       <td>Compila ambos proyectos preparándolos para producción.</td>
     </tr>
