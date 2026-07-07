@@ -10,7 +10,7 @@ interface URLSnippetProps {
 
 export const URLSnippet: React.FC<URLSnippetProps> = ({ endpoint, username, theme, lang }) => {
   const [copied, setCopied] = useState(false);
-  const apiUrl = import.meta.env.VITE_API_URL || 'https://gitdata.tu-dominio.com';
+  const apiUrl = import.meta.env.VITE_API_URL || 'https://git-data-web.vercel.app';
   const url = `${apiUrl}/api/svg/${endpoint}?username=<tu-nombre-usuario>&theme=${theme}&lang=${lang}`;
 
   const handleCopy = () => {
