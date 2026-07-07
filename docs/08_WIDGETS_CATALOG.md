@@ -1,6 +1,6 @@
 # 🧩 Catálogo de Widgets (Significado e Implicaciones)
 
-GitData cuenta con una colección de **12 Super Mini Layouts**. Más allá de ser componentes bonitos, cada widget fue diseñado con un propósito específico: comunicar una habilidad blanda o dura a los reclutadores (Technical Recruiters) o líderes técnicos que visiten tu perfil.
+GitData cuenta con una colección de **13 Super Mini Layouts**. Más allá de ser componentes bonitos, cada widget fue diseñado con un propósito específico: comunicar una habilidad blanda o dura a los reclutadores (Technical Recruiters) o líderes técnicos que visiten tu perfil.
 
 Aquí detallamos qué información y qué impacto genera cada uno.
 
