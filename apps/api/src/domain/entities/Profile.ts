@@ -64,6 +64,11 @@ export interface TechRadar {
   devops: number;
 }
 
+export interface CodeLifeBalance {
+  weekdays: number;
+  weekends: number;
+}
+
 export interface Milestone {
   id: string;
   date: string;
@@ -90,6 +95,7 @@ export interface DeveloperProfile {
   timeOfDay: TimeOfDay;
   activityStream: ActivityEvent[];
   techRadar: TechRadar;
+  codeLifeBalance: CodeLifeBalance;
   milestones: Milestone[];
   hourlyFrequency: number[];
 }

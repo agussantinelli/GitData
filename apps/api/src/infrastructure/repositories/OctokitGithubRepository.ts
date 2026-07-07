@@ -159,6 +159,9 @@ export class OctokitGithubRepository implements IGithubRepository {
         }));
 
       const contributions: { date: string; count: number }[] = [];
+      let weekdays = 0;
+      let weekends = 0;
+
       if (user.contributionsCollection?.contributionCalendar?.weeks) {
         user.contributionsCollection.contributionCalendar.weeks.forEach((week: any) => {
           week.contributionDays.forEach((day: any) => {
@@ -166,9 +169,18 @@ export class OctokitGithubRepository implements IGithubRepository {
               date: day.date,
               count: day.contributionCount,
             });
+            
+            const dayOfWeek = new Date(day.date).getUTCDay();
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+              weekends += day.contributionCount;
+            } else {
+              weekdays += day.contributionCount;
+            }
           });
         });
       }
+      
+      const codeLifeBalance = { weekdays, weekends };
 
       // --- LIVE ACTIVITY STREAM & TIME OF DAY (REST API) ---
       let publicEvents: any[] = [];
@@ -306,6 +318,7 @@ export class OctokitGithubRepository implements IGithubRepository {
         timeOfDay,
         activityStream,
         techRadar,
+        codeLifeBalance,
         milestones,
         hourlyFrequency,
       };
