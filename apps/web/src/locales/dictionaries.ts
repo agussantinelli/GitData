@@ -30,6 +30,20 @@ export const dictionaries = {
     milestones: 'Línea de Tiempo',
     hourlyActivity: 'Actividad por Hora (24h)',
     hourlyActivityDesc: 'Basado en los últimos 50 eventos públicos. Refleja tu patrón de código más reciente.',
+    achievementsData: {
+      'pull-shark': { title: 'Tiburón de Pulls', desc: 'Ha contribuido con múltiples PRs.' },
+      'bug-hunter': { title: 'Cazador de Bugs', desc: 'Reportó múltiples issues.' },
+      'influencer': { title: 'Influencer', desc: 'Tiene una base sólida de seguidores.' },
+      'night-owl': { title: 'Búho Nocturno', desc: 'Programa principalmente de noche.' },
+      'early-bird': { title: 'Madrugador', desc: 'Programa por la mañana.' }
+    },
+    milestonesData: {
+      'account-created': { title: 'Cuenta Creada', desc: 'Se unió a la comunidad de GitHub.' },
+      'first-repo': { title: 'Primer Repositorio', desc: 'Creó el proyecto {repo}.' },
+      'first-fork': { title: 'Primer Fork', desc: 'Hizo un fork de {repo} para experimentar.' },
+      'community-recognition': { title: 'Reconocimiento', desc: '{repo} alcanzó {stars} estrellas.' },
+      'major-codebase': { title: 'Gran Proyecto', desc: 'Inició {repo} ({size}MB).' }
+    }
   },
   en: {
     yearsExp: 'years exp.',
@@ -60,6 +74,20 @@ export const dictionaries = {
     milestones: 'Timeline',
     hourlyActivity: 'Hourly Activity (24h)',
     hourlyActivityDesc: 'Based on the last 50 public events. Reflects your most recent coding pattern.',
+    achievementsData: {
+      'pull-shark': { title: 'Pull Shark', desc: 'Has contributed multiple PRs.' },
+      'bug-hunter': { title: 'Bug Hunter', desc: 'Reported many issues.' },
+      'influencer': { title: 'Influencer', desc: 'Has a solid follower base.' },
+      'night-owl': { title: 'Night Owl', desc: 'Codes mostly at night.' },
+      'early-bird': { title: 'Early Bird', desc: 'Codes in the morning.' }
+    },
+    milestonesData: {
+      'account-created': { title: 'Account Created', desc: 'Joined the GitHub community.' },
+      'first-repo': { title: 'First Public Repo', desc: 'Created {repo}.' },
+      'first-fork': { title: 'First Fork', desc: 'Forked {repo} to experiment or contribute.' },
+      'community-recognition': { title: 'Community Recognition', desc: '{repo} reached {stars} stars.' },
+      'major-codebase': { title: 'Major Codebase', desc: 'Started {repo} ({size}MB).' }
+    }
   },
   pt: {
     yearsExp: 'anos exp.',
@@ -90,6 +118,20 @@ export const dictionaries = {
     milestones: 'Linha do Tempo',
     hourlyActivity: 'Atividade por Hora (24h)',
     hourlyActivityDesc: 'Baseado nos últimos 50 eventos públicos. Reflete seu padrão de codificação mais recente.',
+    achievementsData: {
+      'pull-shark': { title: 'Tubarão de Pulls', desc: 'Contribuiu com múltiplos PRs.' },
+      'bug-hunter': { title: 'Caçador de Bugs', desc: 'Reportou vários issues.' },
+      'influencer': { title: 'Influenciador', desc: 'Tem uma base sólida de seguidores.' },
+      'night-owl': { title: 'Coruja Noturna', desc: 'Programa principalmente à noite.' },
+      'early-bird': { title: 'Madrugador', desc: 'Programa de manhã.' }
+    },
+    milestonesData: {
+      'account-created': { title: 'Conta Criada', desc: 'Juntou-se à comunidade GitHub.' },
+      'first-repo': { title: 'Primeiro Repositório', desc: 'Criou o projeto {repo}.' },
+      'first-fork': { title: 'Primeiro Fork', desc: 'Fez um fork de {repo} para experimentar.' },
+      'community-recognition': { title: 'Reconhecimento', desc: '{repo} alcançou {stars} estrelas.' },
+      'major-codebase': { title: 'Grande Projeto', desc: 'Iniciou {repo} ({size}MB).' }
+    }
   },
   it: {
     yearsExp: 'anni esp.',
@@ -120,6 +162,20 @@ export const dictionaries = {
     milestones: 'Cronologia',
     hourlyActivity: 'Attività Oraria (24h)',
     hourlyActivityDesc: 'Basato sugli ultimi 50 eventi pubblici. Riflette il tuo schema di programmazione più recente.',
+    achievementsData: {
+      'pull-shark': { title: 'Squalo di Pull', desc: 'Ha contribuito con più PR.' },
+      'bug-hunter': { title: 'Cacciatore di Bug', desc: 'Ha segnalato molti problemi.' },
+      'influencer': { title: 'Influencer', desc: 'Ha una solida base di follower.' },
+      'night-owl': { title: 'Nottambulo', desc: 'Programma principalmente di notte.' },
+      'early-bird': { title: 'Mattiniero', desc: 'Programma di mattina.' }
+    },
+    milestonesData: {
+      'account-created': { title: 'Account Creato', desc: 'Si è unito alla comunità GitHub.' },
+      'first-repo': { title: 'Primo Repo Pubblico', desc: 'Creato il progetto {repo}.' },
+      'first-fork': { title: 'Primo Fork', desc: 'Ha fatto un fork di {repo} per sperimentare.' },
+      'community-recognition': { title: 'Riconoscimento', desc: '{repo} ha raggiunto {stars} stelle.' },
+      'major-codebase': { title: 'Grande Progetto', desc: 'Iniziato {repo} ({size}MB).' }
+    }
   },
   fr: {
     yearsExp: 'ans exp.',
@@ -150,5 +206,19 @@ export const dictionaries = {
     milestones: 'Chronologie',
     hourlyActivity: 'Activité Horaire (24h)',
     hourlyActivityDesc: 'Basé sur les 50 derniers événements publics. Reflète votre modèle de codage le plus récent.',
+    achievementsData: {
+      'pull-shark': { title: 'Requin des Pulls', desc: 'A contribué à plusieurs PRs.' },
+      'bug-hunter': { title: 'Chasseur de Bugs', desc: 'A signalé plusieurs problèmes.' },
+      'influencer': { title: 'Influenceur', desc: 'A une base solide d\'abonnés.' },
+      'night-owl': { title: 'Oiseau de Nuit', desc: 'Programme principalement la nuit.' },
+      'early-bird': { title: 'Lève-tôt', desc: 'Programme le matin.' }
+    },
+    milestonesData: {
+      'account-created': { title: 'Compte Créé', desc: 'A rejoint la communauté GitHub.' },
+      'first-repo': { title: 'Premier Dépôt', desc: 'A créé le projet {repo}.' },
+      'first-fork': { title: 'Premier Fork', desc: 'A forké {repo} pour expérimenter.' },
+      'community-recognition': { title: 'Reconnaissance', desc: '{repo} a atteint {stars} étoiles.' },
+      'major-codebase': { title: 'Projet Majeur', desc: 'A démarré {repo} ({size}MB).' }
+    }
   },
 };

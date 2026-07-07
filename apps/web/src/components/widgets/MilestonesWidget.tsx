@@ -5,9 +5,11 @@ import { dictionaries, type Language } from '../../locales/dictionaries';
 import './styles/MilestonesWidget.css';
 
 interface Milestone {
+  id: string;
   date: string;
   title: string;
   description: string;
+  meta?: any;
 }
 
 interface MilestonesWidgetProps {
@@ -37,15 +39,27 @@ export const MilestonesWidget: React.FC<MilestonesWidgetProps> = ({
 
         <div className="milestones-timeline">
           {milestones.length > 0 ? (
-            milestones.map((ms, idx) => (
-              <div key={idx} className="milestone-item">
-                <div className="milestone-year-bubble">{getYear(ms.date)}</div>
-                <div className="milestone-content">
-                  <h4 className="milestone-title">{ms.title}</h4>
-                  <p className="milestone-desc">{ms.description}</p>
+            milestones.map((ms, idx) => {
+              const msData = (t as any).milestonesData[ms.id];
+              let title = msData ? msData.title : ms.title;
+              let desc = msData ? msData.desc : ms.description;
+
+              if (ms.meta) {
+                if (ms.meta.repo) desc = desc.replace('{repo}', ms.meta.repo);
+                if (ms.meta.stars) desc = desc.replace('{stars}', ms.meta.stars.toString());
+                if (ms.meta.size) desc = desc.replace('{size}', ms.meta.size.toString());
+              }
+
+              return (
+                <div key={idx} className="milestone-item">
+                  <div className="milestone-year-bubble">{getYear(ms.date)}</div>
+                  <div className="milestone-content">
+                    <h4 className="milestone-title">{title}</h4>
+                    <p className="milestone-desc">{desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           ) : (
             <p className="no-data">No hay hitos disponibles.</p>
           )}

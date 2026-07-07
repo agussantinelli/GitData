@@ -34,17 +34,23 @@ export const AchievementsWidget: React.FC<AchievementsWidgetProps> = ({
 
         <div className="achievements-grid">
           {achievements.length > 0 ? (
-            achievements.map((ach) => (
-              <div key={ach.id} className="achievement-item" title={ach.description}>
-                <div className="achievement-icon-wrapper">
-                  <span className="achievement-emoji">{ach.icon}</span>
+            achievements.map((ach) => {
+              const achData = (t as any).achievementsData[ach.id];
+              const title = achData ? achData.title : ach.title;
+              const desc = achData ? achData.desc : ach.description;
+
+              return (
+                <div key={ach.id} className="achievement-item" title={desc}>
+                  <div className="achievement-icon-wrapper">
+                    <span className="achievement-emoji">{ach.icon}</span>
+                  </div>
+                  <div className="achievement-info">
+                    <span className="achievement-title">{title}</span>
+                    <span className="achievement-desc">{desc}</span>
+                  </div>
                 </div>
-                <div className="achievement-info">
-                  <span className="achievement-title">{ach.title}</span>
-                  <span className="achievement-desc">{ach.description}</span>
-                </div>
-              </div>
-            ))
+              );
+            })
           ) : (
             <p className="no-data">Aún no hay logros desbloqueados.</p>
           )}
