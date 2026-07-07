@@ -38,6 +38,8 @@
 .codelife-content {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
 }
@@ -65,6 +67,7 @@
 
 .codelife-bar-container {
   flex: 1;
+  min-width: 150px;
   height: 14px;
   background-color: var(--glass-border);
   border-radius: 7px;

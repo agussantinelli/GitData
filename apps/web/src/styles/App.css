@@ -1,11 +1,13 @@
 .landing-container {
   max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .landing-header {
@@ -54,9 +56,37 @@
 
 .widgets-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
   gap: 2rem;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 2rem 1rem;
+  }
+
+  .landing-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .landing-header p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .widgets-grid {
+    gap: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .language-title {
+    font-size: 1.1rem;
+  }
 }
 
 

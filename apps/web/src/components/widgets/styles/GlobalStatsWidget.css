@@ -20,8 +20,14 @@
 
 .global-stats-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
+}
+
+@media (min-width: 400px) {
+  .global-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 768px) {

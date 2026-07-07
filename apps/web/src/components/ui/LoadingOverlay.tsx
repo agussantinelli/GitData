@@ -12,17 +12,21 @@ export const LoadingOverlay: React.FC<LoadingOverlayProps> = ({
 }) => {
   if (error) {
     return (
-      <div className="loading-overlay" style={{background: 'rgba(50, 0, 0, 0.9)'}}>
-        <div className="loading-error-icon">⚠️</div>
-        <div className="loading-error-text">Error: {error}</div>
+      <div className="loading-overlay">
+        <div className="loading-error-inner">
+          <div className="loading-error-icon">⚠️</div>
+          <div className="loading-error-text">Error: {error}</div>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="loading-overlay">
-      <div className="spinner"></div>
-      <div>{message}</div>
+      <div className="loading-inner">
+        <div className="spinner"></div>
+        <div className="loading-message">{message}</div>
+      </div>
     </div>
   );
 };
