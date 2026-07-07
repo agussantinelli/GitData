@@ -75,9 +75,6 @@ export class OctokitGithubRepository implements IGithubRepository {
               pullRequests(states: OPEN) {
                 totalCount
               }
-              collaborators {
-                totalCount
-              }
               defaultBranchRef {
                 target {
                   ... on Commit {
