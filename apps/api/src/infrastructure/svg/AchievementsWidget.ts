@@ -54,9 +54,8 @@ export const renderAchievementsSVG = ({ achievements, theme, lang }: Achievement
   const itemHeight = 150; 
 
   const listItems = achievements.map((ach, idx) => {
-    const achData = t.achievementsData?.[ach.id];
-    const title = achData ? achData.title : ach.title;
-    const desc = achData ? achData.desc : ach.description;
+    const title = ach.title;
+    const desc = ach.description;
     const iconObj = getIcon(ach.id);
 
     const row = Math.floor(idx / columns);

@@ -35,9 +35,8 @@ export const renderMilestonesSVG = ({ milestones, theme, lang }: MilestonesSVGPr
     const getYear = (dateStr: string) => new Date(dateStr).getFullYear();
 
     timelineSvg = milestones.map((ms, idx) => {
-      const msData = t.milestonesData[ms.id];
-      let title = msData ? msData.title : ms.title;
-      let desc = msData ? msData.desc : ms.description;
+      let title = ms.title;
+      let desc = ms.description;
 
       if (ms.meta) {
         if (ms.meta.repo) desc = desc.replace('{repo}', ms.meta.repo);

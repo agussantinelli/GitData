@@ -40,9 +40,8 @@ export const MilestonesWidget: React.FC<MilestonesWidgetProps> = ({
         <div className="milestones-timeline">
           {milestones.length > 0 ? (
             milestones.map((ms, idx) => {
-              const msData = (t as any).milestonesData[ms.id];
-              let title = msData ? msData.title : ms.title;
-              let desc = msData ? msData.desc : ms.description;
+              const title = ms.title;
+              let desc = ms.description;
 
               if (ms.meta) {
                 if (ms.meta.repo) desc = desc.replace('{repo}', ms.meta.repo);

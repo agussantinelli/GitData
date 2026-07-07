@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '../ui/Card';
-import { FaClock } from 'react-icons/fa';
+import { FaClock, FaSun, FaMoon } from 'react-icons/fa';
 import { dictionaries, type Language } from '../../locales/dictionaries';
 import './styles/TimeOfDayWidget.css';
 
@@ -45,21 +45,21 @@ export const TimeOfDayWidget: React.FC<TimeOfDayWidgetProps> = ({
             <div className="time-bar morning" style={{ height: `${pMorning}%` }}>
               <span className="time-percent">{pMorning}%</span>
             </div>
-            <div className="time-label">🌅 6-12h</div>
+            <div className="time-label"><FaSun /> 6-12h</div>
           </div>
           
           <div className="time-bar-container">
             <div className="time-bar afternoon" style={{ height: `${pAfternoon}%` }}>
               <span className="time-percent">{pAfternoon}%</span>
             </div>
-            <div className="time-label">☀️ 12-20h</div>
+            <div className="time-label"><FaSun /> 12-20h</div>
           </div>
           
           <div className="time-bar-container">
             <div className="time-bar night" style={{ height: `${pNight}%` }}>
               <span className="time-percent">{pNight}%</span>
             </div>
-            <div className="time-label">🦉 20-6h</div>
+            <div className="time-label"><FaMoon /> 20-6h</div>
           </div>
         </div>
       </Card>
