@@ -5,6 +5,8 @@ import { getTheme } from '../../../../infrastructure/svg/themes';
 import { renderGlobalStatsSVG } from '../../../../infrastructure/svg/GlobalStatsWidget';
 import { renderTopLanguagesSVG } from '../../../../infrastructure/svg/TopLanguagesWidget';
 import { renderPopularProjectsSVG, type Project } from '../../../../infrastructure/svg/PopularProjectsWidget';
+import { renderAchievementsSVG, type Achievement } from '../../../../infrastructure/svg/AchievementsWidget';
+import { renderPersonalInfoSVG, type ProfileData } from '../../../../infrastructure/svg/PersonalInfoWidget';
 import type { Language } from '../../../../infrastructure/svg/locales';
 
 const widgetQuerySchema = z.object({
@@ -61,7 +63,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     }
   });
 
-  fastify.get('/top-languages', async (req, reply) => {
+  fastify.get('/top-languages', async (req: any, reply) => {
     const query = widgetQuerySchema.safeParse(req.query);
     
     if (!query.success) {
@@ -71,16 +73,10 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     const { username, theme = 'dark', lang = 'es' } = query.data;
 
     try {
-      const mockLanguages = [
-        { name: 'TypeScript', percentage: 45.2 },
-        { name: 'JavaScript', percentage: 25.8 },
-        { name: 'CSS', percentage: 12.4 },
-        { name: 'HTML', percentage: 8.5 },
-        { name: 'Rust', percentage: 8.1 }
-      ];
+      const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
 
       const svgString = renderTopLanguagesSVG({
-        languages: mockLanguages,
+        languages: profileData.topLanguages,
         theme: getTheme(theme),
         lang: lang as Language
       });
@@ -94,7 +90,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     }
   });
 
-  fastify.get('/popular-projects', async (req, reply) => {
+  fastify.get('/popular-projects', async (req: any, reply) => {
     const query = widgetQuerySchema.safeParse(req.query);
     
     if (!query.success) {
@@ -104,13 +100,10 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     const { username, theme = 'dark', lang = 'es' } = query.data;
 
     try {
-      const mockProjects: Project[] = [
-        { name: 'gitdata', description: 'Advanced GitHub statistics generator', stars: 128, forks: 42, url: 'https://github.com/gitdata', primaryLanguage: 'TypeScript', sizeKb: 2048, updatedAt: new Date().toISOString(), totalCommits: 500 },
-        { name: 'awesome-repo', description: null, stars: 95, forks: 12, url: 'https://github.com/awesome-repo', primaryLanguage: 'Rust', sizeKb: 1500, updatedAt: new Date().toISOString(), totalCommits: 300 }
-      ];
+      const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
 
       const svgString = renderPopularProjectsSVG({
-        projects: mockProjects,
+        projects: profileData.projects,
         theme: getTheme(theme),
         lang: lang as Language
       });
@@ -121,6 +114,74 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     } catch (error) {
       req.log.error(error);
       return reply.status(500).send('Error generating popular projects SVG');
+    }
+  });
+
+  fastify.get('/achievements', async (req: any, reply) => {
+    const query = widgetQuerySchema.safeParse(req.query);
+    
+    if (!query.success) {
+      return reply.status(400).send('Invalid query parameters');
+    }
+
+    const { username, theme = 'dark', lang = 'es' } = query.data;
+
+    try {
+      const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
+
+      const svgString = renderAchievementsSVG({
+        achievements: profileData.achievements,
+        theme: getTheme(theme),
+        lang: lang as Language
+      });
+
+      reply.header('Content-Type', 'image/svg+xml');
+      reply.header('Cache-Control', 'public, max-age=3600'); 
+      return reply.send(svgString);
+    } catch (error) {
+      req.log.error(error);
+      return reply.status(500).send('Error generating achievements SVG');
+    }
+  });
+
+  fastify.get('/profile', async (req: any, reply) => {
+    const query = widgetQuerySchema.safeParse(req.query);
+    
+    if (!query.success) {
+      return reply.status(400).send('Invalid query parameters');
+    }
+
+    const { username, theme = 'dark', lang = 'es' } = query.data;
+
+    try {
+      const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
+
+      // Fetch avatar and convert to base64 to avoid CORS/SVG issues
+      let avatarBase64 = '';
+      try {
+        const avatarRes = await fetch(`https://github.com/${profileData.username}.png`);
+        if (avatarRes.ok) {
+          const arrayBuffer = await avatarRes.arrayBuffer();
+          const buffer = Buffer.from(arrayBuffer);
+          avatarBase64 = `data:image/png;base64,${buffer.toString('base64')}`;
+        }
+      } catch (err) {
+        fastify.log.warn('Could not fetch avatar for ' + profileData.username);
+      }
+
+      const svgString = renderPersonalInfoSVG({
+        data: profileData,
+        theme: getTheme(theme),
+        lang: lang as Language,
+        avatarBase64
+      });
+
+      reply.header('Content-Type', 'image/svg+xml');
+      reply.header('Cache-Control', 'public, max-age=3600'); 
+      return reply.send(svgString);
+    } catch (error) {
+      req.log.error(error);
+      return reply.status(500).send('Error generating profile SVG');
     }
   });
 };
