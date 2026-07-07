@@ -1,19 +1,26 @@
-.markdown-snippet-container {
+.url-snippet-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--bg-glass);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 8px 12px;
   margin-top: 12px;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.markdown-code {
+.url-snippet-container:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.url-code {
   font-family: monospace;
   font-size: 0.75rem;
   color: var(--text-muted, #888);
