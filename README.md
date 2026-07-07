@@ -163,28 +163,28 @@
 <pre>
 GitData/
 ├── .agent/
-│   └── skills/           # 🤖 Reglas arquitectónicas y Contexto para IAs
+│   └── skills/                         # 🤖 Reglas arquitectónicas y Contexto para IAs
 ├── apps/
-│   ├── api/              # 🚀 Backend Fastify (Motor de Inferencia)
+│   ├── api/                            # 🚀 Backend Fastify (Motor de Inferencia)
 │   │   ├── src/
-│   │   │   ├── domain/         # Entidades puras e Interfaces (Profile)
-│   │   │   ├── infrastructure/ # Adaptadores y Repositorios (Octokit, GitHub)
-│   │   │   ├── presentation/   # Controladores y Endpoints REST
-│   │   │   └── server.ts       # Orquestador de la API
+│   │   │   ├── domain/                 # Entidades puras e Interfaces (Profile)
+│   │   │   ├── infrastructure/         # Adaptadores y Repositorios (Octokit, GitHub)
+│   │   │   ├── presentation/           # Controladores y Endpoints REST
+│   │   │   └── server.ts               # Orquestador de la API
 │   │   └── package.json
 │   │
-│   └── web/              # 🎨 Frontend React+Vite (Showcase UI)
+│   └── web/                            # 🎨 Frontend React+Vite (Showcase UI)
 │       ├── src/
 │       │   ├── components/
-│       │   │   ├── ui/         # Base UI (Card, Badge, Avatar)
-│       │   │   └── widgets/    # Los 13 Super Mini Layouts y sus estilos
-│       │   ├── locales/        # 🌍 Diccionarios i18n (5 Idiomas)
-│       │   ├── styles/         # 💅 Tokens CSS, Variables y Multi-Tema
-│       │   └── App.tsx         # Catálogo interactivo
+│       │   │   ├── ui/                 # Base UI (Card, Badge, Avatar)
+│       │   │   └── widgets/            # Los 13 Super Mini Layouts y sus estilos
+│       │   ├── locales/                # 🌍 Diccionarios i18n (5 Idiomas)
+│       │   ├── styles/                 # 💅 Tokens CSS, Variables y Multi-Tema
+│       │   └── App.tsx                 # Catálogo interactivo
 │       └── package.json
-├── docs/                 # 📚 Documentación exhaustiva (Guías, Motores, Catálogo)
-├── pnpm-workspace.yaml   # Configuración del Monorepo
-└── package.json          # Scripts de orquestación global
+├── docs/                               # 📚 Documentación exhaustiva (Guías, Motores, Catálogo)
+├── pnpm-workspace.yaml                 # Configuración del Monorepo
+└── package.json                        # Scripts de orquestación global
 </pre>
 
 <hr />
