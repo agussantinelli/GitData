@@ -65,9 +65,11 @@ export interface TechRadar {
 }
 
 export interface Milestone {
+  id: string;
   date: string;
   title: string;
   description: string;
+  meta?: any;
 }
 
 export interface DeveloperProfile {

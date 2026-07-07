@@ -228,15 +228,17 @@ export class OctokitGithubRepository implements IGithubRepository {
 
       // --- MILESTONES ---
       const milestones = [];
-      milestones.push({ date: user.createdAt, title: 'Account Created', description: 'Joined the GitHub community.' });
+      milestones.push({ id: 'account-created', date: user.createdAt, title: 'Account Created', description: 'Joined the GitHub community.', meta: {} });
       
       if (projects.length > 0) {
         // Find the oldest repository
         const oldestProject = [...projects].sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())[0];
         milestones.push({ 
+          id: 'first-repo',
           date: oldestProject.createdAt, 
           title: 'First Public Repo', 
-          description: `Created ${oldestProject.name}.` 
+          description: `Created ${oldestProject.name}.`,
+          meta: { repo: oldestProject.name }
         });
 
         // First Fork (Contribution Attempt)
@@ -244,9 +246,11 @@ export class OctokitGithubRepository implements IGithubRepository {
         if (forks.length > 0) {
           const firstFork = forks.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())[0];
           milestones.push({
+            id: 'first-fork',
             date: firstFork.createdAt,
             title: 'First Fork',
-            description: `Forked ${firstFork.name} to experiment or contribute.`
+            description: `Forked ${firstFork.name} to experiment or contribute.`,
+            meta: { repo: firstFork.name }
           });
         }
 
@@ -255,9 +259,11 @@ export class OctokitGithubRepository implements IGithubRepository {
         if (starred.length > 0) {
           const mostStarred = starred.sort((a, b) => b.stars - a.stars)[0];
           milestones.push({
+            id: 'community-recognition',
             date: mostStarred.createdAt,
             title: 'Community Recognition',
-            description: `${mostStarred.name} reached ${mostStarred.stars} stars.`
+            description: `${mostStarred.name} reached ${mostStarred.stars} stars.`,
+            meta: { repo: mostStarred.name, stars: mostStarred.stars }
           });
         }
 
@@ -265,9 +271,11 @@ export class OctokitGithubRepository implements IGithubRepository {
         const largest = [...projects].sort((a, b) => b.sizeKb - a.sizeKb)[0];
         if (largest && largest.sizeKb > 1000) { 
           milestones.push({
+            id: 'major-codebase',
             date: largest.createdAt,
             title: 'Major Codebase',
-            description: `Started ${largest.name} (${Math.round(largest.sizeKb / 1024)}MB).`
+            description: `Started ${largest.name} (${Math.round(largest.sizeKb / 1024)}MB).`,
+            meta: { repo: largest.name, size: Math.round(largest.sizeKb / 1024) }
           });
         }
       }
