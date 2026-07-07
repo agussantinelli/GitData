@@ -34,7 +34,7 @@
 </p>
 
 <p align="justify">
-  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b> que funciona como un auténtico <b>Motor de Inferencia Matemática</b>, combinando consultas <b>híbridas (GraphQL + REST)</b> para deducir patrones que GitHub no expone nativamente (como horarios de trabajo, ramas tecnológicas y trofeos). Por el otro lado, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en una <b>Landing Page Showcase</b> de 9 "Super Mini Layouts". Estos widgets inmersivos cuentan con <b>Soporte Multilingüe (i18n en 5 idiomas)</b> y <b>Soporte Multitema (Light / Dark)</b> mediante un diseño premium purista (Vanilla CSS y Glassmorphism), listos para integrarse en portfolios o plataformas externas.
+  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b> que funciona como un auténtico <b>Motor de Inferencia Matemática</b>, combinando consultas <b>híbridas (GraphQL + REST)</b> para deducir patrones que GitHub no expone nativamente (como horarios de trabajo, ramas tecnológicas y trofeos). Por el otro lado, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en una <b>Landing Page Showcase</b> de 13 "Super Mini Layouts". Estos widgets inmersivos cuentan con <b>Soporte Multilingüe (i18n en 5 idiomas)</b> y <b>Soporte Multitema (Light / Dark)</b> mediante un diseño premium purista (Vanilla CSS y Glassmorphism), listos para integrarse en portfolios o plataformas externas.
 </p>
 
 <hr>
@@ -132,16 +132,19 @@
 </p>
 
 <ul>
-  <li><b>🪪 Profile Card Widget:</b> Presenta la identidad del desarrollador, su biografía, años de experiencia y su Top 5 de lenguajes de programación. Ideal como "tarjeta de presentación técnica".</li>
-  <li><b>🔥 Popular Projects Widget:</b> Destaca los 5 repositorios más exitosos (ordenados por estrellas). Perfecto para demostrar impacto, calidad y reconocimiento por parte de la comunidad.</li>
-  <li><b>📂 Categorized Projects Widget:</b> Un panel analítico súper compacto que clasifica los proyectos en tres áreas clave: Mejores Valorados (Stars), Actualizados Recientemente (Updates) y Con Más Actividad (Commits). Ideal para demostrar versatilidad y mantenimiento activo.</li>
-  <li><b>📈 Global Stats Widget:</b> Un dashboard de tipo KPI que recopila los números masivos del perfil (Total de Commits, Estrellas Totales, Issues, PRs y Seguidores). Diseñado para golpear visualmente e impresionar con el volumen histórico de experiencia.</li>
-  <li><b>🕸️ Tech Radar Widget:</b> Clasifica matemáticamente el historial de lenguajes en pilares (Frontend, Backend, DevOps) mostrando tu balance técnico.</li>
+  <li><b>🪪 Profile Card Widget:</b> Presenta la identidad del desarrollador, su biografía y años de experiencia. Ideal como "tarjeta de presentación técnica".</li>
+  <li><b>🔥 Popular Projects Widget:</b> Destaca los 5 repositorios más exitosos (ordenados por estrellas). Perfecto para demostrar impacto y calidad.</li>
+  <li><b>📂 Categorized Projects Widget:</b> Panel analítico súper compacto que clasifica los proyectos en tres áreas clave: Stars, Updates y Commits.</li>
+  <li><b>📈 Global Stats Widget:</b> Dashboard KPI que recopila los números masivos del perfil (Total de Commits, Estrellas Totales, Issues, PRs y Seguidores).</li>
+  <li><b>📊 Top Languages Widget:</b> Muestra los lenguajes de programación más utilizados basados en el peso real del código (bytes).</li>
+  <li><b>📅 Code Frequency Widget:</b> Gráfico tipo "heatmap" de contribuciones, mostrando también la racha actual y racha máxima de código continuo.</li>
   <li><b>🏆 Achievements Widget:</b> Motor de inferencia que desbloquea medallas virtuales (ej. "Pull Shark") basado en umbrales de contribución.</li>
-  <li><b>🕒 Dev Clock & Hourly Frequency:</b> Gráficos de actividad de 24 horas que deducen la intensidad y hábitos de programación diarios.</li>
-  <li><b>📡 Activity Stream:</b> Una terminal interactiva en vivo que muestra los últimos eventos (Pushes, Issues) consultados mediante la API REST.</li>
-  <li><b>🚀 Milestones Timeline:</b> Línea de tiempo cronológica resaltando los hitos históricos (Creación, Primer Repo, Récords).</li>
-  <li><b>⚖️ Code-Life Balance:</b> Gráfico de barras que divide estrictamente tu código del último año en dos grupos: Días Laborables y Fines de Semana, demostrando pasión y dedicación.</li>
+  <li><b>🌤️ Time of Day Widget (Dev Clock):</b> Deduce si el desarrollador suele trabajar por la mañana, tarde o noche, revelando sus hábitos.</li>
+  <li><b>⏱️ Hourly Frequency Widget:</b> Gráfico de barras purista (24 horas) para demostrar los picos exactos de actividad diaria.</li>
+  <li><b>📡 Activity Stream Widget:</b> Una terminal interactiva en vivo que muestra los últimos eventos (Pushes, Issues) consultados mediante la API REST.</li>
+  <li><b>🕸️ Tech Radar Widget:</b> Clasifica matemáticamente el historial de lenguajes en pilares (Frontend, Backend, DevOps) mostrando tu balance técnico.</li>
+  <li><b>🚀 Milestones Timeline Widget:</b> Línea de tiempo cronológica resaltando hitos históricos (Creación, Primer Repo, Primer Fork, Gran Proyecto).</li>
+  <li><b>⚖️ Code-Life Balance Widget:</b> Gráfico de barras que divide estrictamente tu código del último año en dos grupos: Días Laborables y Fines de Semana.</li>
 </ul>
 
 <hr>
