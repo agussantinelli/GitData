@@ -238,6 +238,38 @@ export class OctokitGithubRepository implements IGithubRepository {
           title: 'First Public Repo', 
           description: `Created ${oldestProject.name}.` 
         });
+
+        // First Fork (Contribution Attempt)
+        const forks = projects.filter(p => p.isFork);
+        if (forks.length > 0) {
+          const firstFork = forks.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())[0];
+          milestones.push({
+            date: firstFork.createdAt,
+            title: 'First Fork',
+            description: `Forked ${firstFork.name} to experiment or contribute.`
+          });
+        }
+
+        // Most Popular Project
+        const starred = projects.filter(p => p.stars > 0);
+        if (starred.length > 0) {
+          const mostStarred = starred.sort((a, b) => b.stars - a.stars)[0];
+          milestones.push({
+            date: mostStarred.createdAt,
+            title: 'Community Recognition',
+            description: `${mostStarred.name} reached ${mostStarred.stars} stars.`
+          });
+        }
+
+        // Largest Codebase
+        const largest = [...projects].sort((a, b) => b.sizeKb - a.sizeKb)[0];
+        if (largest && largest.sizeKb > 1000) { 
+          milestones.push({
+            date: largest.createdAt,
+            title: 'Major Codebase',
+            description: `Started ${largest.name} (${Math.round(largest.sizeKb / 1024)}MB).`
+          });
+        }
       }
       
       // Sort milestones chronologically
