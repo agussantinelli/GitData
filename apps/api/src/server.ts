@@ -1,5 +1,6 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
+import rateLimit from '@fastify/rate-limit';
 import dotenv from 'dotenv';
 
 // Import Infrastructure Plugins
@@ -17,7 +18,18 @@ const server = Fastify({
 });
 
 server.register(cors, {
-  origin: '*' // Update this in production
+  origin: process.env.ALLOWED_ORIGIN || 'http://localhost:5173',
+  methods: ['GET']
+});
+
+server.register(rateLimit, {
+  max: 10,
+  timeWindow: '1 minute',
+  errorResponseBuilder: (_request, context) => ({
+    statusCode: 429,
+    error: 'Too Many Requests',
+    message: `Rate limit exceeded. Try again in ${context.after}.`
+  })
 });
 
 // Register Plugins (Injects Use Cases into fastify)
