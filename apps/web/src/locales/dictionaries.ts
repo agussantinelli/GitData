@@ -33,7 +33,16 @@ export const dictionaries = {
     codeLifeBalance: 'Code-Life Balance',
     codeLifeDesc: 'Distribución de commits en el último año.',
     weekdays: 'Lunes a Viernes',
-    weekends: 'Sábado y Domingo'
+    weekends: 'Sábado y Domingo',
+    noActivity: 'No hay actividad reciente disponible.',
+    onRepo: 'en',
+    noLangData: 'No hay datos de lenguajes disponibles.',
+    noProjects: 'No hay proyectos disponibles.',
+    unknown: 'Desconocido',
+    less: 'Menos',
+    more: 'Más',
+    noMilestones: 'No hay hitos disponibles.',
+    noFreqData: 'No hay datos de frecuencia disponibles.'
   },
   en: {
     yearsExp: 'years exp.',
@@ -67,7 +76,16 @@ export const dictionaries = {
     codeLifeBalance: 'Code-Life Balance',
     codeLifeDesc: 'Commit distribution in the last year.',
     weekdays: 'Weekdays',
-    weekends: 'Weekends'
+    weekends: 'Weekends',
+    noActivity: 'No recent activity available.',
+    onRepo: 'on',
+    noLangData: 'No language data available.',
+    noProjects: 'No projects available.',
+    unknown: 'Unknown',
+    less: 'Less',
+    more: 'More',
+    noMilestones: 'No milestones available.',
+    noFreqData: 'No frequency data available.'
   },
   pt: {
     yearsExp: 'anos exp.',
@@ -101,7 +119,16 @@ export const dictionaries = {
     codeLifeBalance: 'Code-Life Balance',
     codeLifeDesc: 'Distribuição de commits no último ano.',
     weekdays: 'Dias Úteis',
-    weekends: 'Fins de Semana'
+    weekends: 'Fins de Semana',
+    noActivity: 'Nenhuma atividade recente disponível.',
+    onRepo: 'em',
+    noLangData: 'Nenhum dado de linguagem disponível.',
+    noProjects: 'Nenhum projeto disponível.',
+    unknown: 'Desconhecido',
+    less: 'Menos',
+    more: 'Mais',
+    noMilestones: 'Nenhum marco disponível.',
+    noFreqData: 'Nenhum dado de frequência disponível.'
   },
   it: {
     yearsExp: 'anni esp.',
@@ -135,7 +162,16 @@ export const dictionaries = {
     codeLifeBalance: 'Code-Life Balance',
     codeLifeDesc: 'Distribuzione dei commit nell\'ultimo anno.',
     weekdays: 'Giorni Feriali',
-    weekends: 'Fine Settimana'
+    weekends: 'Fine Settimana',
+    noActivity: 'Nessuna attività recente disponibile.',
+    onRepo: 'su',
+    noLangData: 'Nessun dato sulle lingue disponibile.',
+    noProjects: 'Nessun progetto disponibile.',
+    unknown: 'Sconosciuto',
+    less: 'Meno',
+    more: 'Più',
+    noMilestones: 'Nessun traguardo disponibile.',
+    noFreqData: 'Nessun dato di frequenza disponibile.'
   },
   fr: {
     yearsExp: 'ans exp.',
@@ -169,6 +205,15 @@ export const dictionaries = {
     codeLifeBalance: 'Code-Life Balance',
     codeLifeDesc: 'Répartition des commits de l\'année dernière.',
     weekdays: 'En Semaine',
-    weekends: 'Week-end'
+    weekends: 'Week-end',
+    noActivity: 'Aucune activité récente disponible.',
+    onRepo: 'sur',
+    noLangData: 'Aucune donnée de langage disponible.',
+    noProjects: 'Aucun projet disponible.',
+    unknown: 'Inconnu',
+    less: 'Moins',
+    more: 'Plus',
+    noMilestones: 'Aucun jalon disponible.',
+    noFreqData: 'Aucune donnée de fréquence disponible.'
   },
 };
