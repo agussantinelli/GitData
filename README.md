@@ -209,19 +209,21 @@ GitData/
 <p>Ubicadas en <code>.agent/skills/</code>, son guías técnicas que definen cómo se deben construir las diferentes partes del sistema:</p>
 
 <ul>
-    <li><b>🚀 fastify:</b> Reglas para definir endpoints, plugins y lógica de negocio pura en el backend (apps/api).</li>
-    <li><b>⚛️ react-vite:</b> Lineamientos para desarrollar los "Mini Layouts" en el frontend (apps/web) usando componentes puros y estilos modernos.</li>
+    <li><b>🏛️ clean-architecture:</b> Reglas obligatorias para imponer la separación de responsabilidades en la API de GitData.</li>
+    <li><b>🧹 code-quality:</b> Guías de Clean Code, SOLID y política de "No Comments".</li>
     <li><b>🎨 css-structure:</b> Regla estricta para confinar todos los archivos CSS dentro de subcarpetas <code>styles/</code> relativas a cada componente.</li>
-    <li><b>🧩 widget-i18n-architecture:</b> Arquitectura de diseño de Widgets con soporte nativo para <i>i18n</i> (diccionarios) y temas (Light/Dark variables).</li>
+    <li><b>🚀 fastify:</b> Reglas para definir endpoints, plugins y lógica de negocio pura en el backend (apps/api).</li>
     <li><b>🔗 github-api-hybrid:</b> Estrategia de red para el consumo simultáneo de GraphQL (datos estructurales) y REST (eventos en tiempo real).</li>
-    <li><b>🧠 widget-inference:</b> Reglas del motor matemático del backend para la deducción de métricas complejas (horarios, medallas, pilares) sin bases de datos.</li>
     <li><b>🌍 global-context:</b> Directriz maestra que obliga al cumplimiento de la arquitectura de Monorepo.</li>
     <li><b>📚 global-skills:</b> Directorio maestro que indexa todas las habilidades de arquitectura disponibles en el proyecto.</li>
-    <li><b>🧹 code-quality:</b> Guías de Clean Code, SOLID y política de "No Comments".</li>
-    <li><b>🧪 test-enforcement:</b> Regla mandatoria que exige tests para la lógica de negocio.</li>
-    <li><b>🔄 readme-auto-sync:</b> Automatización para mantener la documentación sincronizada.</li>
-    <li><b>🟢 node:</b> Mejores prácticas para el runtime de Node.js.</li>
     <li><b>🚫 no-browser:</b> Prohibición estricta del uso de herramientas de navegación.</li>
+    <li><b>🟢 node:</b> Mejores prácticas para el runtime de Node.js.</li>
+    <li><b>⚛️ react-vite:</b> Lineamientos para desarrollar los "Mini Layouts" en el frontend usando componentes puros y estilos modernos.</li>
+    <li><b>🔄 readme-auto-sync:</b> Automatización para mantener la documentación sincronizada.</li>
+    <li><b>🛠️ skill-generator:</b> Herramienta automatizada para la creación y estandarización de nuevas skills dentro del ecosistema.</li>
+    <li><b>🧪 test-enforcement:</b> Regla mandatoria que exige cobertura de tests para la lógica de negocio.</li>
+    <li><b>🧩 widget-i18n-architecture:</b> Arquitectura de diseño de Widgets con soporte nativo para <i>i18n</i> (diccionarios) y temas.</li>
+    <li><b>🧠 widget-inference:</b> Reglas del motor matemático del backend para deducción de métricas complejas sin bases de datos.</li>
 </ul>
 
 <hr />
