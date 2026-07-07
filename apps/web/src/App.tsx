@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CodeLifeBalanceWidget } from './components/widgets/CodeLifeBalanceWidget';
+import { MarkdownSnippet } from './components/ui/MarkdownSnippet';
 import './styles/App.css';
 import { PersonalInfoWidget } from './components/widgets/PersonalInfoWidget';
 import { PopularProjectsWidget } from './components/widgets/PopularProjectsWidget';
@@ -109,7 +110,7 @@ function App() {
   useEffect(() => {
     let isMounted = true;
 
-    const fetchWithRetry = async (url: string, maxWaitMs = 30000, intervalMs = 2000) => {
+    const fetchWithRetry = async (url: string, maxWaitMs = 60000, intervalMs = 2000) => {
       const startTime = Date.now();
 
       while (Date.now() - startTime < maxWaitMs) {
@@ -120,13 +121,13 @@ function App() {
         } catch (err: any) {
           // Si el tiempo límite se agotó, lanzamos el error
           if (Date.now() - startTime >= maxWaitMs) {
-            throw new Error('Servidor inalcanzable (Timeout de 30s)');
+            throw new Error('Servidor inalcanzable (Timeout de 60s)');
           }
           // Si no, esperamos 2 segundos y reintentamos
           await new Promise(resolve => setTimeout(resolve, intervalMs));
         }
       }
-      throw new Error('Servidor inalcanzable (Timeout de 30s)');
+      throw new Error('Servidor inalcanzable (Timeout de 60s)');
     };
 
     const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
@@ -170,10 +171,16 @@ function App() {
 
           <main className="widgets-grid">
             {/* Widget en Modo Oscuro */}
-            <PersonalInfoWidget data={profile} theme="dark" lang={lang.code} />
+            <div className="widget-wrapper">
+              <PersonalInfoWidget data={profile} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="profile" username={profile.username} theme="dark" lang={lang.code} altText="PersonalInfoWidget" />
+            </div>
 
             {/* Widget en Modo Claro */}
-            <PersonalInfoWidget data={profile} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <PersonalInfoWidget data={profile} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="profile" username={profile.username} theme="light" lang={lang.code} altText="PersonalInfoWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -191,8 +198,14 @@ function App() {
           </h3>
 
           <main className="widgets-grid">
-            <PopularProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
-            <PopularProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <PopularProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="popular-projects" username={profile.username} theme="dark" lang={lang.code} altText="PopularProjectsWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <PopularProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="popular-projects" username={profile.username} theme="light" lang={lang.code} altText="PopularProjectsWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -210,8 +223,14 @@ function App() {
           </h3>
 
           <main className="widgets-grid">
-            <CategorizedProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
-            <CategorizedProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <CategorizedProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="categorized-projects" username={profile.username} theme="dark" lang={lang.code} altText="CategorizedProjectsWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <CategorizedProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="categorized-projects" username={profile.username} theme="light" lang={lang.code} altText="CategorizedProjectsWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -229,8 +248,14 @@ function App() {
           </h3>
 
           <main className="widgets-grid">
-            <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="dark" lang={lang.code} />
-            <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="global-stats" username={profile.username} theme="dark" lang={lang.code} altText="GlobalStatsWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="global-stats" username={profile.username} theme="light" lang={lang.code} altText="GlobalStatsWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -248,8 +273,14 @@ function App() {
           </h3>
 
           <main className="widgets-grid">
-            <TopLanguagesWidget languages={profile.topLanguages} theme="dark" lang={lang.code} />
-            <TopLanguagesWidget languages={profile.topLanguages} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <TopLanguagesWidget languages={profile.topLanguages} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="top-languages" username={profile.username} theme="dark" lang={lang.code} altText="TopLanguagesWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <TopLanguagesWidget languages={profile.topLanguages} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="top-languages" username={profile.username} theme="light" lang={lang.code} altText="TopLanguagesWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -267,8 +298,14 @@ function App() {
           </h3>
 
           <main className="widgets-grid" style={{ gridTemplateColumns: '1fr' }}>
-            <CodeFrequencyWidget contributions={profile.contributions} theme="dark" lang={lang.code} />
-            <CodeFrequencyWidget contributions={profile.contributions} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <CodeFrequencyWidget contributions={profile.contributions} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="code-frequency" username={profile.username} theme="dark" lang={lang.code} altText="CodeFrequencyWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <CodeFrequencyWidget contributions={profile.contributions} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="code-frequency" username={profile.username} theme="light" lang={lang.code} altText="CodeFrequencyWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -284,8 +321,14 @@ function App() {
             {lang.label}
           </h3>
           <main className="widgets-grid">
-            <AchievementsWidget achievements={profile.achievements} theme="dark" lang={lang.code} />
-            <AchievementsWidget achievements={profile.achievements} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <AchievementsWidget achievements={profile.achievements} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="achievements" username={profile.username} theme="dark" lang={lang.code} altText="AchievementsWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <AchievementsWidget achievements={profile.achievements} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="achievements" username={profile.username} theme="light" lang={lang.code} altText="AchievementsWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -301,8 +344,14 @@ function App() {
             {lang.label}
           </h3>
           <main className="widgets-grid">
-            <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="dark" lang={lang.code} />
-            <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="time-of-day" username={profile.username} theme="dark" lang={lang.code} altText="TimeOfDayWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="time-of-day" username={profile.username} theme="light" lang={lang.code} altText="TimeOfDayWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -318,8 +367,14 @@ function App() {
             {lang.label}
           </h3>
           <main className="widgets-grid">
-            <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="dark" lang={lang.code} />
-            <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="hourly-frequency" username={profile.username} theme="dark" lang={lang.code} altText="HourlyFrequencyWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="hourly-frequency" username={profile.username} theme="light" lang={lang.code} altText="HourlyFrequencyWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -335,8 +390,14 @@ function App() {
             {lang.label}
           </h3>
           <main className="widgets-grid">
-            <ActivityStreamWidget activityStream={profile.activityStream} theme="dark" lang={lang.code} />
-            <ActivityStreamWidget activityStream={profile.activityStream} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <ActivityStreamWidget activityStream={profile.activityStream} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="activity-stream" username={profile.username} theme="dark" lang={lang.code} altText="ActivityStreamWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <ActivityStreamWidget activityStream={profile.activityStream} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="activity-stream" username={profile.username} theme="light" lang={lang.code} altText="ActivityStreamWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -352,8 +413,14 @@ function App() {
             {lang.label}
           </h3>
           <main className="widgets-grid">
-            <TechRadarWidget techRadar={profile.techRadar} theme="dark" lang={lang.code} />
-            <TechRadarWidget techRadar={profile.techRadar} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <TechRadarWidget techRadar={profile.techRadar} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="tech-radar" username={profile.username} theme="dark" lang={lang.code} altText="TechRadarWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <TechRadarWidget techRadar={profile.techRadar} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="tech-radar" username={profile.username} theme="light" lang={lang.code} altText="TechRadarWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -369,8 +436,14 @@ function App() {
             {lang.label}
           </h3>
           <main className="widgets-grid">
-            <MilestonesWidget milestones={profile.milestones} theme="dark" lang={lang.code} />
-            <MilestonesWidget milestones={profile.milestones} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <MilestonesWidget milestones={profile.milestones} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="milestones" username={profile.username} theme="dark" lang={lang.code} altText="MilestonesWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <MilestonesWidget milestones={profile.milestones} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="milestones" username={profile.username} theme="light" lang={lang.code} altText="MilestonesWidget" />
+            </div>
           </main>
         </div>
       ))}
@@ -383,8 +456,14 @@ function App() {
             {lang.label}
           </h3>
           <main className="widgets-grid">
-            <CodeLifeBalanceWidget balance={profile.codeLifeBalance} theme="dark" lang={lang.code} />
-            <CodeLifeBalanceWidget balance={profile.codeLifeBalance} theme="light" lang={lang.code} />
+            <div className="widget-wrapper">
+              <CodeLifeBalanceWidget balance={profile.codeLifeBalance} theme="dark" lang={lang.code} />
+              <MarkdownSnippet endpoint="code-life-balance" username={profile.username} theme="dark" lang={lang.code} altText="CodeLifeBalanceWidget" />
+            </div>
+            <div className="widget-wrapper">
+              <CodeLifeBalanceWidget balance={profile.codeLifeBalance} theme="light" lang={lang.code} />
+              <MarkdownSnippet endpoint="code-life-balance" username={profile.username} theme="light" lang={lang.code} altText="CodeLifeBalanceWidget" />
+            </div>
           </main>
         </div>
       ))}
