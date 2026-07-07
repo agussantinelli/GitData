@@ -29,6 +29,12 @@ export class OctokitGithubRepository implements IGithubRepository {
           followers {
             totalCount
           }
+          pullRequests {
+            totalCount
+          }
+          issues {
+            totalCount
+          }
           contributionsCollection {
             totalCommitContributions
             totalPullRequestContributions
@@ -111,7 +117,9 @@ export class OctokitGithubRepository implements IGithubRepository {
       let totalStars = 0;
       const languageMap: Record<string, number> = {};
 
-      const projects: Project[] = repos.map((repo: any) => ({
+      const projects: Project[] = repos
+        .filter((repo: any) => !repo.isFork)
+        .map((repo: any) => ({
         name: repo.name,
         description: repo.description,
         stars: repo.stargazerCount,
@@ -136,7 +144,8 @@ export class OctokitGithubRepository implements IGithubRepository {
       repos.forEach((repo: any) => {
         totalStars += repo.stargazerCount;
         
-        if (repo.languages && repo.languages.edges) {
+        // Excluir forks para no sumar lenguajes de repositorios ajenos enormes
+        if (!repo.isFork && repo.languages && repo.languages.edges) {
           repo.languages.edges.forEach((edge: any) => {
             const lang = edge.node.name;
             const size = edge.size;
@@ -228,15 +237,15 @@ export class OctokitGithubRepository implements IGithubRepository {
 
       // --- ACHIEVEMENTS INFERENCE ---
       const achievements = [];
-      const prs = user.contributionsCollection?.totalPullRequestContributions || 0;
-      const issues = user.contributionsCollection?.totalIssueContributions || 0;
+      const prs = user.pullRequests?.totalCount || 0;
+      const issues = user.issues?.totalCount || 0;
       const followers = user.followers?.totalCount || 0;
 
-      if (prs >= 5) achievements.push({ id: 'pull-shark', title: 'Pull Shark', description: 'Has contributed multiple PRs.', icon: '🦈' });
-      if (issues >= 5) achievements.push({ id: 'bug-hunter', title: 'Bug Hunter', description: 'Reported many issues.', icon: '🐛' });
-      if (followers >= 10) achievements.push({ id: 'influencer', title: 'Influencer', description: 'Has a solid follower base.', icon: '🌟' });
-      if (night > morning && night > afternoon) achievements.push({ id: 'night-owl', title: 'Night Owl', description: 'Codes mostly at night.', icon: '🦉' });
-      else if (morning > afternoon && morning > night) achievements.push({ id: 'early-bird', title: 'Early Bird', description: 'Codes in the morning.', icon: '🌅' });
+      if (prs >= 5) achievements.push({ id: 'pull-shark', title: 'Pull Shark', description: 'Has contributed multiple PRs.', icon: 'pull-shark' });
+      if (issues >= 5) achievements.push({ id: 'bug-hunter', title: 'Bug Hunter', description: 'Reported many issues.', icon: 'bug-hunter' });
+      if (followers >= 10) achievements.push({ id: 'influencer', title: 'Influencer', description: 'Has a solid follower base.', icon: 'influencer' });
+      if (night > morning && night > afternoon) achievements.push({ id: 'night-owl', title: 'Night Owl', description: 'Codes mostly at night.', icon: 'night-owl' });
+      else if (morning > afternoon && morning > night) achievements.push({ id: 'early-bird', title: 'Early Bird', description: 'Codes in the morning.', icon: 'early-bird' });
 
       // --- MILESTONES ---
       const milestones = [];
