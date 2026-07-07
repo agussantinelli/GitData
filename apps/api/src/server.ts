@@ -22,9 +22,14 @@ if (!process.env.GITHUB_TOKEN) {
   process.exit(1);
 }
 
+const PORT = Number(process.env.PORT) || 3000;
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'http://localhost:5173';
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+
 const server = Fastify({
   logger: true,
-  requestTimeout: 15000
+  requestTimeout: 15000,
+  trustProxy: IS_PRODUCTION
 });
 
 // ──────────────────────────────────────────
@@ -33,7 +38,7 @@ const server = Fastify({
 server.register(helmet);
 
 server.register(cors, {
-  origin: process.env.ALLOWED_ORIGIN || 'http://localhost:5173',
+  origin: ALLOWED_ORIGIN,
   methods: ['GET']
 });
 
@@ -56,7 +61,7 @@ server.register(profileRoutes, { prefix: '/api/profile' });
 
 const start = async () => {
   try {
-    await server.listen({ port: 3000, host: '0.0.0.0' });
+    await server.listen({ port: PORT, host: '0.0.0.0' });
   } catch (err) {
     server.log.error(err);
     process.exit(1);
