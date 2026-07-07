@@ -64,7 +64,7 @@ export const TopLanguagesWidget: React.FC<TopLanguagesWidgetProps> = ({
           
           {top5.length === 0 && (
             <p style={{ color: 'var(--text-muted)', textAlign: 'center', margin: '2rem 0' }}>
-              No language data available.
+              {t.noLangData}
             </p>
           )}
         </div>
