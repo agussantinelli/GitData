@@ -44,7 +44,7 @@ server.register(cors, {
 });
 
 server.register(rateLimit, {
-  max: 10,
+  max: IS_PRODUCTION ? 100 : 1000,
   timeWindow: '1 minute',
   errorResponseBuilder: (_request, context) => ({
     statusCode: 429,
