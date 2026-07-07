@@ -19,6 +19,9 @@
   <img src="https://img.shields.io/badge/React%20Icons-5.7.0-E91E63?style=for-the-badge&logo=react&logoColor=white" alt="React Icons Badge"/>
   <img src="https://img.shields.io/badge/CSS3-Standard-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 Badge"/>
   <img src="https://img.shields.io/badge/pnpm-10.30.3-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm Badge">
+  <img src="https://img.shields.io/badge/%40fastify%2Fhelmet-Security%20Headers-black?style=for-the-badge&logo=fastify&logoColor=white" alt="Helmet Badge"/>
+  <img src="https://img.shields.io/badge/%40fastify%2Frate--limit-Rate%20Limiting-black?style=for-the-badge&logo=fastify&logoColor=white" alt="Rate Limit Badge"/>
+  <img src="https://img.shields.io/badge/Mobile--First-Responsive-06b6d4?style=for-the-badge&logo=css3&logoColor=white" alt="Mobile First Badge"/>
 </p>
 </div>
 
@@ -88,6 +91,16 @@
       <td><b>Configuración</b></td>
       <td>Dotenv</td>
       <td>Gestión segura del Personal Access Token para las llamadas a la API.</td>
+    </tr>
+    <tr>
+      <td><b>Seguridad (API)</b></td>
+      <td>@fastify/helmet + @fastify/rate-limit</td>
+      <td>Helmet inyecta headers de seguridad HTTP (CSP, X-Frame-Options). Rate-limit protege el PAT con 10 req/min por IP.</td>
+    </tr>
+    <tr>
+      <td><b>Cache en Memoria</b></td>
+      <td>TTLCache (Map nativo)</td>
+      <td>Cache de perfiles GitHub con TTL de 5 minutos. Evita quemado de cuota del PAT en requests repetidas.</td>
     </tr>
   </tbody>
 </table>
