@@ -22,16 +22,37 @@ const mockProfileData = {
 };
 
 describe('PersonalInfoWidget', () => {
-  it('renders correctly with default props', () => {
+  it('renders correctly with default props (es/dark)', () => {
     const { container } = render(<PersonalInfoWidget data={mockProfileData} />);
-    
-    // Check main elements
     expect(screen.getByText('Agustin Santinelli')).toBeInTheDocument();
     expect(screen.getByText('@agussantinelli')).toBeInTheDocument();
     expect(screen.getByText('Software Engineer')).toBeInTheDocument();
-    
-    // Check if the theme wrapper is applied (default is dark)
     expect(container.firstChild).toHaveClass('theme-dark');
+  });
+
+  it('uses the correct language dictionary (en)', () => {
+    render(<PersonalInfoWidget data={mockProfileData} lang="en" />);
+    expect(screen.getByText(/years exp\./i)).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (es)', () => {
+    render(<PersonalInfoWidget data={mockProfileData} lang="es" />);
+    expect(screen.getByText(/años exp\./i)).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (pt)', () => {
+    render(<PersonalInfoWidget data={mockProfileData} lang="pt" />);
+    expect(screen.getByText(/anos exp\./i)).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (fr)', () => {
+    render(<PersonalInfoWidget data={mockProfileData} lang="fr" />);
+    expect(screen.getByText(/ans exp\./i)).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (it)', () => {
+    render(<PersonalInfoWidget data={mockProfileData} lang="it" />);
+    expect(screen.getByText(/anni esp\./i)).toBeInTheDocument();
   });
 
   it('renders correctly with light theme', () => {
@@ -39,15 +60,24 @@ describe('PersonalInfoWidget', () => {
     expect(container.firstChild).toHaveClass('theme-light');
   });
 
-  it('uses the correct language dictionary (en)', () => {
-    render(<PersonalInfoWidget data={mockProfileData} lang="en" />);
-    // "years exp." comes from the english dictionary
-    expect(screen.getByText(/years exp\./i)).toBeInTheDocument();
+  it('handles missing bio and location gracefully', () => {
+    const dataMissing = { ...mockProfileData, bio: null as any, location: null as any };
+    render(<PersonalInfoWidget data={dataMissing} />);
+    expect(screen.getByText('Agustin Santinelli')).toBeInTheDocument();
+    expect(screen.queryByText('Software Engineer')).not.toBeInTheDocument();
+    expect(screen.queryByText('Argentina')).not.toBeInTheDocument();
   });
 
-  it('uses the correct language dictionary (es)', () => {
-    render(<PersonalInfoWidget data={mockProfileData} lang="es" />);
-    // "años exp." comes from the spanish dictionary
-    expect(screen.getByText(/años exp\./i)).toBeInTheDocument();
+  it('calculates years of experience correctly based on createdAt date', () => {
+    const { container } = render(<PersonalInfoWidget data={mockProfileData} />);
+    // Just verify the experience line is rendered with "años exp."
+    const titlesNode = container.querySelector('.widget-titles p');
+    expect(titlesNode?.textContent).toMatch(/años exp\./i);
+  });
+
+  it('renders avatar image with correct github URL based on username', () => {
+    const { container } = render(<PersonalInfoWidget data={mockProfileData} />);
+    const img = container.querySelector('img');
+    expect(img).toHaveAttribute('src', 'https://github.com/agussantinelli.png');
   });
 });

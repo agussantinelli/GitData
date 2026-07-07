@@ -5,19 +5,62 @@ import { HourlyFrequencyWidget } from '../HourlyFrequencyWidget';
 const mockHourly = Array.from({ length: 24 }, (_, i) => (i === 10 ? 5 : 0));
 
 describe('HourlyFrequencyWidget', () => {
-  it('renders correctly with default props', () => {
+  it('renders correctly with default props (es/dark)', () => {
     const { container } = render(<HourlyFrequencyWidget hourlyFrequency={mockHourly} />);
-    
-    // Check title
     expect(screen.getByText('Actividad por Hora (24h)')).toBeInTheDocument();
-    
-    // Check if the theme wrapper is applied (default is dark)
     expect(container.firstChild).toHaveClass('theme-dark');
+  });
+
+  it('renders correctly with all zero array', () => {
+    const zeroes = Array(24).fill(0);
+    const { container } = render(<HourlyFrequencyWidget hourlyFrequency={zeroes} />);
+    expect(screen.getByText('Actividad por Hora (24h)')).toBeInTheDocument();
+    expect(container.querySelectorAll('.hourly-bar-wrapper').length).toBe(24);
   });
 
   it('uses the correct language dictionary (en)', () => {
     render(<HourlyFrequencyWidget hourlyFrequency={mockHourly} lang="en" />);
-    // English title
     expect(screen.getByText('Hourly Activity (24h)')).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (pt)', () => {
+    render(<HourlyFrequencyWidget hourlyFrequency={mockHourly} lang="pt" />);
+    expect(screen.getByText('Atividade por Hora (24h)')).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (fr)', () => {
+    render(<HourlyFrequencyWidget hourlyFrequency={mockHourly} lang="fr" />);
+    expect(screen.getByText('Activité Horaire (24h)')).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (it)', () => {
+    render(<HourlyFrequencyWidget hourlyFrequency={mockHourly} lang="it" />);
+    expect(screen.getByText('Attività Oraria (24h)')).toBeInTheDocument();
+  });
+
+  it('renders correctly with light theme', () => {
+    const { container } = render(<HourlyFrequencyWidget hourlyFrequency={mockHourly} theme="light" />);
+    expect(container.firstChild).toHaveClass('theme-light');
+  });
+
+  it('handles array with less than 24 elements gracefully', () => {
+    const shortArray = [1, 2, 3];
+    const { container } = render(<HourlyFrequencyWidget hourlyFrequency={shortArray} />);
+    expect(screen.getByText('Actividad por Hora (24h)')).toBeInTheDocument();
+    // It should map only the provided elements or fill them out
+    expect(container.querySelectorAll('.hourly-bar-wrapper').length).toBe(3);
+  });
+
+  it('handles array with more than 24 elements gracefully', () => {
+    const longArray = Array(30).fill(1);
+    const { container } = render(<HourlyFrequencyWidget hourlyFrequency={longArray} />);
+    expect(container.querySelectorAll('.hourly-bar-wrapper').length).toBe(30);
+  });
+
+  it('renders tooltips correctly when hovered (simulated by structure)', () => {
+    const { container } = render(<HourlyFrequencyWidget hourlyFrequency={mockHourly} />);
+    // Verify the structure for tooltips exists in the bars
+    const bars = container.querySelectorAll('.hourly-bar-wrapper');
+    expect(bars[10].getAttribute('title')).not.toBeNull();
   });
 });

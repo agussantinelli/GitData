@@ -17,27 +17,62 @@ const mockProjects = [
 ];
 
 describe('PopularProjectsWidget', () => {
-  it('renders correctly with default props', () => {
+  it('renders correctly with default props (es/dark)', () => {
     const { container } = render(<PopularProjectsWidget projects={mockProjects} />);
-    
-    // Check title
     expect(screen.getByText('Proyectos Destacados')).toBeInTheDocument();
-    
-    // Check if the theme wrapper is applied
     expect(container.firstChild).toHaveClass('theme-dark');
-
-    // Check content
     expect(screen.getByText('GitData')).toBeInTheDocument();
   });
 
-  it('renders empty state correctly', () => {
+  it('renders empty state correctly in default lang', () => {
     const { container } = render(<PopularProjectsWidget projects={[]} />);
+    // Verify there are no project-items
     expect(container.querySelector('.project-item')).not.toBeInTheDocument();
   });
 
   it('uses the correct language dictionary (en)', () => {
     render(<PopularProjectsWidget projects={mockProjects} lang="en" />);
-    // English title
     expect(screen.getByText('Popular Projects')).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (pt)', () => {
+    render(<PopularProjectsWidget projects={mockProjects} lang="pt" />);
+    expect(screen.getByText('Projetos Populares')).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (fr)', () => {
+    render(<PopularProjectsWidget projects={mockProjects} lang="fr" />);
+    expect(screen.getByText('Projets Populaires')).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (it)', () => {
+    render(<PopularProjectsWidget projects={mockProjects} lang="it" />);
+    expect(screen.getByText('Progetti Popolari')).toBeInTheDocument();
+  });
+
+  it('renders correctly with light theme', () => {
+    const { container } = render(<PopularProjectsWidget projects={mockProjects} theme="light" />);
+    expect(container.firstChild).toHaveClass('theme-light');
+  });
+
+  it('handles missing descriptions gracefully', () => {
+    const missingDesc = [{ ...mockProjects[0], description: null }];
+    render(<PopularProjectsWidget projects={missingDesc} />);
+    expect(screen.getByText('GitData')).toBeInTheDocument();
+    expect(screen.queryByText('Github Analytics tool')).not.toBeInTheDocument();
+  });
+
+  it('displays correct amount of stars and forks', () => {
+    render(<PopularProjectsWidget projects={mockProjects} />);
+    // Using simple checks since they are wrapped in icons
+    expect(screen.getByText('100')).toBeInTheDocument();
+    expect(screen.getByText('10')).toBeInTheDocument();
+  });
+
+  it('renders correct link to github repo', () => {
+    const { container } = render(<PopularProjectsWidget projects={mockProjects} />);
+    const link = container.querySelector('.project-link');
+    expect(link).toHaveAttribute('href', 'https://github.com/agussantinelli/GitData');
+    expect(link).toHaveAttribute('target', '_blank');
   });
 });

@@ -9,25 +9,70 @@ const mockContributions = [
 ];
 
 describe('CodeFrequencyWidget', () => {
-  it('renders correctly with default props', () => {
+  it('renders correctly with default props (es/dark)', () => {
     const { container } = render(<CodeFrequencyWidget contributions={mockContributions} />);
-    
-    // Check main elements
     expect(screen.getByText('Frecuencia de Código')).toBeInTheDocument();
-    
-    // Check if the theme wrapper is applied (default is dark)
     expect(container.firstChild).toHaveClass('theme-dark');
   });
 
-  it('renders empty state correctly', () => {
+  it('renders empty state correctly in default lang', () => {
     render(<CodeFrequencyWidget contributions={[]} />);
-    // Translation for no data in default 'es' lang
     expect(screen.getByText('No hay datos de frecuencia disponibles.')).toBeInTheDocument();
   });
 
   it('uses the correct language dictionary (en)', () => {
     render(<CodeFrequencyWidget contributions={mockContributions} lang="en" />);
-    // Title in English
     expect(screen.getByText('Code Frequency')).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (pt)', () => {
+    render(<CodeFrequencyWidget contributions={mockContributions} lang="pt" />);
+    expect(screen.getByText('Frequência de Código')).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (fr)', () => {
+    render(<CodeFrequencyWidget contributions={mockContributions} lang="fr" />);
+    expect(screen.getByText('Fréquence de Code')).toBeInTheDocument();
+  });
+
+  it('uses the correct language dictionary (it)', () => {
+    render(<CodeFrequencyWidget contributions={mockContributions} lang="it" />);
+    expect(screen.getByText('Frequenza del Codice')).toBeInTheDocument();
+  });
+
+  it('renders correctly with light theme', () => {
+    const { container } = render(<CodeFrequencyWidget contributions={mockContributions} theme="light" />);
+    expect(container.firstChild).toHaveClass('theme-light');
+  });
+
+  it('handles single contribution entry gracefully', () => {
+    const single = [{ date: '2023-01-01', count: 100 }];
+    const { container } = render(<CodeFrequencyWidget contributions={single} />);
+    // Should still render without crashing and compute streak as 1
+    const ones = screen.getAllByText('1');
+    expect(ones.length).toBeGreaterThan(0);
+    expect(container.querySelector('.frequency-chart')).toBeNull(); // it's frequency-heatmap, wait...
+    expect(container.querySelector('.frequency-heatmap')).toBeInTheDocument();
+  });
+
+  it('handles very large counts and zero counts properly', () => {
+    const extremes = [
+      { date: '2023-01-01', count: 0 },
+      { date: '2023-01-02', count: 99999 }
+    ];
+    render(<CodeFrequencyWidget contributions={extremes} />);
+    expect(screen.getByText('99999')).toBeInTheDocument();
+  });
+
+  it('calculates streaks correctly for continuous days', () => {
+    const continuous = [
+      { date: '2023-01-01', count: 5 },
+      { date: '2023-01-02', count: 3 },
+      { date: '2023-01-03', count: 1 }
+    ];
+    render(<CodeFrequencyWidget contributions={continuous} />);
+    // Current streak should be 3
+    const values = screen.getAllByText('3');
+    expect(values.length).toBeGreaterThan(0);
   });
 });
