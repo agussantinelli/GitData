@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { CodeLifeBalanceWidget } from './components/widgets/CodeLifeBalanceWidget';
 import './styles/App.css';
 import { PersonalInfoWidget } from './components/widgets/PersonalInfoWidget';
 import { PopularProjectsWidget } from './components/widgets/PopularProjectsWidget';
@@ -78,10 +79,16 @@ interface ProfileData {
     backend: number;
     devops: number;
   };
+  codeLifeBalance: {
+    weekdays: number;
+    weekends: number;
+  };
   milestones: {
+    id: string;
     date: string;
     title: string;
     description: string;
+    meta?: any;
   }[];
   hourlyFrequency: number[];
 }
@@ -101,10 +108,10 @@ function App() {
 
   useEffect(() => {
     let isMounted = true;
-    
+
     const fetchWithRetry = async (url: string, maxWaitMs = 30000, intervalMs = 2000) => {
       const startTime = Date.now();
-      
+
       while (Date.now() - startTime < maxWaitMs) {
         try {
           const res = await fetch(url);
@@ -135,13 +142,13 @@ function App() {
           setLoading(false);
         }
       });
-      
+
     return () => { isMounted = false; };
   }, []);
 
   if (loading) return <LoadingOverlay message="Extrayendo tu ADN técnico..." />;
   if (error) return <LoadingOverlay error={error} />;
-  
+
   if (!profile) return null;
 
   return (
@@ -181,7 +188,7 @@ function App() {
             <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
             {lang.label}
           </h3>
-          
+
           <main className="widgets-grid">
             <PopularProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
             <PopularProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
@@ -200,7 +207,7 @@ function App() {
             <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
             {lang.label}
           </h3>
-          
+
           <main className="widgets-grid">
             <CategorizedProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
             <CategorizedProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
@@ -219,7 +226,7 @@ function App() {
             <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
             {lang.label}
           </h3>
-          
+
           <main className="widgets-grid">
             <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="dark" lang={lang.code} />
             <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="light" lang={lang.code} />
@@ -238,7 +245,7 @@ function App() {
             <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
             {lang.label}
           </h3>
-          
+
           <main className="widgets-grid">
             <TopLanguagesWidget languages={profile.topLanguages} theme="dark" lang={lang.code} />
             <TopLanguagesWidget languages={profile.topLanguages} theme="light" lang={lang.code} />
@@ -257,7 +264,7 @@ function App() {
             <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
             {lang.label}
           </h3>
-          
+
           <main className="widgets-grid" style={{ gridTemplateColumns: '1fr' }}>
             <CodeFrequencyWidget contributions={profile.contributions} theme="dark" lang={lang.code} />
             <CodeFrequencyWidget contributions={profile.contributions} theme="light" lang={lang.code} />
@@ -367,6 +374,19 @@ function App() {
         </div>
       ))}
 
+      <h2 className="section-title">Code-Life Balance Widget</h2>
+      {LANGUAGES.map((lang) => (
+        <div key={`codelife-${lang.code}`} className="language-section">
+          <h3 className="language-title" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={`https://flagcdn.com/w40/${lang.flag}.png`} alt={lang.label} style={{ width: 24, marginRight: 8 }} />
+            {lang.label}
+          </h3>
+          <main className="widgets-grid">
+            <CodeLifeBalanceWidget balance={profile.codeLifeBalance} theme="dark" lang={lang.code} />
+            <CodeLifeBalanceWidget balance={profile.codeLifeBalance} theme="light" lang={lang.code} />
+          </main>
+        </div>
+      ))}
     </div>
   );
 }
