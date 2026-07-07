@@ -58,7 +58,7 @@ Un sistema de "Gamificación" que desbloquea medallas si el perfil supera cierto
 
 ---
 
-## 4. Línea de Tiempo Histórica (Milestones)
+## 5. Línea de Tiempo Histórica (Milestones)
 
 Deduce una narrativa cronológica basada en las fechas de los repositorios extraídos:
 
