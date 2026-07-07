@@ -23,9 +23,11 @@ describe('URLSnippet', () => {
     vi.useRealTimers();
   });
 
+  const expectedBase = import.meta.env.VITE_API_URL || 'https://git-data-web.vercel.app';
+
   it('1. renders the correct URL string based on props', () => {
     render(<URLSnippet endpoint="profile" username="testuser" theme="dark" lang="es" />);
-    const codeElement = screen.getByText('https://git-data-web.vercel.app/api/svg/profile?username=<tu-nombre-usuario>&theme=dark&lang=es');
+    const codeElement = screen.getByText(`${expectedBase}/api/svg/profile?username=<tu-nombre-usuario>&theme=dark&lang=es`);
     expect(codeElement).toBeInTheDocument();
   });
 
@@ -52,7 +54,7 @@ describe('URLSnippet', () => {
     fireEvent.click(button);
     
     expect(mockWriteText).toHaveBeenCalledTimes(1);
-    expect(mockWriteText).toHaveBeenCalledWith('https://git-data-web.vercel.app/api/svg/tech-radar?username=<tu-nombre-usuario>&theme=dark&lang=pt');
+    expect(mockWriteText).toHaveBeenCalledWith(`${expectedBase}/api/svg/tech-radar?username=<tu-nombre-usuario>&theme=dark&lang=pt`);
   });
 
   it('6. applies the correct CSS classes initially', () => {
@@ -95,6 +97,7 @@ describe('URLSnippet', () => {
 
   it('10. uses VITE_API_URL when available (simulated default)', () => {
     render(<URLSnippet endpoint="stats" username="test" theme="dark" lang="es" />);
-    expect(screen.getByText(/https:\/\/git-data-web\.vercel\.app/)).toBeInTheDocument();
+    const escapedBase = expectedBase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    expect(screen.getByText(new RegExp(escapedBase))).toBeInTheDocument();
   });
 });

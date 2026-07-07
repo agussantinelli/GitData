@@ -86,7 +86,10 @@ describe('App', () => {
     
     await waitFor(() => {
       expect(screen.queryByTestId('mock-loading')).not.toBeInTheDocument();
-      expect(screen.getByRole('heading', { name: /GitData Showcase/i })).toBeInTheDocument();
+      expect(screen.getByText(/agussantinelli/)).toBeInTheDocument();
+      // Verificamos que se rendericen los títulos de los widgets
+      expect(screen.getByText(/Categorized Projects Widget/)).toBeInTheDocument();
+      expect(screen.getByText(/Global Stats Widget/)).toBeInTheDocument();
     });
   });
 
@@ -116,23 +119,11 @@ describe('App', () => {
   });
 
   it('verifies that fetchWithRetry gracefully handles HTTP 429 by waiting and retrying', async () => {
-    (globalThis as any).__originalDateNow = Date.now.bind(globalThis.Date);
-    const originalSetTimeout = globalThis.setTimeout;
-    
-    let time = 0;
-    globalThis.Date.now = vi.fn(() => {
+    let time = Date.now();
+    const dateSpy = vi.spyOn(Date, 'now').mockImplementation(() => {
       time += 1000; 
       return time;
     });
-
-    // Smart mock setTimeout to execute immediately ONLY for the 1s retry delay
-    (globalThis as any).setTimeout = (cb: Function, ms?: number) => {
-      if (ms && ms >= 1000) {
-        cb();
-        return 1 as any;
-      }
-      return originalSetTimeout(cb, ms);
-    };
 
     let fetchCount = 0;
     globalThis.fetch = vi.fn(() => {
@@ -148,27 +139,28 @@ describe('App', () => {
     await waitFor(() => {
       expect(fetchCount).toBeGreaterThanOrEqual(2);
       expect(screen.queryByTestId('mock-loading')).not.toBeInTheDocument();
-    });
+    }, { timeout: 3000 });
 
-    (globalThis as any).setTimeout = originalSetTimeout;
+    dateSpy.mockRestore();
   });
 
   it('renders the language sections', async () => {
     globalThis.fetch = vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(fullMockData) })) as any;
-    render(<App />);
+    const { container } = render(<App />);
     await waitFor(() => {
-      expect(screen.getByText('Español')).toBeInTheDocument();
-      expect(screen.getByText('English')).toBeInTheDocument();
+      const texts = Array.from(container.querySelectorAll('h3')).map(h3 => h3.textContent);
+      expect(texts.some(t => t?.includes('Español'))).toBe(true);
+      expect(texts.some(t => t?.includes('English'))).toBe(true);
+      expect(texts.some(t => t?.includes('Português'))).toBe(true);
     });
   });
 
   it('renders the landing page title correctly', async () => {
     globalThis.fetch = vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(fullMockData) })) as any;
-    render(<App />);
+    const { container } = render(<App />);
     await waitFor(() => {
-      expect(screen.getByText('GitData')).toBeInTheDocument();
-      expect(screen.getByText('Showcase')).toBeInTheDocument();
-      expect(screen.getByText(/Este proyecto fue realizado/)).toBeInTheDocument();
+      expect(container.querySelector('h1')?.textContent).toMatch(/GitData.*Showcase/i);
+      expect(container.querySelector('.example-note')?.textContent).toMatch(/Este proyecto fue realizado/i);
     });
   });
 });
