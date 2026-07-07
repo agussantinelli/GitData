@@ -26,8 +26,8 @@ const profileRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> =
       const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
       return profileData;
     } catch (error: any) {
-      fastify.log.error(error);
-      return reply.status(500).send({ error: 'Failed to fetch data from GitHub', details: error.message });
+      fastify.log.error({ err: error, username }, 'GitHub data fetch failed');
+      return reply.status(500).send({ error: 'Internal server error' });
     }
   });
 };

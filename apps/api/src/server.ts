@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import rateLimit from '@fastify/rate-limit';
+import helmet from '@fastify/helmet';
 import dotenv from 'dotenv';
 
 // Import Infrastructure Plugins
@@ -13,9 +14,23 @@ import profileRoutes from './interfaces/http/routes/profile';
 // Load environment variables
 dotenv.config();
 
+// ──────────────────────────────────────────
+// FAIL FAST: Validate required env variables
+// ──────────────────────────────────────────
+if (!process.env.GITHUB_TOKEN) {
+  console.error('[FATAL] GITHUB_TOKEN is not defined in .env — server cannot start.');
+  process.exit(1);
+}
+
 const server = Fastify({
-  logger: true
+  logger: true,
+  requestTimeout: 15000
 });
+
+// ──────────────────────────────────────────
+// Security Middleware
+// ──────────────────────────────────────────
+server.register(helmet);
 
 server.register(cors, {
   origin: process.env.ALLOWED_ORIGIN || 'http://localhost:5173',
@@ -32,17 +47,16 @@ server.register(rateLimit, {
   })
 });
 
-// Register Plugins (Injects Use Cases into fastify)
+// ──────────────────────────────────────────
+// App Plugins & Routes
+// ──────────────────────────────────────────
 server.register(githubPlugin);
-
-// Register Routes (Controllers)
 server.register(rootRoutes);
 server.register(profileRoutes, { prefix: '/api/profile' });
 
 const start = async () => {
   try {
     await server.listen({ port: 3000, host: '0.0.0.0' });
-    console.log(`Server listening at http://localhost:3000`);
   } catch (err) {
     server.log.error(err);
     process.exit(1);
