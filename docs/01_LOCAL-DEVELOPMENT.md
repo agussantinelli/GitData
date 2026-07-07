@@ -67,3 +67,14 @@ pnpm build
 ```
 
 Esto compilará el TypeScript de Fastify en `apps/api/dist` y empaquetará la web de Vite en `apps/web/dist`.
+
+## 🧪 Pruebas Automatizadas (Testing)
+
+El proyecto cuenta con un entorno de testing basado en **Vitest** con alta cobertura en ambas aplicaciones.
+
+Para correr absolutamente todos los tests del backend y del frontend simultáneamente:
+```bash
+pnpm test
+```
+
+También puedes correrlos de manera individual entrando a los respectivos directorios (`cd apps/api` o `cd apps/web`) y ejecutando `pnpm test`.
