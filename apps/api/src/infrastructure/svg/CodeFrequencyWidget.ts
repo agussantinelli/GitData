@@ -120,13 +120,13 @@ export const renderCodeFrequencySVG = ({ contributions, theme, lang }: CodeFrequ
   const legendX = (width - 48) - 150;
   const legendSvg = `
     <g transform="translate(${legendX}, ${legendY})">
-      <text x="0" y="10" font-size="12px" fill="${theme.textMutedColor}" font-weight="500">Menos</text>
+      <text x="0" y="10" font-size="12px" fill="${theme.textMutedColor}" font-weight="500">${t.less}</text>
       <rect x="40" y="0" width="${cellS}" height="${cellS}" rx="4" fill="${getCellColor(0, isLight)}" />
       <rect x="58" y="0" width="${cellS}" height="${cellS}" rx="4" fill="${getCellColor(1, isLight)}" />
       <rect x="76" y="0" width="${cellS}" height="${cellS}" rx="4" fill="${getCellColor(2, isLight)}" />
       <rect x="94" y="0" width="${cellS}" height="${cellS}" rx="4" fill="${getCellColor(3, isLight)}" />
       <rect x="112" y="0" width="${cellS}" height="${cellS}" rx="4" fill="${getCellColor(4, isLight)}" />
-      <text x="132" y="10" font-size="12px" fill="${theme.textMutedColor}" font-weight="500">Más</text>
+      <text x="132" y="10" font-size="12px" fill="${theme.textMutedColor}" font-weight="500">${t.more}</text>
     </g>
   `;
 

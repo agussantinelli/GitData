@@ -70,7 +70,7 @@ export const renderMilestonesSVG = ({ milestones, theme, lang }: MilestonesSVGPr
     currentY += milestones.length * 80;
   } else {
     timelineSvg = `
-      <text x="${(width - 48) / 2}" y="${currentY + 20}" font-size="14px" fill="${theme.textMutedColor}" text-anchor="middle">No hay hitos disponibles.</text>
+      <text x="${(width - 48) / 2}" y="${currentY + 20}" font-size="14px" fill="${theme.textMutedColor}" text-anchor="middle">${t.noMilestones}</text>
     `;
     currentY += 40;
   }
