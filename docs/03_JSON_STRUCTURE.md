@@ -177,9 +177,18 @@ La terminal en vivo. Basado en la API REST de GitHub para asegurar máxima fresc
 ```json
 "milestones": [
   {
+    "id": "account-created",
     "date": "2025-03-20T02:03:16Z",
     "title": "Account Created",
-    "description": "Joined the GitHub community."
+    "description": "Joined the GitHub community.",
+    "meta": {}
+  },
+  {
+    "id": "major-codebase",
+    "date": "2026-01-15T14:30:00Z",
+    "title": "Major Codebase",
+    "description": "Started GitData (50MB).",
+    "meta": { "repo": "GitData", "size": 50 }
   }
 ]
 ```
