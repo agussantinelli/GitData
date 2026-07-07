@@ -75,7 +75,7 @@ export const renderTopLanguagesSVG = ({ languages, theme, lang }: TopLanguagesSV
 
   const emptyState = top5.length === 0 ? `
     <text x="${(width - 48) / 2}" y="${currentY + 30}" font-size="16px" fill="${theme.textMutedColor}" text-anchor="middle">
-      No language data available.
+      ${t.noLangData}
     </text>
   ` : '';
   

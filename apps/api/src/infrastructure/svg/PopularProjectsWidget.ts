@@ -102,7 +102,7 @@ export const renderPopularProjectsSVG = ({ projects, theme, lang }: PopularProje
 
   const emptyState = topProjects.length === 0 ? `
     <text x="${(width - 48) / 2}" y="${currentY + 30}" font-size="16px" fill="${theme.textMutedColor}" text-anchor="middle">
-      No projects available.
+      ${t.noProjects}
     </text>
   ` : '';
   

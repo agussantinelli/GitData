@@ -51,7 +51,7 @@ export const renderActivityStreamSVG = ({ activityStream, theme, lang }: Activit
           ${idx !== activityStream.length - 1 ? `<line x1="6" y1="20" x2="6" y2="52" stroke="${theme.glassBorder}" stroke-width="2" />` : ''}
           
           <!-- Content -->
-          <text x="24" y="16" font-size="14px" fill="${theme.titleColor}">${event.description} <tspan font-weight="600" fill="${theme.primaryColor}">on</tspan> <tspan font-weight="700">${repoName}</tspan></text>
+          <text x="24" y="16" font-size="14px" fill="${theme.titleColor}">${event.description} <tspan font-weight="600" fill="${theme.primaryColor}">${t.onRepo}</tspan> <tspan font-weight="700">${repoName}</tspan></text>
           <text x="24" y="36" font-size="12px" fill="${theme.textMutedColor}">${formatDate(event.date)}</text>
         </g>
       `;
@@ -60,7 +60,7 @@ export const renderActivityStreamSVG = ({ activityStream, theme, lang }: Activit
     currentY += activityStream.length * 56;
   } else {
     streamSvg = `
-      <text x="${(width - 48) / 2}" y="${currentY + 20}" font-size="14px" fill="${theme.textMutedColor}" text-anchor="middle">No hay actividad reciente disponible.</text>
+      <text x="${(width - 48) / 2}" y="${currentY + 20}" font-size="14px" fill="${theme.textMutedColor}" text-anchor="middle">${t.noActivity}</text>
     `;
     currentY += 40;
   }

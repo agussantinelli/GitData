@@ -45,7 +45,7 @@ export const renderCategorizedProjectsSVG = ({ projects, theme, lang }: Categori
   const renderItem = (repo: Project, highlight: 'stars' | 'date' | 'commits', yPos: number) => {
     const maxNameLen = 18;
     const displayName = repo.name.length > maxNameLen ? repo.name.substring(0, maxNameLen) + '...' : repo.name;
-    const langLabel = repo.primaryLanguage || 'Unknown';
+    const langLabel = repo.primaryLanguage || t.unknown;
     
     let iconSvg = '';
     let statText = '';
