@@ -140,6 +140,15 @@ Trofeos desbloqueados automáticamente al superar umbrales de métricas globales
 ```
 Mapeo de los bytes totales de código agrupados en tres categorías arquitectónicas.
 
+### Code-Life Balance (Días Laborables vs Fines de Semana)
+```json
+"codeLifeBalance": {
+  "weekdays": 450,
+  "weekends": 120
+}
+```
+Distribución de los commits totales del último año separando lunes a viernes de sábados y domingos.
+
 ### Time Of Day (Horarios de Trabajo)
 ```json
 "timeOfDay": {
