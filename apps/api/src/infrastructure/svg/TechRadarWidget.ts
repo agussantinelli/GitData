@@ -36,10 +36,10 @@ export const renderTechRadarSVG = ({ techRadar, theme, lang }: TechRadarSVGProps
   `;
   currentY += 80;
 
-  const renderBar = (label: string, percent: number, fillColors: string[], yPos: number) => {
+  const renderBar = (label: string, idStr: string, percent: number, fillColors: string[], yPos: number) => {
     const barWidth = width - 48;
     const fillWidth = (barWidth * percent) / 100;
-    const gradientId = `grad-${label.replace(/\s+/g, '')}`;
+    const gradientId = `grad-${idStr}`;
     
     return `
       <g transform="translate(0, ${yPos})">
@@ -65,9 +65,9 @@ export const renderTechRadarSVG = ({ techRadar, theme, lang }: TechRadarSVGProps
 
   const barsSvg = `
     <g transform="translate(0, ${currentY})">
-      ${renderBar('Frontend', pFront, frontColors, 0)}
-      ${renderBar('Backend', pBack, backColors, 50)}
-      ${renderBar('DevOps & Data', pDev, devColors, 100)}
+      ${renderBar('Frontend', 'Frontend', pFront, frontColors, 0)}
+      ${renderBar('Backend', 'Backend', pBack, backColors, 50)}
+      ${renderBar('DevOps &amp; Data', 'DevOpsData', pDev, devColors, 100)}
     </g>
   `;
   currentY += 140;
