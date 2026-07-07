@@ -41,8 +41,8 @@ export const ActivityStreamWidget: React.FC<ActivityStreamWidgetProps> = ({
 
         <div className="activity-list">
           {activityStream.length > 0 ? (
-            activityStream.map((event) => (
-              <div key={event.id} className="activity-item">
+            activityStream.map((event, index) => (
+              <div key={index} className="activity-item">
                 <div className="activity-dot"></div>
                 <div className="activity-content">
                   <p className="activity-desc">
