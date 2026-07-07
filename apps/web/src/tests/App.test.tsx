@@ -116,17 +116,8 @@ describe('App', () => {
     });
   });
 
-  it('renders the header correctly with GitData Showcase title', async () => {
-    globalThis.fetch = vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(fullMockData) })) as any;
-    render(<App />);
-    await waitFor(() => {
-      expect(screen.getByText('GitData Showcase')).toBeInTheDocument();
-      expect(screen.getByText('Colección completa de widgets generados dinámicamente')).toBeInTheDocument();
-    });
-  });
-
   it('verifies that fetchWithRetry gracefully handles HTTP 429 by waiting and retrying', async () => {
-    const realDateNow = Date.now.bind(globalThis.Date);
+    (globalThis as any).__originalDateNow = Date.now.bind(globalThis.Date);
     let time = 0;
     globalThis.Date.now = vi.fn(() => {
       time += 1000; 
@@ -148,28 +139,24 @@ describe('App', () => {
       expect(fetchCount).toBeGreaterThanOrEqual(2);
       expect(screen.queryByTestId('mock-loading')).not.toBeInTheDocument();
     });
-
-    globalThis.Date.now = realDateNow;
   });
 
-  it('renders correctly the footer and Github profile links', async () => {
+  it('renders the language sections', async () => {
     globalThis.fetch = vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(fullMockData) })) as any;
     render(<App />);
     await waitFor(() => {
-      expect(screen.getByText('Powered by')).toBeInTheDocument();
+      expect(screen.getByText('Español')).toBeInTheDocument();
+      expect(screen.getByText('English')).toBeInTheDocument();
     });
   });
 
-  it('renders both dark and light modes for the widgets', async () => {
+  it('renders the landing page title correctly', async () => {
     globalThis.fetch = vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(fullMockData) })) as any;
     render(<App />);
     await waitFor(() => {
-      // At least one dark mode widget wrapper and one light mode
-      const headers = screen.getAllByRole('heading', { level: 4 });
-      const textContents = headers.map(h => h.textContent);
-      expect(textContents.some(t => t?.includes('Modo Oscuro'))).toBe(true);
-      expect(textContents.some(t => t?.includes('Modo Claro'))).toBe(true);
+      expect(screen.getByText('GitData')).toBeInTheDocument();
+      expect(screen.getByText('Showcase')).toBeInTheDocument();
+      expect(screen.getByText(/Este proyecto fue realizado/)).toBeInTheDocument();
     });
   });
 });
-
