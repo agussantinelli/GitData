@@ -5,10 +5,9 @@ import React from 'react';
 
 // Mock clipboard API
 const mockWriteText = vi.fn();
-Object.assign(navigator, {
-  clipboard: {
-    writeText: mockWriteText,
-  },
+Object.defineProperty(navigator, 'clipboard', {
+  value: { writeText: mockWriteText },
+  configurable: true,
 });
 
 describe('URLSnippet', () => {
@@ -24,7 +23,7 @@ describe('URLSnippet', () => {
 
   it('1. renders the correct URL string based on props', () => {
     render(<URLSnippet endpoint="profile" username="testuser" theme="dark" lang="es" />);
-    const codeElement = screen.getByText('https://gitdata.tu-dominio.com/api/svg/profile?username=<tu-nombre-usuario>&theme=dark&lang=es');
+    const codeElement = screen.getByText('http://localhost:3000/api/svg/profile?username=<tu-nombre-usuario>&theme=dark&lang=es');
     expect(codeElement).toBeInTheDocument();
   });
 

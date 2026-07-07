@@ -86,8 +86,7 @@ describe('App', () => {
     
     await waitFor(() => {
       expect(screen.queryByTestId('mock-loading')).not.toBeInTheDocument();
-      expect(screen.getByText(/GitData/i)).toBeInTheDocument();
-      expect(screen.getByText(/Showcase/i)).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: /GitData Showcase/i })).toBeInTheDocument();
     });
   });
 
@@ -117,13 +116,7 @@ describe('App', () => {
   });
 
   it('verifies that fetchWithRetry gracefully handles HTTP 429 by waiting and retrying', async () => {
-    (globalThis as any).__originalDateNow = Date.now.bind(globalThis.Date);
-    let time = 0;
-    globalThis.Date.now = vi.fn(() => {
-      time += 1000; 
-      return time;
-    });
-
+    vi.useFakeTimers();
     let fetchCount = 0;
     globalThis.fetch = vi.fn(() => {
       fetchCount++;
@@ -135,10 +128,14 @@ describe('App', () => {
 
     render(<App />);
     
+    // Fast-forward time to bypass the 1s delay and 60s timeout loop
+    await vi.advanceTimersByTimeAsync(1500);
+    
     await waitFor(() => {
       expect(fetchCount).toBeGreaterThanOrEqual(2);
       expect(screen.queryByTestId('mock-loading')).not.toBeInTheDocument();
     });
+    vi.useRealTimers();
   });
 
   it('renders the language sections', async () => {
