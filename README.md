@@ -189,6 +189,22 @@ GitData/
 
 <hr />
 
+<h2>📚 Documentación del Proyecto</h2>
+<p>El directorio <code>docs/</code> contiene guías exhaustivas para entender cada engranaje del sistema, desde cómo levantar el proyecto localmente hasta cómo funciona el cerebro analítico del backend:</p>
+
+<ul>
+    <li><b>01_LOCAL-DEVELOPMENT.md:</b> Guía de inicio rápido para levantar Fastify y React simultáneamente usando <code>pnpm</code>.</li>
+    <li><b>02_ARCHITECTURE.md:</b> Explicación profunda del patrón Clean Architecture y el Frontend basado en Widgets independientes.</li>
+    <li><b>03_JSON_STRUCTURE.md:</b> Contrato de datos oficial. Muestra la respuesta exacta de la API (Perfil unificado).</li>
+    <li><b>04_WIDGET_INTEGRATION.md:</b> Instrucciones teóricas para incrustar estos widgets en aplicaciones externas (Portafolios, Blogs).</li>
+    <li><b>05_INFERENCE_ENGINE.md:</b> Reglas matemáticas del cerebro algorítmico del backend (Deducción de medallas, horarios, code-life balance, etc).</li>
+    <li><b>06_ADDING_NEW_WIDGET.md:</b> Checklist y tutorial paso a paso para crear, estilizar y registrar nuevos widgets en el ecosistema.</li>
+    <li><b>07_I18N_AND_THEMING.md:</b> Explicación de la arquitectura de diccionarios multi-idioma (5 idiomas) y el sistema de variables CSS (Oscuro/Claro).</li>
+    <li><b>08_WIDGETS_CATALOG.md:</b> Catálogo descriptivo oficial de los 13 Super Mini Layouts.</li>
+</ul>
+
+<hr />
+
 <h2>🛠️ Skills Especializadas</h2>
 <p>Ubicadas en <code>.agent/skills/</code>, son guías técnicas que definen cómo se deben construir las diferentes partes del sistema:</p>
 
