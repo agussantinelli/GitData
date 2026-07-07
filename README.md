@@ -158,15 +158,33 @@
 
 <hr>
 
-<h2>📦 Estructura del Proyecto</h2>
+<h2>📦 Arquitectura del Monorepo (Clean Architecture)</h2>
 
 <pre>
 GitData/
+├── .agent/
+│   └── skills/           # 🤖 Reglas arquitectónicas y Contexto para IAs
 ├── apps/
-│   ├── api/        # 🚀 Backend Fastify (Endpoints y lógica pura)
-│   └── web/        # 🎨 Frontend React+Vite (Mini layouts y Widgets)
-├── pnpm-workspace.yaml
-└── package.json    # Scripts de orquestación global
+│   ├── api/              # 🚀 Backend Fastify (Motor de Inferencia)
+│   │   ├── src/
+│   │   │   ├── domain/         # Entidades puras e Interfaces (Profile)
+│   │   │   ├── infrastructure/ # Adaptadores y Repositorios (Octokit, GitHub)
+│   │   │   ├── presentation/   # Controladores y Endpoints REST
+│   │   │   └── server.ts       # Orquestador de la API
+│   │   └── package.json
+│   │
+│   └── web/              # 🎨 Frontend React+Vite (Showcase UI)
+│       ├── src/
+│       │   ├── components/
+│       │   │   ├── ui/         # Base UI (Card, Badge, Avatar)
+│       │   │   └── widgets/    # Los 13 Super Mini Layouts y sus estilos
+│       │   ├── locales/        # 🌍 Diccionarios i18n (5 Idiomas)
+│       │   ├── styles/         # 💅 Tokens CSS, Variables y Multi-Tema
+│       │   └── App.tsx         # Catálogo interactivo
+│       └── package.json
+├── docs/                 # 📚 Documentación exhaustiva (Guías, Motores, Catálogo)
+├── pnpm-workspace.yaml   # Configuración del Monorepo
+└── package.json          # Scripts de orquestación global
 </pre>
 
 <hr />
