@@ -12,7 +12,15 @@ export class OctokitGithubRepository implements IGithubRepository {
   }
 
   async getProfileAndRepos(username: string): Promise<DeveloperProfile> {
-    const { Octokit } = await import('octokit');
+    let Octokit;
+    if (process.env.NODE_ENV === 'test') {
+      const module = await import('octokit');
+      Octokit = module.Octokit;
+    } else {
+      const dynamicImport = new Function('modulePath', 'return import(modulePath)');
+      const module = await dynamicImport('octokit');
+      Octokit = module.Octokit;
+    }
     const octokit = new Octokit({ auth: this.token });
 
     const query = `
