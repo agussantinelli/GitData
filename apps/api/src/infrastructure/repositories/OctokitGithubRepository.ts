@@ -12,8 +12,7 @@ export class OctokitGithubRepository implements IGithubRepository {
   }
 
   async getProfileAndRepos(username: string): Promise<DeveloperProfile> {
-    const octokitModule = await Function('return import("octokit")')() as typeof import('octokit');
-    const Octokit = octokitModule.Octokit;
+    const { Octokit } = await import('octokit');
     const octokit = new Octokit({ auth: this.token });
 
     const query = `
