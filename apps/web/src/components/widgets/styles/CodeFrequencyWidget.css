@@ -42,7 +42,7 @@
   margin-bottom: 0.5rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 400px) {
   .frequency-stats {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -90,7 +90,8 @@
   overflow-x: auto;
   padding-bottom: 0.5rem;
   scrollbar-width: thin;
-  justify-content: center;
+  justify-content: start;
+  max-width: 100%;
 }
 
 .frequency-heatmap::-webkit-scrollbar {
