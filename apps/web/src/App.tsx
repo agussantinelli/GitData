@@ -129,7 +129,8 @@ function App() {
       throw new Error('Servidor inalcanzable (Timeout de 30s)');
     };
 
-    fetchWithRetry('http://localhost:3000/api/profile?username=agussantinelli')
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+    fetchWithRetry(`${apiUrl}/api/profile?username=agussantinelli`)
       .then((data) => {
         if (isMounted) {
           setProfile(data);
