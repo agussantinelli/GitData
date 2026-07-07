@@ -34,7 +34,7 @@
 </p>
 
 <p align="justify">
-  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b> que funciona como un auténtico <b>Motor de Inferencia Matemática</b>, combinando consultas <b>híbridas (GraphQL + REST)</b> para deducir patrones que GitHub no expone nativamente (como horarios de trabajo, ramas tecnológicas y trofeos). Por el otro lado, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en una <b>Landing Page Showcase</b> de 13 "Super Mini Layouts". Estos widgets inmersivos cuentan con <b>Soporte Multilingüe (i18n en 5 idiomas)</b> y <b>Soporte Multitema (Light / Dark)</b> mediante un diseño premium purista (Vanilla CSS y Glassmorphism), listos para integrarse en portfolios o plataformas externas.
+  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b> que funciona como un auténtico <b>Motor de Inferencia Matemática</b>, combinando consultas <b>híbridas (GraphQL + REST)</b> para deducir patrones que GitHub no expone nativamente (como horarios de trabajo, ramas tecnológicas y trofeos). Por el otro lado, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en una <b>Landing Page Showcase</b> de 13 "Super Mini Layouts". Estos widgets inmersivos cuentan con <b>Soporte Multilingüe (i18n en 5 idiomas)</b>, <b>Soporte Multitema (Light / Dark)</b> y un <b>Diseño 100% Responsive (Mobile-First)</b> mediante un diseño premium purista (Vanilla CSS y Glassmorphism), listos para integrarse en portfolios o plataformas externas.
 </p>
 
 <hr>
@@ -157,6 +157,7 @@
 <ul>
   <li><b>🌗 Soporte Multitema (Dark / Light):</b> Los widgets heredan automáticamente un set de variables CSS según el tema seleccionado. En modo oscuro lucen paneles translúcidos sobre fondos profundos, y en modo claro ofrecen tarjetas opalinas impecables.</li>
   <li><b>🌍 Soporte Multilingüe (i18n):</b> El sistema incluye diccionarios nativos para renderizar cada texto, número y fecha en 5 idiomas diferentes: <b>Español, Inglés, Portugués, Italiano y Francés</b>. Los números masivos se formatean automáticamente respetando la cultura de cada idioma (ej: <code>1,000</code> vs <code>1.000</code>).</li>
+  <li><b>📱 Diseño 100% Responsive (Mobile-First):</b> Toda la Landing Page Showcase fue construida bajo una filosofía <b>Mobile-First</b> utilizando CSS nativo (<code>@media queries</code>, función <code>min()</code>, <code>auto-fit</code>/<code>auto-fill</code>). Cada uno de los 13 widgets se adapta fluidamente a cualquier resolución, desde pantallas de 320px (iPhone SE) hasta monitores 4K, sin scroll horizontal ni elementos rotos.</li>
 </ul>
 
 <hr>
