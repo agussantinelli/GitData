@@ -1,5 +1,6 @@
 import { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
+import { TTLCache } from '../../../../infrastructure/cache/TTLCache';
 
 const usernameSchema = z.object({
   username: z
@@ -8,6 +9,8 @@ const usernameSchema = z.object({
     .max(39, 'Username must be at most 39 characters')
     .regex(/^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?$/, 'Invalid GitHub username format')
 });
+
+const cache = new TTLCache<unknown>(5 * 60 * 1000); // 5 minutes TTL
 
 const profileRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   fastify.get('/', async (request: any, reply) => {
@@ -21,9 +24,18 @@ const profileRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> =
     }
 
     const { username } = parsed.data;
+    const clientIp = request.ip;
+
+    const cached = cache.get(username);
+    if (cached) {
+      fastify.log.info({ username, ip: clientIp, cacheHit: true }, 'Profile request served from cache');
+      return cached;
+    }
 
     try {
       const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
+      cache.set(username, profileData);
+      fastify.log.info({ username, ip: clientIp, cacheHit: false, cacheSize: cache.size() }, 'Profile request served from GitHub API');
       return profileData;
     } catch (error: any) {
       fastify.log.error({ err: error, username }, 'GitHub data fetch failed');

@@ -53,6 +53,20 @@ server.register(rateLimit, {
 });
 
 // ──────────────────────────────────────────
+// Optional API Key (only enforced if API_KEY is set in .env)
+// ──────────────────────────────────────────
+if (process.env.API_KEY) {
+  const VALID_KEY = process.env.API_KEY;
+  server.addHook('onRequest', async (request, reply) => {
+    const key = request.headers['x-api-key'];
+    if (key !== VALID_KEY) {
+      return reply.status(401).send({ error: 'Unauthorized' });
+    }
+  });
+  console.log('[Security] API Key authentication is ENABLED.');
+}
+
+// ──────────────────────────────────────────
 // App Plugins & Routes
 // ──────────────────────────────────────────
 server.register(githubPlugin);
