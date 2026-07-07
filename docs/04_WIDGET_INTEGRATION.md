@@ -6,7 +6,7 @@ Esta guía detalla cómo consumir la API subyacente y cómo visualizar los widge
 
 ---
 
-## 1. Consumo Directo de la API (Headless)
+## 1. Consumo Directo de la API (Headless JSON)
 
 Si deseas construir tu propia interfaz gráfica o procesar los datos analíticos en otro backend, puedes consumir nuestra API Fastify directamente.
 
@@ -25,7 +25,31 @@ Retorna el payload completo documentado en `03_JSON_STRUCTURE.md`. Al estar resp
 
 ---
 
-## 2. Embebido mediante iFrames (Modo Visual)
+## 2. Inyección Directa de SVGs (Modo Readme/Estático)
+
+La API no solo devuelve JSON, sino que también incluye un motor renderizador nativo de SVGs. Esto es ideal para inyectar widgets directamente en archivos Markdown (`README.md` de GitHub) sin necesidad de iFrames.
+
+Todos los endpoints bajo `/api/svg/*` devuelven una imagen vectorial pura en formato `image/svg+xml`. Todos ellos utilizan un potente sistema de caché optimizado y exigen **3 variables** clave para mantener la coherencia visual:
+
+- `username` (Obligatorio): Nombre de usuario en GitHub.
+- `theme` (Opcional, default `dark`): Modo visual (`dark` o `light`).
+- `lang` (Opcional, default `es`): Idioma de los textos (`es`, `en`, `pt`, `it`, `fr`).
+
+**Ejemplo de uso en un `README.md`:**
+```markdown
+<!-- Gráfico de Estadísticas Globales en Oscuro e Inglés -->
+![Global Stats](https://gitdata.tu-dominio.com/api/svg/global-stats?username=agussantinelli&theme=dark&lang=en)
+
+<!-- Frecuencia de Código en Claro y Portugués -->
+![Code Frequency](https://gitdata.tu-dominio.com/api/svg/code-frequency?username=agussantinelli&theme=light&lang=pt)
+```
+
+**Rutas SVG Disponibles:**
+`/global-stats`, `/top-languages`, `/popular-projects`, `/achievements`, `/profile`, `/hourly-frequency`, `/time-of-day`, `/code-life-balance`, `/categorized-projects`, `/code-frequency`, `/milestones`, `/tech-radar`, `/activity-stream`.
+
+---
+
+## 3. Embebido mediante iFrames (Modo Visual)
 
 La forma más directa de aprovechar el trabajo de UI/UX (Glassmorphism) es integrar el Frontend compilado directamente mediante un `<iframe>`.
 
@@ -56,7 +80,7 @@ El Frontend está arquitecturado de forma tal que, mediante parámetros en la UR
 
 ---
 
-## 3. Seguridad y CORS
+## 4. Seguridad y CORS
 
 El Backend Fastify está configurado con `@fastify/cors`. Por defecto en entornos de desarrollo acepta solicitudes cruzadas desde cualquier origen. 
 
