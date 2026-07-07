@@ -37,7 +37,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     }
 
     const { username, theme: themeStr, lang } = parsed.data;
-    
+
     reply.header('Content-Type', 'image/svg+xml');
     reply.header('Cache-Control', 'public, max-age=1800');
 
@@ -49,7 +49,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 
     try {
       const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
-      
+
       const theme = getTheme(themeStr);
       const svgContent = renderGlobalStatsSVG({
         stats: profileData.stats,
@@ -69,7 +69,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 
   fastify.get('/top-languages', async (req: any, reply) => {
     const query = widgetQuerySchema.safeParse(req.query);
-    
+
     if (!query.success) {
       return reply.status(400).send('Invalid query parameters');
     }
@@ -86,7 +86,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       });
 
       reply.header('Content-Type', 'image/svg+xml');
-      reply.header('Cache-Control', 'public, max-age=3600'); 
+      reply.header('Cache-Control', 'public, max-age=3600');
       return reply.send(svgString);
     } catch (error) {
       req.log.error(error);
@@ -96,7 +96,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 
   fastify.get('/popular-projects', async (req: any, reply) => {
     const query = widgetQuerySchema.safeParse(req.query);
-    
+
     if (!query.success) {
       return reply.status(400).send('Invalid query parameters');
     }
@@ -113,7 +113,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       });
 
       reply.header('Content-Type', 'image/svg+xml');
-      reply.header('Cache-Control', 'public, max-age=3600'); 
+      reply.header('Cache-Control', 'public, max-age=3600');
       return reply.send(svgString);
     } catch (error) {
       req.log.error(error);
@@ -123,7 +123,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 
   fastify.get('/achievements', async (req: any, reply) => {
     const query = widgetQuerySchema.safeParse(req.query);
-    
+
     if (!query.success) {
       return reply.status(400).send('Invalid query parameters');
     }
@@ -140,7 +140,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       });
 
       reply.header('Content-Type', 'image/svg+xml');
-      reply.header('Cache-Control', 'public, max-age=3600'); 
+      reply.header('Cache-Control', 'public, max-age=3600');
       return reply.send(svgString);
     } catch (error) {
       req.log.error(error);
@@ -150,7 +150,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
 
   fastify.get('/profile', async (req: any, reply) => {
     const query = widgetQuerySchema.safeParse(req.query);
-    
+
     if (!query.success) {
       return reply.status(400).send('Invalid query parameters');
     }
@@ -181,7 +181,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       });
 
       reply.header('Content-Type', 'image/svg+xml');
-      reply.header('Cache-Control', 'public, max-age=3600'); 
+      reply.header('Cache-Control', 'public, max-age=3600');
       return reply.send(svgString);
     } catch (error) {
       req.log.error(error);
@@ -189,11 +189,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     }
   });
 
-  // ------------------------------------------
-  // PHASE 2 WIDGETS
-  // ------------------------------------------
-
-  fastify.get('/hourly-frequency', async (req: FastifyRequest, reply: FastifyReply) => {
+  fastify.get('/hourly-frequency', async (req: any, reply: any) => {
     const { username, theme = 'dark', lang = 'es' } = req.query as { username: string, theme?: string, lang?: string };
     if (!username) return reply.status(400).send('Username is required');
 
@@ -206,7 +202,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       });
 
       reply.header('Content-Type', 'image/svg+xml');
-      reply.header('Cache-Control', 'public, max-age=3600'); 
+      reply.header('Cache-Control', 'public, max-age=3600');
       return reply.send(svgString);
     } catch (error) {
       req.log.error(error);
@@ -214,7 +210,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     }
   });
 
-  fastify.get('/time-of-day', async (req: FastifyRequest, reply: FastifyReply) => {
+  fastify.get('/time-of-day', async (req: any, reply: any) => {
     const { username, theme = 'dark', lang = 'es' } = req.query as { username: string, theme?: string, lang?: string };
     if (!username) return reply.status(400).send('Username is required');
 
@@ -233,7 +229,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       });
 
       reply.header('Content-Type', 'image/svg+xml');
-      reply.header('Cache-Control', 'public, max-age=3600'); 
+      reply.header('Cache-Control', 'public, max-age=3600');
       return reply.send(svgString);
     } catch (error) {
       req.log.error(error);
@@ -241,13 +237,13 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     }
   });
 
-  fastify.get('/code-life-balance', async (req: FastifyRequest, reply: FastifyReply) => {
+  fastify.get('/code-life-balance', async (req: any, reply: any) => {
     const { username, theme = 'dark', lang = 'es' } = req.query as { username: string, theme?: string, lang?: string };
     if (!username) return reply.status(400).send('Username is required');
 
     try {
       const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
-      
+
       const svgString = renderCodeLifeBalanceSVG({
         balance: { weekdays: Math.round(profileData.stats.commits * 0.8), weekends: Math.round(profileData.stats.commits * 0.2) }, // We approximate this from real totalCommits as example
         theme: getTheme(theme),
@@ -255,7 +251,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       });
 
       reply.header('Content-Type', 'image/svg+xml');
-      reply.header('Cache-Control', 'public, max-age=3600'); 
+      reply.header('Cache-Control', 'public, max-age=3600');
       return reply.send(svgString);
     } catch (error) {
       req.log.error(error);
@@ -263,14 +259,14 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     }
   });
 
-  fastify.get('/categorized-projects', async (req: FastifyRequest, reply: FastifyReply) => {
+  fastify.get('/categorized-projects', async (req: any, reply: any) => {
     const { username, theme = 'dark', lang = 'es' } = req.query as { username: string, theme?: string, lang?: string };
     if (!username) return reply.status(400).send('Username is required');
 
     try {
       const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
-      
-      const mappedProjects: Project[] = profileData.projects.map(repo => ({
+
+      const mappedProjects: Project[] = profileData.projects.map((repo: any) => ({
         name: repo.name,
         description: repo.description,
         stars: repo.stars,
@@ -292,7 +288,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       });
 
       reply.header('Content-Type', 'image/svg+xml');
-      reply.header('Cache-Control', 'public, max-age=3600'); 
+      reply.header('Cache-Control', 'public, max-age=3600');
       return reply.send(svgString);
     } catch (error) {
       req.log.error(error);
