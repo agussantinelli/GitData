@@ -157,7 +157,7 @@ function App() {
     <div className="landing-container">
       <header className="landing-header">
         <h1>GitData <span className="gradient-text">Showcase</span></h1>
-        <p>Este proyecto fue realizado utilizando el perfil de GitHub de agussantinelli como ejemplo.</p>
+        <p className="example-note">Este proyecto fue realizado utilizando el perfil de GitHub de <strong>agussantinelli</strong> como ejemplo.</p>
       </header>
 
       <h2 className="section-title">Profile Card Widget</h2>
