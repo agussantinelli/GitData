@@ -171,6 +171,7 @@
   <li><b>🌗 Soporte Multitema (Dark / Light):</b> Los widgets heredan automáticamente un set de variables CSS según el tema seleccionado. En modo oscuro lucen paneles translúcidos sobre fondos profundos, y en modo claro ofrecen tarjetas opalinas impecables.</li>
   <li><b>🌍 Soporte Multilingüe (i18n):</b> El sistema incluye diccionarios nativos para renderizar cada texto, número y fecha en 5 idiomas diferentes: <b>Español, Inglés, Portugués, Italiano y Francés</b>. Los números masivos se formatean automáticamente respetando la cultura de cada idioma (ej: <code>1,000</code> vs <code>1.000</code>).</li>
   <li><b>📱 Diseño 100% Responsive (Mobile-First):</b> Toda la Landing Page Showcase fue construida bajo una filosofía <b>Mobile-First</b> utilizando CSS nativo (<code>@media queries</code>, función <code>min()</code>, <code>auto-fit</code>/<code>auto-fill</code>). Cada uno de los 13 widgets se adapta fluidamente a cualquier resolución, desde pantallas de 320px (iPhone SE) hasta monitores 4K, sin scroll horizontal ni elementos rotos.</li>
+  <li><b>🔌 Inyección Directa SVG:</b> Además de usar iFrames, el Backend expone endpoints puros (<code>/api/svg/*</code>) que devuelven gráficos vectoriales renderizados en el servidor. Estos SVGs soportan inyección en Markdown (`README.md`) y también aceptan las 3 variables principales (<code>username</code>, <code>theme</code> y <code>lang</code>) para garantizar coherencia visual absoluta gracias a su caché universal interna.</li>
 </ul>
 
 <hr>
