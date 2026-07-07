@@ -63,6 +63,12 @@ export const renderCodeFrequencySVG = ({ contributions, theme, lang }: CodeFrequ
 
   const headerSvg = `
     <g transform="translate(0, ${currentY})">
+      <defs>
+        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#8b5cf6" />
+          <stop offset="100%" stop-color="#3b82f6" />
+        </linearGradient>
+      </defs>
       <svg x="0" y="-4" width="24" height="24" viewBox="${icons.branch.viewBox}" fill="${theme.primaryColor}">
         ${icons.branch.path}
       </svg>
