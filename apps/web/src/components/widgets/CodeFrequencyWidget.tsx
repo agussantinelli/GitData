@@ -90,13 +90,13 @@ export const CodeFrequencyWidget: React.FC<CodeFrequencyWidgetProps> = ({
             ))}
             
             {visibleContributions.length === 0 && (
-              <p className="no-data">No hay datos de frecuencia disponibles.</p>
+              <p className="no-data">{t.noFreqData}</p>
             )}
           </div>
           
           {visibleContributions.length > 0 && (
-            <div className="frequency-legend">
-              <span className="legend-text">Menos</span>
+            <div className="heatmap-legend">
+              <span className="legend-text">{t.less}</span>
               <div className="legend-cells">
                 <div className="heatmap-cell level-0" />
                 <div className="heatmap-cell level-1" />
@@ -104,7 +104,7 @@ export const CodeFrequencyWidget: React.FC<CodeFrequencyWidgetProps> = ({
                 <div className="heatmap-cell level-3" />
                 <div className="heatmap-cell level-4" />
               </div>
-              <span className="legend-text">Más</span>
+              <span className="legend-text">{t.more}</span>
             </div>
           )}
         </div>

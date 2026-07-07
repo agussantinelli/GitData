@@ -53,7 +53,7 @@ export const ActivityStreamWidget: React.FC<ActivityStreamWidgetProps> = ({
               </div>
             ))
           ) : (
-            <p className="no-data">No hay actividad reciente disponible.</p>
+            <p className="no-data">{t.noActivity}</p>
           )}
         </div>
       </Card>

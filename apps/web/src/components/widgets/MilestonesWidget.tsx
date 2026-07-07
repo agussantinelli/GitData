@@ -60,7 +60,7 @@ export const MilestonesWidget: React.FC<MilestonesWidgetProps> = ({
               );
             })
           ) : (
-            <p className="no-data">No hay hitos disponibles.</p>
+            <p className="no-data">{t.noMilestones}</p>
           )}
         </div>
       </Card>
