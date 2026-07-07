@@ -116,7 +116,24 @@ describe('App', () => {
   });
 
   it('verifies that fetchWithRetry gracefully handles HTTP 429 by waiting and retrying', async () => {
-    vi.useFakeTimers();
+    (globalThis as any).__originalDateNow = Date.now.bind(globalThis.Date);
+    const originalSetTimeout = globalThis.setTimeout;
+    
+    let time = 0;
+    globalThis.Date.now = vi.fn(() => {
+      time += 1000; 
+      return time;
+    });
+
+    // Smart mock setTimeout to execute immediately ONLY for the 1s retry delay
+    (globalThis as any).setTimeout = (cb: Function, ms?: number) => {
+      if (ms && ms >= 1000) {
+        cb();
+        return 1 as any;
+      }
+      return originalSetTimeout(cb, ms);
+    };
+
     let fetchCount = 0;
     globalThis.fetch = vi.fn(() => {
       fetchCount++;
@@ -128,14 +145,12 @@ describe('App', () => {
 
     render(<App />);
     
-    // Fast-forward time to bypass the 1s delay and 60s timeout loop
-    await vi.advanceTimersByTimeAsync(1500);
-    
     await waitFor(() => {
       expect(fetchCount).toBeGreaterThanOrEqual(2);
       expect(screen.queryByTestId('mock-loading')).not.toBeInTheDocument();
     });
-    vi.useRealTimers();
+
+    (globalThis as any).setTimeout = originalSetTimeout;
   });
 
   it('renders the language sections', async () => {
