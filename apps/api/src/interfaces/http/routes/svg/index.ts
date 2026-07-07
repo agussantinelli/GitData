@@ -11,6 +11,10 @@ import { renderHourlyFrequencySVG } from '../../../../infrastructure/svg/HourlyF
 import { renderTimeOfDaySVG } from '../../../../infrastructure/svg/TimeOfDayWidget';
 import { renderCodeLifeBalanceSVG } from '../../../../infrastructure/svg/CodeLifeBalanceWidget';
 import { renderCategorizedProjectsSVG } from '../../../../infrastructure/svg/CategorizedProjectsWidget';
+import { renderCodeFrequencySVG } from '../../../../infrastructure/svg/CodeFrequencyWidget';
+import { renderMilestonesSVG } from '../../../../infrastructure/svg/MilestonesWidget';
+import { renderTechRadarSVG } from '../../../../infrastructure/svg/TechRadarWidget';
+import { renderActivityStreamSVG } from '../../../../infrastructure/svg/ActivityStreamWidget';
 import type { Language } from '../../../../infrastructure/svg/locales';
 
 const widgetQuerySchema = z.object({
@@ -196,7 +200,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     try {
       const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
       const svgString = renderHourlyFrequencySVG({
-        hourlyFrequency: profileData.hourlyFrequency || Array(24).fill(0),
+        hourlyFrequency: profileData.hourlyFrequency,
         theme: getTheme(theme),
         lang: lang as Language
       });
@@ -217,7 +221,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     try {
       const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
       // Construct timeOfDay based on hourlyFrequency
-      const h = profileData.hourlyFrequency || Array(24).fill(0);
+      const h = profileData.hourlyFrequency;
       const morning = h.slice(6, 12).reduce((a, b) => a + b, 0);
       const afternoon = h.slice(12, 20).reduce((a, b) => a + b, 0);
       const night = [...h.slice(20, 24), ...h.slice(0, 6)].reduce((a, b) => a + b, 0);
@@ -245,7 +249,7 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
 
       const svgString = renderCodeLifeBalanceSVG({
-        balance: { weekdays: Math.round(profileData.stats.commits * 0.8), weekends: Math.round(profileData.stats.commits * 0.2) }, // We approximate this from real totalCommits as example
+        balance: profileData.codeLifeBalance,
         theme: getTheme(theme),
         lang: lang as Language
       });
@@ -278,9 +282,6 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
         totalCommits: repo.totalCommits
       }));
 
-      // Adjusting fake totalCommits for the categorization demo so it's consistent if 0
-      mappedProjects.forEach(p => { if (!p.totalCommits) p.totalCommits = p.forks * 15 + p.stars * 5; });
-
       const svgString = renderCategorizedProjectsSVG({
         projects: mappedProjects,
         theme: getTheme(theme),
@@ -293,6 +294,94 @@ const svgRoutes: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     } catch (error) {
       req.log.error(error);
       return reply.status(500).send('Error generating categorized projects SVG');
+    }
+  });
+
+  fastify.get('/code-frequency', async (req: any, reply: any) => {
+    const { username, theme = 'dark', lang = 'es' } = req.query as { username: string, theme?: string, lang?: string };
+    if (!username) return reply.status(400).send('Username is required');
+
+    try {
+      const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
+
+      const svgString = renderCodeFrequencySVG({
+        contributions: profileData.contributions,
+        theme: getTheme(theme),
+        lang: lang as Language
+      });
+
+      reply.header('Content-Type', 'image/svg+xml');
+      reply.header('Cache-Control', 'public, max-age=3600');
+      return reply.send(svgString);
+    } catch (error) {
+      req.log.error(error);
+      return reply.status(500).send('Error generating code frequency SVG');
+    }
+  });
+
+  fastify.get('/milestones', async (req: any, reply: any) => {
+    const { username, theme = 'dark', lang = 'es' } = req.query as { username: string, theme?: string, lang?: string };
+    if (!username) return reply.status(400).send('Username is required');
+
+    try {
+      const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
+
+      const svgString = renderMilestonesSVG({
+        milestones: profileData.milestones,
+        theme: getTheme(theme),
+        lang: lang as Language
+      });
+
+      reply.header('Content-Type', 'image/svg+xml');
+      reply.header('Cache-Control', 'public, max-age=3600');
+      return reply.send(svgString);
+    } catch (error) {
+      req.log.error(error);
+      return reply.status(500).send('Error generating milestones SVG');
+    }
+  });
+
+  fastify.get('/tech-radar', async (req: any, reply: any) => {
+    const { username, theme = 'dark', lang = 'es' } = req.query as { username: string, theme?: string, lang?: string };
+    if (!username) return reply.status(400).send('Username is required');
+
+    try {
+      const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
+
+      const svgString = renderTechRadarSVG({
+        techRadar: profileData.techRadar,
+        theme: getTheme(theme),
+        lang: lang as Language
+      });
+
+      reply.header('Content-Type', 'image/svg+xml');
+      reply.header('Cache-Control', 'public, max-age=3600');
+      return reply.send(svgString);
+    } catch (error) {
+      req.log.error(error);
+      return reply.status(500).send('Error generating tech radar SVG');
+    }
+  });
+
+  fastify.get('/activity-stream', async (req: any, reply: any) => {
+    const { username, theme = 'dark', lang = 'es' } = req.query as { username: string, theme?: string, lang?: string };
+    if (!username) return reply.status(400).send('Username is required');
+
+    try {
+      const profileData = await fastify.useCases.getDeveloperProfile.execute(username);
+
+      const svgString = renderActivityStreamSVG({
+        activityStream: profileData.activityStream,
+        theme: getTheme(theme),
+        lang: lang as Language
+      });
+
+      reply.header('Content-Type', 'image/svg+xml');
+      reply.header('Cache-Control', 'public, max-age=3600');
+      return reply.send(svgString);
+    } catch (error) {
+      req.log.error(error);
+      return reply.status(500).send('Error generating activity stream SVG');
     }
   });
 };
