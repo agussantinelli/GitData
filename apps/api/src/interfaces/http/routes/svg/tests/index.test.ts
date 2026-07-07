@@ -64,6 +64,25 @@ describe('SVG Routes', () => {
       });
 
       expect(response.statusCode).toBe(400);
+      expect(response.payload).toContain('Required');
+    });
+
+    it('returns 400 if theme is invalid', async () => {
+      const response = await fastify.inject({
+        method: 'GET',
+        url: '/api/svg/global-stats?username=agus&theme=blue'
+      });
+
+      expect(response.statusCode).toBe(400);
+    });
+
+    it('returns 400 if lang is invalid', async () => {
+      const response = await fastify.inject({
+        method: 'GET',
+        url: '/api/svg/global-stats?username=agus&lang=ru'
+      });
+
+      expect(response.statusCode).toBe(400);
     });
 
     it('returns 500 and fallback SVG if GitHub API fails on global-stats', async () => {

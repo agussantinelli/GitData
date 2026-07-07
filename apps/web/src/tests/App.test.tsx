@@ -115,4 +115,61 @@ describe('App', () => {
       expect(personalWidgets.length).toBeGreaterThan(0);
     });
   });
+
+  it('renders the header correctly with GitData Showcase title', async () => {
+    globalThis.fetch = vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(fullMockData) })) as any;
+    render(<App />);
+    await waitFor(() => {
+      expect(screen.getByText('GitData Showcase')).toBeInTheDocument();
+      expect(screen.getByText('Colección completa de widgets generados dinámicamente')).toBeInTheDocument();
+    });
+  });
+
+  it('verifies that fetchWithRetry gracefully handles HTTP 429 by waiting and retrying', async () => {
+    const realDateNow = Date.now.bind(globalThis.Date);
+    let time = 0;
+    globalThis.Date.now = vi.fn(() => {
+      time += 1000; 
+      return time;
+    });
+
+    let fetchCount = 0;
+    globalThis.fetch = vi.fn(() => {
+      fetchCount++;
+      if (fetchCount === 1) {
+        return Promise.resolve({ ok: false, status: 429 });
+      }
+      return Promise.resolve({ ok: true, json: () => Promise.resolve(fullMockData) });
+    }) as any;
+
+    render(<App />);
+    
+    await waitFor(() => {
+      expect(fetchCount).toBeGreaterThanOrEqual(2);
+      expect(screen.queryByTestId('mock-loading')).not.toBeInTheDocument();
+    });
+
+    globalThis.Date.now = realDateNow;
+  });
+
+  it('renders correctly the footer and Github profile links', async () => {
+    globalThis.fetch = vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(fullMockData) })) as any;
+    render(<App />);
+    await waitFor(() => {
+      expect(screen.getByText('Powered by')).toBeInTheDocument();
+    });
+  });
+
+  it('renders both dark and light modes for the widgets', async () => {
+    globalThis.fetch = vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(fullMockData) })) as any;
+    render(<App />);
+    await waitFor(() => {
+      // At least one dark mode widget wrapper and one light mode
+      const headers = screen.getAllByRole('heading', { level: 4 });
+      const textContents = headers.map(h => h.textContent);
+      expect(textContents.some(t => t?.includes('Modo Oscuro'))).toBe(true);
+      expect(textContents.some(t => t?.includes('Modo Claro'))).toBe(true);
+    });
+  });
 });
+
