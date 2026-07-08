@@ -318,6 +318,26 @@ GitData/
 
 <hr />
 
+<h2>🚀 Arquitectura de Despliegue en Producción</h2>
+
+<p align="justify">
+  Al tratarse de un Monorepo, el mayor desafío de infraestructura es desacoplar y servir dos ecosistemas diametralmente opuestos desde el mismo repositorio. Para resolver esto, implementamos una estrategia de <b>despliegue bifurcado</b>:
+</p>
+
+<ul>
+  <li>
+    <b>Frontend ➔ Vercel (CDN Estático Global)</b><br>
+    La aplicación de React (<code>apps/web</code>) no requiere un servidor encendido constantemente, sino que se pre-compila usando Vite. Vercel se conecta a nuestro repositorio, intercepta la carpeta del frontend, ejecuta el <i>build</i> e inyecta las variables de entorno de producción. Finalmente, propaga los archivos estáticos HTML/CSS/JS a través de su Edge Network mundial, garantizando que el Showcase cargue a latencia cero en cualquier país.
+  </li>
+  <br>
+  <li>
+    <b>Backend ➔ Railway (Contenedor Node.js Persistente)</b><br>
+    Por el contrario, nuestra API (<code>apps/api</code>) es una bestia de inferencia matemática. No podíamos usar entornos "Serverless" (como las funciones de Vercel) porque sufriríamos de <i>Cold Starts</i> (arranques en frío) fatales al generar los SVGs dinámicos y perderíamos nuestra preciada memoria caché. Por ende, conectamos la carpeta del backend directamente a <b>Railway</b>. Railway envuelve Fastify en un contenedor persistente de Node.js que está encendido 24/7, permitiendo manejar ráfagas de miles de requests concurrentes sin transpirar y manteniendo la memoria RAM (TTLCache) intacta.
+  </li>
+</ul>
+
+<hr />
+
 <h2>📚 Documentación del Proyecto</h2>
 <p>El directorio <code>docs/</code> contiene guías exhaustivas para entender cada engranaje del sistema, desde cómo levantar el proyecto localmente hasta cómo funciona el cerebro analítico del backend:</p>
 
