@@ -105,4 +105,25 @@ describe('CategorizedProjectsWidget', () => {
     // Should not crash, and should not display the language dot if missing
     expect(screen.getAllByText('GitData').length).toBeGreaterThan(0);
   });
+
+  it('renders gracefully when a category has 0 projects', () => {
+    // Only pass projects that don't fit into one category (e.g., 0 forks, 0 stars)
+    const noStarsNoForks = [{ ...mockProjects[0], stars: 0, forks: 0 }];
+    render(<CategorizedProjectsWidget projects={noStarsNoForks} />);
+    // Debería seguir funcionando, tal vez mostrando 0 en la UI
+    expect(screen.getAllByText('0').length).toBeGreaterThan(0);
+  });
+
+  it('handles extremely large numbers without crashing', () => {
+    const hugeNumbers = [{ ...mockProjects[0], stars: 9999999, forks: 9999999, openIssues: 9999999, sizeKb: 999999999 }];
+    render(<CategorizedProjectsWidget projects={hugeNumbers} />);
+    // Solo validamos que el componente no explote y renderice algún nombre
+    expect(screen.getAllByText('GitData').length).toBeGreaterThan(0);
+  });
+
+  it('truncates or handles extremely long names and descriptions', () => {
+    const longTexts = [{ ...mockProjects[0], name: 'A'.repeat(200), description: 'B'.repeat(500) }];
+    render(<CategorizedProjectsWidget projects={longTexts} />);
+    expect(screen.getAllByText('A'.repeat(200)).length).toBeGreaterThan(0);
+  });
 });

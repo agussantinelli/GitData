@@ -74,4 +74,38 @@ describe('MilestonesWidget', () => {
     const { container } = render(<MilestonesWidget milestones={largeList} />);
     expect(container.querySelectorAll('.milestone-item').length).toBe(20);
   });
+
+  it('displays milestones in the order they are provided without crashing', () => {
+    const outOfOrder = [
+      { id: '1', date: '2023-12-31', title: 'Late', description: 'Desc' },
+      { id: '2', date: '2023-01-01', title: 'Early', description: 'Desc' }
+    ];
+    render(<MilestonesWidget milestones={outOfOrder} />);
+    // La UI simplemente renderiza la lista. Validamos que ambos estén presentes
+    expect(screen.getByText('Late')).toBeInTheDocument();
+    expect(screen.getByText('Early')).toBeInTheDocument();
+  });
+
+  it('truncates or correctly formats extremely long titles and descriptions', () => {
+    const longMilestone = [{
+      id: '1',
+      date: '2023-01-01',
+      title: 'A'.repeat(200),
+      description: 'B'.repeat(300)
+    }];
+    render(<MilestonesWidget milestones={longMilestone} />);
+    expect(screen.getByText('A'.repeat(200))).toBeInTheDocument();
+    expect(screen.getByText('B'.repeat(300))).toBeInTheDocument();
+  });
+
+  it('handles milestones that occur on the exact same day', () => {
+    const sameDay = [
+      { id: '1', date: '2023-01-01', title: 'First', description: 'Desc 1' },
+      { id: '2', date: '2023-01-01', title: 'Second', description: 'Desc 2' }
+    ];
+    const { container } = render(<MilestonesWidget milestones={sameDay} />);
+    expect(screen.getByText('First')).toBeInTheDocument();
+    expect(screen.getByText('Second')).toBeInTheDocument();
+    expect(container.querySelectorAll('.milestone-item').length).toBe(2);
+  });
 });

@@ -65,4 +65,25 @@ describe('TechRadarWidget', () => {
     const bars = container.querySelectorAll('.radar-bar-fill');
     expect(bars.length).toBeGreaterThan(0);
   });
+
+  it('handles absolute dominance in a single quadrant without distorting the SVG completely', () => {
+    const skewed = { frontend: 1000, backend: 0, devops: 0 };
+    const { container } = render(<TechRadarWidget techRadar={skewed} />);
+    // Debería renderizar la UI sin errores, calculando 100% para frontend y 0 para el resto
+    expect(screen.getByText('Frontend')).toBeInTheDocument();
+    expect(container.querySelectorAll('.radar-bar-wrapper').length).toBe(3);
+  });
+
+  it('handles completely undefined or missing values gracefully', () => {
+    const missing = { frontend: undefined as any, backend: undefined as any, devops: undefined as any };
+    render(<TechRadarWidget techRadar={missing} />);
+    // Debería fallback a 0 y no crashear
+    expect(screen.getByText('Radar Tecnológico')).toBeInTheDocument();
+  });
+
+  it('handles negative or invalid values gracefully', () => {
+    const negative = { frontend: -50, backend: NaN as any, devops: null as any };
+    render(<TechRadarWidget techRadar={negative} />);
+    expect(screen.getByText('Radar Tecnológico')).toBeInTheDocument();
+  });
 });

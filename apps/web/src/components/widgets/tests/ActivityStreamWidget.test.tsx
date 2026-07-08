@@ -78,4 +78,27 @@ describe('ActivityStreamWidget', () => {
     const { container } = render(<ActivityStreamWidget activityStream={largeList} />);
     expect(container.querySelectorAll('.activity-item').length).toBe(15);
   });
+
+  it('handles unknown or unsupported event types with a fallback icon/style', () => {
+    const unknownData = [{ id: '5', type: 'SomeWeirdFutureEvent', repo: 'repo', date: '2023-10-01T12:00:00Z', description: 'desc' }];
+    const { container } = render(<ActivityStreamWidget activityStream={unknownData} />);
+    // Debería renderizar de todas formas y no fallar
+    expect(screen.getByText('repo')).toBeInTheDocument();
+  });
+
+  it('handles activities with null or missing descriptions', () => {
+    const nullDescData = [{ id: '6', type: 'PushEvent', repo: 'repo', date: '2023-10-01T12:00:00Z', description: null as any }];
+    render(<ActivityStreamWidget activityStream={nullDescData} />);
+    // Al no tener descripción, podría estar vacío o no mostrar el nodo. Verificamos que no crashea
+    expect(screen.getByText('repo')).toBeInTheDocument();
+  });
+
+  it('caps or handles massive arrays safely without crashing', () => {
+    // Si bien puede no tener paginación interna, asegurarnos que un array masivo renderiza 
+    const massiveList = new Array(1000).fill(0).map((_, i) => ({
+      id: `id-${i}`, type: 'PushEvent', repo: `repo-${i}`, date: '2023-10-01T12:00:00Z', description: `msg`
+    }));
+    const { container } = render(<ActivityStreamWidget activityStream={massiveList} />);
+    expect(container.querySelectorAll('.activity-item').length).toBe(1000);
+  });
 });

@@ -71,4 +71,26 @@ describe('CodeLifeBalanceWidget', () => {
     // Checking it doesn't crash
     expect(screen.getByText('Code-Life Balance')).toBeInTheDocument();
   });
+
+  it('handles perfectly equal balance without fractional errors', () => {
+    render(<CodeLifeBalanceWidget balance={{ weekdays: 50, weekends: 50 }} />);
+    // Debería mostrar exactamente 50% en ambos sin decimales largos
+    const percentages = screen.getAllByText('50%');
+    expect(percentages.length).toBe(2);
+  });
+
+  it('handles floating point values to avoid long decimals like 33.333%', () => {
+    // 1 weekday, 2 weekends -> 33.33% and 66.66%
+    render(<CodeLifeBalanceWidget balance={{ weekdays: 1, weekends: 2 }} />);
+    // Comprobamos que redondea correctamente y no se rompe la UI
+    const values = screen.getAllByText(/%/);
+    expect(values[0].textContent).toMatch(/^(33|67)%$/);
+    expect(values[1].textContent).toMatch(/^(33|67)%$/);
+  });
+
+  it('renders gracefully when completely dominated by weekends', () => {
+    const { container } = render(<CodeLifeBalanceWidget balance={{ weekdays: 0, weekends: 500 }} />);
+    expect(screen.getByText('0%')).toBeInTheDocument();
+    expect(screen.getByText('100%')).toBeInTheDocument();
+  });
 });

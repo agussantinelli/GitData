@@ -75,4 +75,36 @@ describe('PopularProjectsWidget', () => {
     expect(link).toHaveAttribute('href', 'https://github.com/agussantinelli/GitData');
     expect(link).toHaveAttribute('target', '_blank');
   });
+
+  it('handles projects without a URL gracefully (e.g. private or stripped)', () => {
+    const noUrl = [{ ...mockProjects[0], url: null as any }];
+    const { container } = render(<PopularProjectsWidget projects={noUrl} />);
+    // Debería renderizar el proyecto igual, tal vez sin tag <a>
+    expect(screen.getByText('GitData')).toBeInTheDocument();
+    // Validamos que no tenga un enlace roto si se puede
+    const link = container.querySelector('.project-link');
+    if (link) {
+      expect(link).not.toHaveAttribute('href', 'null');
+    }
+  });
+
+  it('renders extremely long project names without crashing', () => {
+    const longProject = [{
+      ...mockProjects[0],
+      name: 'A'.repeat(200),
+      description: 'B'.repeat(300)
+    }];
+    render(<PopularProjectsWidget projects={longProject} />);
+    expect(screen.getByText('A'.repeat(200))).toBeInTheDocument();
+  });
+
+  it('renders multiple projects in the provided order without crashing', () => {
+    const multi = [
+      { ...mockProjects[0], name: 'First', stars: 10 },
+      { ...mockProjects[0], name: 'Second', stars: 100 }
+    ];
+    render(<PopularProjectsWidget projects={multi} />);
+    expect(screen.getByText('First')).toBeInTheDocument();
+    expect(screen.getByText('Second')).toBeInTheDocument();
+  });
 });

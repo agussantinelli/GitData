@@ -80,4 +80,25 @@ describe('PersonalInfoWidget', () => {
     const img = container.querySelector('img');
     expect(img).toHaveAttribute('src', 'https://github.com/agussantinelli.png');
   });
+
+  it('handles empty topLanguages array gracefully', () => {
+    const dataEmptyLangs = { ...mockProfileData, topLanguages: [] };
+    render(<PersonalInfoWidget data={dataEmptyLangs} />);
+    // La UI no debería crashear, y no renderiza skills
+    expect(screen.getByText('Agustin Santinelli')).toBeInTheDocument();
+  });
+
+  it('handles missing username without crashing image loading', () => {
+    const noUsername = { ...mockProfileData, username: '' };
+    const { container } = render(<PersonalInfoWidget data={noUsername} />);
+    const img = container.querySelector('img');
+    // It should render, even if the src becomes https://github.com/.png
+    expect(img).toBeInTheDocument();
+  });
+
+  it('renders extremely long bio and truncates or wraps properly', () => {
+    const longBio = { ...mockProfileData, bio: 'A'.repeat(500) };
+    render(<PersonalInfoWidget data={longBio} />);
+    expect(screen.getByText('A'.repeat(500))).toBeInTheDocument();
+  });
 });

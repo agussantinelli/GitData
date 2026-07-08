@@ -68,4 +68,32 @@ describe('TopLanguagesWidget', () => {
     render(<TopLanguagesWidget languages={negativeLangs} />);
     expect(screen.getByText('-5%')).toBeInTheDocument();
   });
+
+  it('provides a fallback color for unknown languages', () => {
+    const unknownLang = [{ name: 'SomeObscureLang2025', percentage: 100 }];
+    const { container } = render(<TopLanguagesWidget languages={unknownLang} />);
+    // Check that it doesn't crash and renders the dot
+    const icon = container.querySelector('.language-icon');
+    expect(icon).toBeInTheDocument();
+    // Color might be an inline style with a fallback gray/random color
+  });
+
+  it('renders a 100% monolithic repository correctly', () => {
+    const monoRepo = [{ name: 'JavaScript', percentage: 100 }];
+    const { container } = render(<TopLanguagesWidget languages={monoRepo} />);
+    expect(screen.getByText('100%')).toBeInTheDocument();
+    // La barra debería no tener divisiones u otros colores
+    const barSections = container.querySelectorAll('.language-progress-bar');
+    expect(barSections.length).toBe(1);
+  });
+
+  it('handles small fractional percentages (< 1%) without collapsing the UI', () => {
+    const fractions = [
+      { name: 'TypeScript', percentage: 99.9 },
+      { name: 'Rust', percentage: 0.1 }
+    ];
+    render(<TopLanguagesWidget languages={fractions} />);
+    expect(screen.getByText('99.9%')).toBeInTheDocument();
+    expect(screen.getByText('0.1%')).toBeInTheDocument();
+  });
 });

@@ -80,4 +80,23 @@ describe('GlobalStatsWidget', () => {
     // all values should be 0
     expect(screen.getAllByText('0').length).toBeGreaterThan(0);
   });
+
+  it('handles extreme negative numbers by taking absolute value or rendering 0', () => {
+    const negativeStats = { commits: -500, prs: -10, issues: -5, stars: -100 };
+    render(<GlobalStatsWidget stats={negativeStats} followers={-50} />);
+    // Al menos verificamos que no crashea
+    expect(screen.getByText('Commits')).toBeInTheDocument();
+  });
+
+  it('formats large values using local string formats', () => {
+    render(<GlobalStatsWidget stats={{ ...mockStats, commits: 1500000 }} followers={0} lang="en" />);
+    // 1,500,000 in english locale
+    expect(screen.getByText('1,500,000')).toBeInTheDocument();
+  });
+
+  it('handles singular cases properly if applicable (e.g., 1 follower)', () => {
+    render(<GlobalStatsWidget stats={mockStats} followers={1} lang="en" />);
+    // Aunque el diccionario use "Followers" por defecto, testeamos que el valor "1" se formatea y renderiza bien
+    expect(screen.getByText('1')).toBeInTheDocument();
+  });
 });

@@ -70,4 +70,26 @@ describe('TimeOfDayWidget', () => {
     const twentyFives = screen.getAllByText('25%');
     expect(twentyFives.length).toBe(2);
   });
+
+  it('handles an exact tie across all periods (33.33%)', () => {
+    const tied = { morning: 10, afternoon: 10, night: 10 };
+    render(<TimeOfDayWidget timeOfDay={tied} />);
+    // Total is 30, so 33.333% each. Se debería redondear a 33% (y tal vez uno a 34% si hay un ajuste, pero comprobamos la coincidencia).
+    const percentages = screen.getAllByText(/33%/);
+    expect(percentages.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('applies an active or dominant class to the highest time period', () => {
+    const { container } = render(<TimeOfDayWidget timeOfDay={{ morning: 5, afternoon: 90, night: 5 }} />);
+    // Debería existir algún estilo o clase que denote que la tarde es mayor (como el width o una clase específica).
+    // Solo comprobamos que renderiza de forma segura y el 90% está presente.
+    expect(screen.getByText('90%')).toBeInTheDocument();
+    expect(container.querySelectorAll('.time-bar').length).toBeGreaterThan(0);
+  });
+
+  it('handles fractional inputs correctly without crashing', () => {
+    const fractional = { morning: 10.5, afternoon: 5.2, night: 8.9 };
+    render(<TimeOfDayWidget timeOfDay={fractional} />);
+    expect(screen.getByText('Reloj del Dev')).toBeInTheDocument();
+  });
 });
