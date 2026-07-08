@@ -452,19 +452,27 @@ GitData/
   <tbody>
     <tr>
       <td><p><code>pnpm install</code></p></td>
-      <td>Instala y enlaza todas las dependencias del Monorepo.</td>
+      <td>Instala las dependencias respetando el árbol estructurado del workspace (monorepo).</td>
     </tr>
     <tr>
-      <td><p><code>pnpm dev</code></p></td>
-      <td>Inicia simultáneamente el servidor <b>Fastify</b> y la app <b>React</b> en modo desarrollo.</td>
+      <td><p><code>pnpm run dev</code></p></td>
+      <td>Inicia el backend Fastify (<code>:3000</code>) y el frontend Vite (<code>:5173</code>) concurrentemente (Hot Reloading).</td>
     </tr>
     <tr>
-      <td><p><code>pnpm test</code></p></td>
-      <td>Ejecuta todas las suites de prueba unitarias (Vitest) en backend y frontend.</td>
+      <td><p><code>pnpm run build</code></p></td>
+      <td>Transpila el código TypeScript del backend y empaqueta el frontend para Producción.</td>
     </tr>
     <tr>
-      <td><p><code>pnpm build</code></p></td>
-      <td>Compila ambos proyectos preparándolos para producción.</td>
+      <td><p><code>pnpm run test</code></p></td>
+      <td>Detona la suite completa de Vitest y Happy DOM en todo el ecosistema (515 tests).</td>
+    </tr>
+    <tr>
+      <td><p><code>pnpm --filter {api|web} test:coverage</code></p></td>
+      <td>Ejecuta la suite en la aplicación seleccionada y genera el reporte estricto <code>lcov.info</code>.</td>
+    </tr>
+    <tr>
+      <td><p><code>pnpm run lint</code></p></td>
+      <td>Ejecuta herramientas de análisis estático avanzado (ej: <code>oxlint</code>) para garantizar código prístino.</td>
     </tr>
   </tbody>
 </table>
