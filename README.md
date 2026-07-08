@@ -353,7 +353,66 @@ GitData/
 
 <hr />
 
+<h2>🧪 Estrategia de Testeo Total (Cero Regresión)</h2>
+
+<p align="justify">
+  GitData implementa un protocolo inquebrantable de <b>Cero Regresión</b>. Cada componente lógico, widget visual o regla de negocio matemática debe contar con un respaldo de pruebas automatizadas antes de ser integrado al núcleo. El <i>Quality Gate</i> rechaza cualquier PR que rompa el umbral del <b>100% de Cobertura</b>.
+</p>
+
+<h3>🔬 Anatomía de Pruebas (Backend)</h3>
+<p align="justify">Siguiendo la <i>Clean Architecture</i>, cada funcionalidad core del Motor de Inferencia se valida en aislamiento absoluto:</p>
+
+<ul>
+  <li><b>1. Unit: Casos de Uso (<code>.test.ts</code>)</b>:
+    <ul>
+      <li><b>Foco:</b> Lógica de negocio y matemáticas de deducción (Code-Life Balance, horarios).</li>
+      <li><b>Aislamiento:</b> Mockeo total de la API de GitHub (Octokit) para validar sin tocar la red.</li>
+    </ul>
+  </li>
+  <li><b>2. Unit: Controladores y Rutas Fastify</b>:
+    <ul>
+      <li><b>Foco:</b> Capa de transporte HTTP, validaciones Zod y códigos de estado (200, 429, 400).</li>
+      <li><b>Aislamiento:</b> Simulamos peticiones crudas mediante <code>server.inject()</code>.</li>
+    </ul>
+  </li>
+  <li><b>3. Unit: Generadores SVG</b>:
+    <ul>
+      <li><b>Foco:</b> Integridad visual estática y escape seguro de variables (prevención XSS en la inyección Markdown).</li>
+      <li><b>Aislamiento:</b> Validación de que el XML generado no se rompa al inyectar textos de distintos idiomas o aplicar temas.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>🎨 Estrategia de Testeo (Frontend)</h3>
+<p align="justify">El Showcase interactivo cuenta con una estrategia orientada a garantizar la resiliencia de la interfaz:</p>
+
+<h4>A. Acompañamiento 1:1 (React Testing Library)</h4>
+<p align="justify">Cada componente visual (<code>.tsx</code>) o utilidad posee una contraparte de prueba en una subcarpeta <code>tests/</code> local que funciona en espejo en el directorio de código:</p>
+<ul>
+  <li><b>Widgets:</b> Renderizado atómico, simulación de datos (props), respuesta a estados de <i>loading</i> (Skeletons) y <i>fallbacks</i> de error (Error Boundaries).</li>
+  <li><b>UI Core:</b> Comportamiento base de los elementos puristas (Avatar, Badge, Card, Snippet).</li>
+  <li><b>Diccionarios:</b> Verificación de completitud para que no existan traducciones huérfanas en el ecosistema i18n.</li>
+</ul>
+
+<h3>🛠️ Stack de Testing (Monorepo)</h3>
+<ul>
+  <li><b>Motor Global:</b> <code>Vitest</code> domina todo el ecosistema por su velocidad ultrarrápida y soporte nativo ESM/TypeScript.</li>
+  <li><b>Entorno DOM:</b> <code>happy-dom</code> para emular el navegador en el frontend de forma muchísimo más ligera que JSDOM.</li>
+  <li><b>Renderizado UI:</b> <code>@testing-library/react</code> para auditar la UI de la misma manera en que un humano interactuaría con ella.</li>
+</ul>
+
+<h3>✅ Estado Actual de la Suite (Health Check)</h3>
+<p align="justify">A continuación se detallan los resultados de la última ejecución completa de la suite en el entorno de Integración Continua (CI):</p>
+
+| Entorno | Motor | Status | Suites | Tests | Cobertura Mínima |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Backend (API)** | Vitest | 🟢 PASSED | 23 | 257 | 100% |
+| **Frontend (Web)** | Vitest + Happy DOM | 🟢 PASSED | 21 | 258 | 100% |
+
+<hr />
+
 <h2>📚 Documentación del Proyecto</h2>
+
 <p>El directorio <code>docs/</code> contiene guías exhaustivas para entender cada engranaje del sistema, desde cómo levantar el proyecto localmente hasta cómo funciona el cerebro analítico del backend:</p>
 
 <ul>
