@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1 align="center">🛡️ Git Data – Monorepo</h1>
+<h1 align="center">🧬 Git Data</h1>
 
 <p align="center">
   <a href="https://github.com/agussantinelli" target="_blank" style="text-decoration: none;">
