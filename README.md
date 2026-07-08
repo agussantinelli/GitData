@@ -245,17 +245,17 @@
 | ⚖️ | **Code-Life Balance Widget** | Gráfico de barras que divide estrictamente tu código del último año en dos grupos: Días Laborables y Fines de Semana. |
 
 <hr>
-<h2>🎨 Variantes y Personalización (i18n & Temas)</h2>
+<h2>🎨 Arquitectura de Personalización (UI & i18n)</h2>
 
 <p align="justify">
-  Todos los widgets de la colección están construidos bajo una arquitectura estricta que garantiza que se adapten a cualquier entorno externo sin romper su estética premium (Glassmorphism):
+  Para que GitData pueda incrustarse en cualquier portafolio del mundo sin desentonar, los 13 componentes fueron diseñados bajo estrictos patrones de <b>CSS Vanilla</b>. No dependemos de librerías de estilos atadas a un framework; cada widget inyecta un ecosistema de diseño puro y altamente reactivo:
 </p>
 
 <ul>
-  <li><b>🌗 Soporte Multitema (Dark / Light):</b> Los widgets heredan automáticamente un set de variables CSS según el tema seleccionado. En modo oscuro lucen paneles translúcidos sobre fondos profundos, y en modo claro ofrecen tarjetas opalinas impecables.</li>
-  <li><b>🌍 Soporte Multilingüe (i18n):</b> El sistema incluye diccionarios nativos para renderizar cada texto, número y fecha en 5 idiomas diferentes: <b>Español, Inglés, Portugués, Italiano y Francés</b>. Los números masivos se formatean automáticamente respetando la cultura de cada idioma (ej: <code>1,000</code> vs <code>1.000</code>).</li>
-  <li><b>📱 Diseño 100% Responsive (Mobile-First):</b> Toda la Landing Page Showcase fue construida bajo una filosofía <b>Mobile-First</b> utilizando CSS nativo (<code>@media queries</code>, función <code>min()</code>, <code>auto-fit</code>/<code>auto-fill</code>). Cada uno de los 13 widgets se adapta fluidamente a cualquier resolución, desde pantallas de 320px (iPhone SE) hasta monitores 4K, sin scroll horizontal ni elementos rotos.</li>
-  <li><b>🔌 Inyección Directa SVG:</b> Además de usar iFrames, el Backend expone endpoints puros (<code>/api/svg/*</code>) que devuelven gráficos vectoriales renderizados en el servidor. Estos SVGs soportan inyección en Markdown (`README.md`) y también aceptan las 3 variables principales (<code>username</code>, <code>theme</code> y <code>lang</code>) para garantizar coherencia visual absoluta gracias a su caché universal interna.</li>
+  <li><b>🌗 Motor de Temas (Glassmorphism):</b> Los widgets no tienen colores "quemados" en el código. Consumen un manifiesto de variables CSS en la raíz (<code>:root</code>). Esto permite alternar dinámicamente entre un <b>Dark Mode</b> (con desenfoques de fondo, transparencias sutiles y bordes de cristal) y un <b>Light Mode</b> (tarjetas opalinas limpias) de forma nativa e instantánea.</li>
+  <li><b>🌍 Internacionalización Nativa (i18n):</b> Implementamos diccionarios de traducción propios para rotar la interfaz completa en <b>5 idiomas</b>: Español, Inglés, Portugués, Italiano y Francés. Esto no solo traduce etiquetas, sino que aplica la API <code>Intl.NumberFormat</code> para formatear cifras masivas respetando la cultura local (ej: <code>1,000</code> en inglés vs. <code>1.000</code> en español).</li>
+  <li><b>📱 Ingeniería Fluida (Mobile-First):</b> Construimos la matriz visual utilizando <code>CSS Grid</code>, flexbox y funciones algorítmicas (<code>min()</code>, <code>max()</code>, <code>clamp()</code>). Cada componente se autoadapta a su contenedor (<i>Container Queries philosophy</i>), garantizando que los datos no se rompan ni en un diminuto iPhone SE (320px) ni en un monitor Ultra-Wide.</li>
+  <li><b>🔌 Inyección Universal (SVG & iFrames):</b> Toda esta personalización visual se exporta. El motor SVG del Backend hereda exactamente los mismos diccionarios y mapas de color, permitiendo que le pases parámetros por URL (ej: <code>?lang=fr&theme=dark</code>) para que la imagen estática generada en tu <code>README.md</code> tenga exactamente el mismo "look & feel" que la aplicación React.</li>
 </ul>
 
 <hr>
