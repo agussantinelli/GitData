@@ -260,33 +260,37 @@
 
 <hr>
 
-<h2>📦 Estructura del Proyecto</h2>
+<h2>📂 Estructura del Proyecto</h2>
 
 <pre>
 GitData/
+├── .github/
+│   └── workflows/                      # ⚙️ Pipelines CI/CD (SonarCloud, Vercel, Railway)
 ├── .agent/
 │   └── skills/                         # 🤖 Reglas arquitectónicas y Contexto para IAs
 ├── apps/
 │   ├── api/                            # 🚀 Backend Fastify (Motor de Inferencia)
 │   │   ├── src/
-│   │   │   ├── domain/                 # Entidades puras e Interfaces (Profile)
-│   │   │   ├── infrastructure/         # Adaptadores y Repositorios (Octokit, GitHub)
-│   │   │   ├── presentation/           # Controladores y Endpoints REST
-│   │   │   └── server.ts               # Orquestador de la API
+│   │   │   ├── application/            # 🧠 Casos de Uso (Lógica de Negocio)
+│   │   │   ├── domain/                 # 🧱 Entidades puras e Interfaces
+│   │   │   ├── infrastructure/         # 🔌 Adaptadores, Caché y llamadas a GitHub (Octokit)
+│   │   │   ├── interfaces/             # 🌐 Rutas HTTP, Generadores SVG y Controladores
+│   │   │   └── server.ts               # 🏁 Orquestador principal de la API
 │   │   └── package.json
 │   │
 │   └── web/                            # 🎨 Frontend React+Vite (Showcase UI)
 │       ├── src/
 │       │   ├── components/
-│       │   │   ├── ui/                 # Base UI (Card, Badge, Avatar)
-│       │   │   └── widgets/            # Los 13 Super Mini Layouts y sus estilos
+│       │   │   ├── ui/                 # 🧩 Base UI (Card, Badge, Avatar)
+│       │   │   └── widgets/            # 📊 Los 13 Super Mini Layouts y su lógica
 │       │   ├── locales/                # 🌍 Diccionarios i18n (5 Idiomas)
-│       │   ├── styles/                 # 💅 Tokens CSS, Variables y Multi-Tema
-│       │   └── App.tsx                 # Catálogo interactivo
+│       │   ├── styles/                 # 💅 Tokens CSS Vanilla, Variables y Multi-Tema
+│       │   ├── tests/                  # 🧪 Suite de pruebas con Vitest (Cobertura 100%)
+│       │   └── App.tsx                 # 🖥️ Catálogo interactivo
 │       └── package.json
 ├── docs/                               # 📚 Documentación exhaustiva (Guías, Motores, Catálogo)
-├── pnpm-workspace.yaml                 # Configuración del Monorepo
-└── package.json                        # Scripts de orquestación global
+├── pnpm-workspace.yaml                 # 📦 Configuración del Monorepo
+└── package.json                        # 🏗️ Scripts de orquestación global
 </pre>
 
 <hr />
