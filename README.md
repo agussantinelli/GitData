@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Fastify-5.2.1-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify Badge"/>
   <img src="https://img.shields.io/badge/React-19.2.7-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React Badge"/>
+  <img src="https://img.shields.io/badge/Fastify-5.2.1-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify Badge"/>
   <img src="https://img.shields.io/badge/Vite-5.4.11-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite Badge"/>
   <img src="https://img.shields.io/badge/Vitest-2.1.9-729B1B?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest Badge"/>
   <img src="https://img.shields.io/badge/Node.js-v22_LTS-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node Badge"/>
