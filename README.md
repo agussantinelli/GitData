@@ -260,6 +260,21 @@
 
 <hr>
 
+<h2>🛡️ Patrones de Seguridad (Hardening)</h2>
+
+<p align="justify">
+  Al estar expuesto públicamente y permitir inyecciones directas de SVG, el backend de <b>GitData</b> fue blindado (<i>hardened</i>) desde el primer día, implementando los estándares de seguridad más estrictos del ecosistema Fastify y Node.js:
+</p>
+
+<ul>
+  <li><b>Cascos HTTP (Fastify Helmet):</b> Toda la API está protegida mediante <code>@fastify/helmet</code>. Este plugin inyecta cabeceras de seguridad estrictas que mitigan vectores de ataque masivos como <i>Cross-Site Scripting (XSS)</i>, <i>Clickjacking</i>, <i>MIME Sniffing</i> y fuerza el uso exclusivo de conexiones seguras (HSTS).</li>
+  <li><b>Mitigación de DDoS (Rate Limiting):</b> Implementamos <code>@fastify/rate-limit</code> a nivel global. Si un actor malicioso o un botnet intenta bombardear el servidor para saturar la red o exfiltrar datos por fuerza bruta, el motor intercepta el abuso y bloquea la IP con un estado <code>429 Too Many Requests</code> antes de que el tráfico toque la capa lógica.</li>
+  <li><b>Escudo de Memoria (TTLCache):</b> Nuestra caché interna no es solo una optimización de velocidad, es una capa defensiva crítica. Al cachear las respuestas en la memoria RAM, evitamos que un ataque distribuido logre agotar el <i>Rate Limit</i> de la API de GitHub, asegurando que nuestro Token de Producción jamás sea baneado y el sistema permanezca intacto.</li>
+  <li><b>Validación Perimetral Estricta (Zod):</b> Jamás confiamos en la capa externa. Antes de que Fastify pueda siquiera encender el servidor, un esquema de <b>Zod</b> intercepta y valida estructuralmente todas las Variables de Entorno. Si falta un token o el puerto tiene un formato inseguro, el sistema aborta el arranque de inmediato, previniendo fallos catastróficos silenciosos.</li>
+</ul>
+
+<hr>
+
 <h2>📂 Estructura del Proyecto</h2>
 
 <pre>
