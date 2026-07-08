@@ -493,24 +493,30 @@ GitData/
 </p>
 <hr />
 
-<h2 align="left">🤝 Contribución</h2>
+<h2 align="left">🤝 Contribución y Manifiesto</h2>
+
+<p align="justify">
+  ¡Agradecemos enormemente tu interés en aportar a <b>GitData</b>! Este proyecto no es solo código; es un manifiesto sobre cómo construir software de nivel empresarial combinando purismo arquitectónico y una estética innegociable. Para que una <i>Pull Request</i> sea aceptada, debe adherirse estrictamente al espíritu del repositorio:
+</p>
+
+<ul>
+  <li><b>Lectura Obligatoria de Skills:</b> Antes de proponer cambios estructurales, debes asimilar las normativas arquitectónicas ubicadas en <a href="./.agent/skills/global-skills/SKILL.md"><code>.agent/skills/</code></a>. Tu código será auditado implacablemente bajo estas reglas (<i>Clean Architecture</i>).</li>
+  <li><b>Estética Premium (Glassmorphism):</b> Si propones nuevos widgets, deben mantener la filosofía <i>Mobile-First</i> usando <i>Vanilla CSS</i>. El diseño debe sentirse como cristal nativo, con soporte estricto y sin parpadeos para temas oscuros/claros y el ecosistema i18n de 5 idiomas.</li>
+  <li><b>Testeo Inquebrantable:</b> Toda lógica introducida debe venir acompañada de su prueba automatizada (estrategia de acompañamiento 1:1). El pipeline de SonarCloud <b>bloqueará y rechazará automáticamente</b> cualquier PR que quiebre el mandato del 100% de Cobertura de Código.</li>
+</ul>
 
 <p align="left">
-  ¡Agradecemos enormemente tu interés en contribuir a este proyecto! Dado que este software se distribuye bajo la <b>Licencia GNU General Public License v3.0 (GPLv3)</b>, cualquier contribución que realices debe ser compatible con esta misma licencia.
+  <b>Flujo de Trabajo:</b>
+  <ol>
+    <li>Haz un <i>Fork</i> de este repositorio.</li>
+    <li>Crea una rama semántica (<code>git checkout -b feat/nuevo-widget-radar</code>).</li>
+    <li>Desarrolla con orgullo, valida la sintaxis con <code>pnpm run lint</code> y asegura el escudo con <code>pnpm run test</code>.</li>
+    <li>Abre un <i>Pull Request</i> documentando exhaustivamente tu aporte y adjuntando evidencias visuales si impactaste el Frontend.</li>
+  </ol>
 </p>
 
 <p align="left">
-  Para contribuir:
-  <ul>
-    <li>Haz un <a href="https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/proposing-changes-with-pull-requests/creating-a-pull-request-from-a-fork" target="_blank">fork de este repositorio</a>.</li>
-    <li>Crea una nueva rama para tu funcionalidad (<code>git checkout -b feature/nueva-funcionalidad</code>).</li>
-    <li>Realiza tus cambios.</li>
-    <li>Envía un <a href="https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/proposing-changes-with-pull-requests/creating-a-pull-request" target="_blank">Pull Request</a> detallando tus modificaciones.</li>
-  </ul>
-</p>
-
-<p align="left">
-  ¡Gracias por ser parte! 🙌✨
+  <i>Nota Legal: Este software se distribuye bajo la licencia <b>GPLv3</b> para garantizar que permanezca abierto. Toda contribución o rama derivada debe heredar y respetar estos términos éticos.</i>
 </p>
 
 <hr>
