@@ -420,21 +420,22 @@ GitData/
 <p>Ubicadas en <code>.agent/skills/</code>, son guías técnicas que definen cómo se deben construir las diferentes partes del sistema:</p>
 
 <ul>
-    <li><b>🏛️ clean-architecture:</b> Reglas obligatorias para imponer la separación de responsabilidades en la API de GitData.</li>
-    <li><b>🧹 code-quality:</b> Guías de Clean Code, SOLID y política de "No Comments".</li>
-    <li><b>🎨 css-structure:</b> Regla estricta para confinar todos los archivos CSS dentro de subcarpetas <code>styles/</code> relativas a cada componente.</li>
-    <li><b>🚀 fastify:</b> Reglas para definir endpoints, plugins y lógica de negocio pura en el backend (apps/api).</li>
-    <li><b>🔗 github-api-hybrid:</b> Estrategia de red para el consumo simultáneo de GraphQL (datos estructurales) y REST (eventos en tiempo real).</li>
-    <li><b>🌍 global-context:</b> Directriz maestra que obliga al cumplimiento de la arquitectura de Monorepo.</li>
-    <li><b>📚 global-skills:</b> Directorio maestro que indexa todas las habilidades de arquitectura disponibles en el proyecto.</li>
-    <li><b>🚫 no-browser:</b> Prohibición estricta del uso de herramientas de navegación.</li>
-    <li><b>🟢 node:</b> Mejores prácticas para el runtime de Node.js.</li>
-    <li><b>⚛️ react-vite:</b> Lineamientos para desarrollar los "Mini Layouts" en el frontend usando componentes puros y estilos modernos.</li>
-    <li><b>🔄 readme-auto-sync:</b> Automatización para mantener la documentación sincronizada.</li>
-    <li><b>🛠️ skill-generator:</b> Herramienta automatizada para la creación y estandarización de nuevas skills dentro del ecosistema.</li>
-    <li><b>🧪 test-enforcement:</b> Regla mandatoria que exige cobertura de tests para la lógica de negocio.</li>
-    <li><b>🧩 widget-i18n-architecture:</b> Arquitectura de diseño de Widgets con soporte nativo para <i>i18n</i> (diccionarios) y temas.</li>
-    <li><b>🧠 widget-inference:</b> Reglas del motor matemático del backend para deducción de métricas complejas sin bases de datos.</li>
+    <li><b><a href="./.agent/skills/clean-architecture/SKILL.md">🏛️ clean-architecture</a>:</b> Reglas obligatorias para imponer la separación de responsabilidades en la API de GitData.</li>
+    <li><b><a href="./.agent/skills/code-quality/SKILL.md">🧹 code-quality</a>:</b> Guías de Clean Code, SOLID y política de "No Comments".</li>
+    <li><b><a href="./.agent/skills/css-structure/SKILL.md">🎨 css-structure</a>:</b> Regla estricta para confinar todos los archivos CSS dentro de subcarpetas <code>styles/</code> relativas a cada componente.</li>
+    <li><b><a href="./.agent/skills/fastify/SKILL.md">🚀 fastify</a>:</b> Reglas para definir endpoints, plugins y lógica de negocio pura en el backend (apps/api).</li>
+    <li><b><a href="./.agent/skills/frontend-test-enforcement/SKILL.md">⚛️ frontend-test-enforcement</a>:</b> Regla mandatoria que exige una prueba en espejo (Vitest/RTL) para cada componente React (.tsx).</li>
+    <li><b><a href="./.agent/skills/github-api-hybrid/SKILL.md">🔗 github-api-hybrid</a>:</b> Estrategia de red para el consumo simultáneo de GraphQL (datos estructurales) y REST (eventos en tiempo real).</li>
+    <li><b><a href="./.agent/skills/global-context/SKILL.md">🌍 global-context</a>:</b> Directriz maestra que obliga al cumplimiento de la arquitectura de Monorepo.</li>
+    <li><b><a href="./.agent/skills/global-skills/SKILL.md">📚 global-skills</a>:</b> Directorio maestro que indexa todas las habilidades de arquitectura disponibles en el proyecto.</li>
+    <li><b><a href="./.agent/skills/no-browser/SKILL.md">🚫 no-browser</a>:</b> Prohibición estricta del uso de herramientas de navegación por parte de los agentes.</li>
+    <li><b><a href="./.agent/skills/node/SKILL.md">🟢 node</a>:</b> Mejores prácticas para el runtime de Node.js.</li>
+    <li><b><a href="./.agent/skills/react-vite/SKILL.md">⚛️ react-vite</a>:</b> Lineamientos para desarrollar los "Mini Layouts" en el frontend usando componentes puros y estilos modernos.</li>
+    <li><b><a href="./.agent/skills/readme-auto-sync/SKILL.md">🔄 readme-auto-sync</a>:</b> Automatización para mantener la documentación de este repositorio siempre sincronizada.</li>
+    <li><b><a href="./.agent/skills/skill-generator/SKILL.md">🛠️ skill-generator</a>:</b> Herramienta automatizada para la creación y estandarización de nuevas skills dentro del ecosistema.</li>
+    <li><b><a href="./.agent/skills/test-enforcement/SKILL.md">🧪 test-enforcement</a>:</b> Regla mandatoria que exige cobertura de tests para la lógica de negocio del Backend.</li>
+    <li><b><a href="./.agent/skills/widget-i18n-architecture/SKILL.md">🧩 widget-i18n-architecture</a>:</b> Arquitectura de diseño de Widgets con soporte nativo para <i>i18n</i> (diccionarios) y temas.</li>
+    <li><b><a href="./.agent/skills/widget-inference/SKILL.md">🧠 widget-inference</a>:</b> Reglas del motor matemático del backend para deducción de métricas complejas sin bases de datos.</li>
 </ul>
 
 <hr />
