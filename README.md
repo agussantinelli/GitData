@@ -48,6 +48,10 @@
 </p>
 
 <p align="justify">
+  La idea surge como respuesta a la frustración con los generadores de "tarjetas" o "banners" tradicionales para GitHub. La gran mayoría de estas soluciones sufren de tres deficiencias críticas: <b>carecen de un estándar estético premium</b> (luciendo estáticas o rompiéndose en pantallas móviles), ofrecen <b>poca o nula variedad</b> (estancándose en los clásicos contadores básicos), y exigen integraciones mediante <b>URLs de dominios complejos</b> o configuraciones muy poco intuitivas. GitData fue diseñado desde cero para solucionar exactamente esto.
+</p>
+
+<p align="justify">
   Para lograr este nivel de análisis sin sacrificar el rendimiento, el ecosistema está construido sobre un <b>Monorepo</b> altamente optimizado. El corazón del proyecto es un robusto backend orquestado con <b>Fastify</b> que funciona como un auténtico <b>Motor de Inferencia Matemática</b>. Este motor combina consultas <b>híbridas (GraphQL + REST)</b> de alta velocidad para deducir patrones que GitHub no expone de forma nativa, tales como los horarios de trabajo, las ramas tecnológicas preferidas y el desbloqueo de medallas o trofeos.
 </p>
 
