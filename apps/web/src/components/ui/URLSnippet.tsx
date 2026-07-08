@@ -3,12 +3,11 @@ import './styles/URLSnippet.css';
 
 interface URLSnippetProps {
   endpoint: string;
-  username: string;
   theme: string;
   lang: string;
 }
 
-export const URLSnippet: React.FC<URLSnippetProps> = ({ endpoint, username, theme, lang }) => {
+export const URLSnippet: React.FC<URLSnippetProps> = ({ endpoint, theme, lang }) => {
   const [copied, setCopied] = useState(false);
   const apiUrl = import.meta.env.VITE_API_URL || 'https://git-data-web.vercel.app';
   const url = `${apiUrl}/api/svg/${endpoint}?username=<tu-nombre-usuario>&theme=${theme}&lang=${lang}`;

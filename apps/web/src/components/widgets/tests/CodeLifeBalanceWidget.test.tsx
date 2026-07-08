@@ -89,7 +89,7 @@ describe('CodeLifeBalanceWidget', () => {
   });
 
   it('renders gracefully when completely dominated by weekends', () => {
-    const { container } = render(<CodeLifeBalanceWidget balance={{ weekdays: 0, weekends: 500 }} />);
+    render(<CodeLifeBalanceWidget balance={{ weekdays: 0, weekends: 500 }} />);
     expect(screen.getByText('0%')).toBeInTheDocument();
     expect(screen.getByText('100%')).toBeInTheDocument();
   });

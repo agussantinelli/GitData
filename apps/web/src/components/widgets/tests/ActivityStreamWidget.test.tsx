@@ -81,7 +81,7 @@ describe('ActivityStreamWidget', () => {
 
   it('handles unknown or unsupported event types with a fallback icon/style', () => {
     const unknownData = [{ id: '5', type: 'SomeWeirdFutureEvent', repo: 'repo', date: '2023-10-01T12:00:00Z', description: 'desc' }];
-    const { container } = render(<ActivityStreamWidget activityStream={unknownData} />);
+    render(<ActivityStreamWidget activityStream={unknownData} />);
     // Debería renderizar de todas formas y no fallar
     expect(screen.getByText('repo')).toBeInTheDocument();
   });

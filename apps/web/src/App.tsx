@@ -173,13 +173,13 @@ function App() {
             {/* Widget en Modo Oscuro */}
             <div className="widget-wrapper">
               <PersonalInfoWidget data={profile} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="profile" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="profile" theme="dark" lang={lang.code} />
             </div>
 
             {/* Widget en Modo Claro */}
             <div className="widget-wrapper">
               <PersonalInfoWidget data={profile} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="profile" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="profile" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -200,11 +200,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <PopularProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="popular-projects" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="popular-projects" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <PopularProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="popular-projects" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="popular-projects" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -225,11 +225,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <CategorizedProjectsWidget projects={profile.projects} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="categorized-projects" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="categorized-projects" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <CategorizedProjectsWidget projects={profile.projects} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="categorized-projects" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="categorized-projects" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -250,11 +250,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="global-stats" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="global-stats" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <GlobalStatsWidget stats={profile.stats} followers={profile.followers} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="global-stats" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="global-stats" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -275,11 +275,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <TopLanguagesWidget languages={profile.topLanguages} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="top-languages" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="top-languages" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <TopLanguagesWidget languages={profile.topLanguages} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="top-languages" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="top-languages" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -300,11 +300,11 @@ function App() {
           <main className="widgets-grid" style={{ gridTemplateColumns: '1fr' }}>
             <div className="widget-wrapper">
               <CodeFrequencyWidget contributions={profile.contributions} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="code-frequency" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="code-frequency" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <CodeFrequencyWidget contributions={profile.contributions} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="code-frequency" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="code-frequency" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -323,11 +323,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <AchievementsWidget achievements={profile.achievements} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="achievements" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="achievements" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <AchievementsWidget achievements={profile.achievements} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="achievements" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="achievements" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -346,11 +346,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="time-of-day" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="time-of-day" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <TimeOfDayWidget timeOfDay={profile.timeOfDay} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="time-of-day" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="time-of-day" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -369,11 +369,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="hourly-frequency" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="hourly-frequency" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <HourlyFrequencyWidget hourlyFrequency={profile.hourlyFrequency} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="hourly-frequency" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="hourly-frequency" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -392,11 +392,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <ActivityStreamWidget activityStream={profile.activityStream} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="activity-stream" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="activity-stream" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <ActivityStreamWidget activityStream={profile.activityStream} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="activity-stream" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="activity-stream" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -415,11 +415,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <TechRadarWidget techRadar={profile.techRadar} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="tech-radar" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="tech-radar" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <TechRadarWidget techRadar={profile.techRadar} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="tech-radar" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="tech-radar" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -438,11 +438,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <MilestonesWidget milestones={profile.milestones} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="milestones" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="milestones" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <MilestonesWidget milestones={profile.milestones} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="milestones" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="milestones" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -458,11 +458,11 @@ function App() {
           <main className="widgets-grid">
             <div className="widget-wrapper">
               <CodeLifeBalanceWidget balance={profile.codeLifeBalance} theme="dark" lang={lang.code} />
-              <URLSnippet endpoint="code-life-balance" username={profile.username} theme="dark" lang={lang.code} />
+              <URLSnippet endpoint="code-life-balance" theme="dark" lang={lang.code} />
             </div>
             <div className="widget-wrapper">
               <CodeLifeBalanceWidget balance={profile.codeLifeBalance} theme="light" lang={lang.code} />
-              <URLSnippet endpoint="code-life-balance" username={profile.username} theme="light" lang={lang.code} />
+              <URLSnippet endpoint="code-life-balance" theme="light" lang={lang.code} />
             </div>
           </main>
         </div>
@@ -472,3 +472,4 @@ function App() {
 }
 
 export default App;
+
