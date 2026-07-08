@@ -362,26 +362,11 @@ GitData/
 <h3>🔬 Anatomía de Pruebas (Backend)</h3>
 <p align="justify">Siguiendo la <i>Clean Architecture</i>, cada funcionalidad core del Motor de Inferencia se valida en aislamiento absoluto:</p>
 
-<ul>
-  <li><b>1. Unit: Casos de Uso (<code>.test.ts</code>)</b>:
-    <ul>
-      <li><b>Foco:</b> Lógica de negocio y matemáticas de deducción (Code-Life Balance, horarios).</li>
-      <li><b>Aislamiento:</b> Mockeo total de la API de GitHub (Octokit) para validar sin tocar la red.</li>
-    </ul>
-  </li>
-  <li><b>2. Unit: Controladores y Rutas Fastify</b>:
-    <ul>
-      <li><b>Foco:</b> Capa de transporte HTTP, validaciones Zod y códigos de estado (200, 429, 400).</li>
-      <li><b>Aislamiento:</b> Simulamos peticiones crudas mediante <code>server.inject()</code>.</li>
-    </ul>
-  </li>
-  <li><b>3. Unit: Generadores SVG</b>:
-    <ul>
-      <li><b>Foco:</b> Integridad visual estática y escape seguro de variables (prevención XSS en la inyección Markdown).</li>
-      <li><b>Aislamiento:</b> Validación de que el XML generado no se rompa al inyectar textos de distintos idiomas o aplicar temas.</li>
-    </ul>
-  </li>
-</ul>
+| Capa del Backend | Foco del Test (Qué Validamos) | Nivel de Aislamiento (Mocking) |
+| :--- | :--- | :--- |
+| **1. Casos de Uso** | Lógica de negocio y matemáticas de deducción (Code-Life Balance, horarios). | Mockeo total de la API de GitHub (Octokit) para validar sin tocar la red. |
+| **2. Rutas Fastify** | Capa de transporte HTTP, validaciones Zod y códigos de estado (200, 429, 400). | Simulamos peticiones crudas mediante `server.inject()`. |
+| **3. Motores SVG** | Integridad visual estática y escape seguro de variables (prevención XSS). | Validación del XML generado ante inyección de idiomas y temas. |
 
 <h3>🎨 Estrategia de Testeo (Frontend)</h3>
 <p align="justify">El Showcase interactivo cuenta con una estrategia orientada a garantizar la resiliencia de la interfaz:</p>
