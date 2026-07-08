@@ -136,10 +136,14 @@
 
 <hr>
 
-<h2>🐙 ¿Qué es Octokit?</h2>
+<h2>🐙 El Corazón de los Datos: Octokit</h2>
 
 <p align="justify">
-  <b><a href="https://github.com/octokit" target="_blank">Octokit</a></b> es el SDK (Kit de Desarrollo de Software) oficial proporcionado por GitHub. En <b>GitData</b>, utilizamos Octokit en combinación con la <b>API GraphQL de GitHub</b> para realizar consultas masivas y altamente eficientes. Esto nos permite extraer en un solo viaje de red docenas de repositorios, estadísticas de lenguajes y métricas de contribución, superando las limitaciones tradicionales de la API REST y garantizando respuestas ultrarrápidas para nuestros layouts.
+  <b><a href="https://github.com/octokit" target="_blank">Octokit</a></b> es el SDK oficial proporcionado por GitHub, diseñado para interactuar de forma segura y tipada con su ecosistema. En GitData, actúa como el puente de infraestructura primario, permitiéndonos comunicarnos con los servidores de GitHub de forma robusta sin tener que lidiar con la complejidad y fragilidad de peticiones HTTP crudas.
+</p>
+
+<p align="justify">
+  Estratégicamente, aprovechamos todo el poder de Octokit para ejecutar consultas masivas mediante la <b>API GraphQL de GitHub</b>. Esta decisión arquitectónica es clave: nos permite extraer en un único "viaje de red" docenas de repositorios, historiales de contribución y estadísticas exactas de lenguajes. De este modo, evitamos los temidos cuellos de botella de la API REST tradicional, consumimos la mínima cuota del <i>Rate Limit</i> y garantizamos respuestas ultrarrápidas para nuestros widgets.
 </p>
 
 <hr>
