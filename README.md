@@ -8,6 +8,14 @@
   </a>
 </p>
 
+<div align="center" style="margin: 20px 0;">
+  <h2>
+    <a href="https://git-data-web.vercel.app/" target="_blank">
+      ✨ Explora el Catalogo Interactivo
+    </a>
+  </h2>
+</div>
+
 <p align="center">
   <img src="https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS Badge"/>
   <img src="https://img.shields.io/badge/React-19.2.7-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React Badge"/>
