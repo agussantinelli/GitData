@@ -295,6 +295,29 @@ GitData/
 
 <hr />
 
+<h2>⚙️ Integración Continua (CI/CD) y Calidad de Código</h2>
+
+<p align="justify">
+  Este proyecto no solo se basa en reglas limpias de desarrollo (<i>Clean Architecture</i>), sino que está respaldado por canales de <b>Integración y Despliegue Continuo (CI/CD)</b> altamente restrictivos orquestados mediante <i>GitHub Actions</i>. 
+</p>
+
+<p align="justify">
+  Cada vez que un desarrollador envía un <i>Push</i> o abre una <i>Pull Request</i>, se detona el siguiente ecosistema defensivo:
+</p>
+
+<ul>
+  <li><b>1. Motor de Pruebas (Vitest):</b> Las aplicaciones se congelan y ejecutan su <i>suite</i> completa de tests. El repositorio tiene una regla obligatoria e inquebrantable: <b>100% de Cobertura de Código</b>. Si una sola línea lógica carece de pruebas, el pipeline falla y bloquea el despliegue.</li>
+  <li><b>2. Quality Gate (SonarCloud):</b> Tras superar los tests, los reportes <code>lcov.info</code> son enviados automáticamente a SonarCloud. Este motor de escaneo audita el código en busca de vulnerabilidades de seguridad, deuda técnica, <i>Code Smells</i> y verifica que se cumpla el <i>Quality Gate</i> supremo.</li>
+  <li><b>3. Despliegue Automático Constante:</b> Una vez que todo el código es considerado prístino, el monorepo se bifurca:
+    <ul>
+      <li>El <b>Backend (Fastify)</b> se construye y se empuja a los servidores de <b>Railway</b>.</li>
+      <li>El <b>Frontend (React+Vite)</b> genera su compilación final de alto rendimiento y se despliega en los *Edges* de <b>Vercel</b>, garantizando disponibilidad 24/7 sin ventanas de mantenimiento.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
 <h2>📚 Documentación del Proyecto</h2>
 <p>El directorio <code>docs/</code> contiene guías exhaustivas para entender cada engranaje del sistema, desde cómo levantar el proyecto localmente hasta cómo funciona el cerebro analítico del backend:</p>
 
