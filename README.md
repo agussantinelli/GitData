@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS Badge"/>
   <img src="https://img.shields.io/badge/React-19.2.7-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React Badge"/>
   <img src="https://img.shields.io/badge/Fastify-5.2.1-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify Badge"/>
   <img src="https://img.shields.io/badge/Vite-5.4.11-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite Badge"/>
-  <img src="https://img.shields.io/badge/Vitest-2.1.9-729B1B?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest Badge"/>
   <img src="https://img.shields.io/badge/Node.js-v22_LTS-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node Badge"/>
-  <img src="https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS Badge"/>
+  <img src="https://img.shields.io/badge/Vitest-2.1.9-729B1B?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest Badge"/>
   <img src="https://img.shields.io/badge/GraphQL-API-E10098?style=for-the-badge&logo=graphql&logoColor=white" alt="GraphQL Badge"/>
   <img src="https://img.shields.io/badge/Octokit-5.0.5-24292E?style=for-the-badge&logo=github&logoColor=white" alt="Octokit Badge"/>
   <img src="https://img.shields.io/badge/Zod-3.23.8-3E67B1?style=for-the-badge&logo=zod&logoColor=white" alt="Zod Badge"/>
@@ -27,7 +27,6 @@
   <img src="https://img.shields.io/badge/Railway-Hosting-131415?style=for-the-badge&logo=railway&logoColor=white" alt="Railway Badge"/>
   <img src="https://img.shields.io/badge/Fastify_Helmet-Security-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Helmet Badge"/>
   <img src="https://img.shields.io/badge/Fastify_RateLimit-Security-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Rate Limit Badge"/>
-  <img src="https://img.shields.io/badge/Mobile--First-Responsive-06b6d4?style=for-the-badge&logo=css3&logoColor=white" alt="Mobile First Badge"/>
 </p>
 </div>
 
