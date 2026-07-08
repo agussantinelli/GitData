@@ -260,7 +260,7 @@
 
 <hr>
 
-<h2>📦 Arquitectura del Monorepo (Clean Architecture)</h2>
+<h2>📦 Estructura del Proyecto</h2>
 
 <pre>
 GitData/
