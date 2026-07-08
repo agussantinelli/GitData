@@ -401,14 +401,17 @@ GitData/
 <p>El directorio <code>docs/</code> contiene guías exhaustivas para entender cada engranaje del sistema, desde cómo levantar el proyecto localmente hasta cómo funciona el cerebro analítico del backend:</p>
 
 <ul>
-    <li><b>01_LOCAL-DEVELOPMENT.md:</b> Guía de inicio rápido para levantar Fastify y React simultáneamente usando <code>pnpm</code>.</li>
-    <li><b>02_ARCHITECTURE.md:</b> Explicación profunda del patrón Clean Architecture y el Frontend basado en Widgets independientes.</li>
-    <li><b>03_JSON_STRUCTURE.md:</b> Contrato de datos oficial. Muestra la respuesta exacta de la API (Perfil unificado).</li>
-    <li><b>04_WIDGET_INTEGRATION.md:</b> Instrucciones teóricas para incrustar estos widgets en aplicaciones externas (Portafolios, Blogs).</li>
-    <li><b>05_INFERENCE_ENGINE.md:</b> Reglas matemáticas del cerebro algorítmico del backend (Deducción de medallas, horarios, code-life balance, etc).</li>
-    <li><b>06_ADDING_NEW_WIDGET.md:</b> Checklist y tutorial paso a paso para crear, estilizar y registrar nuevos widgets en el ecosistema.</li>
-    <li><b>07_I18N_AND_THEMING.md:</b> Explicación de la arquitectura de diccionarios multi-idioma (5 idiomas) y el sistema de variables CSS (Oscuro/Claro).</li>
-    <li><b>08_WIDGETS_CATALOG.md:</b> Catálogo descriptivo oficial de los 13 Super Mini Layouts.</li>
+    <li><b><a href="./docs/01_LOCAL-DEVELOPMENT.md">01_LOCAL-DEVELOPMENT.md</a>:</b> Guía de inicio rápido para levantar Fastify y React simultáneamente usando <code>pnpm</code>.</li>
+    <li><b><a href="./docs/02_ARCHITECTURE.md">02_ARCHITECTURE.md</a>:</b> Explicación profunda del patrón Clean Architecture y el Frontend basado en Widgets independientes.</li>
+    <li><b><a href="./docs/03_JSON_STRUCTURE.md">03_JSON_STRUCTURE.md</a>:</b> Contrato de datos oficial. Muestra la respuesta exacta de la API (Perfil unificado).</li>
+    <li><b><a href="./docs/04_WIDGET_INTEGRATION.md">04_WIDGET_INTEGRATION.md</a>:</b> Instrucciones teóricas para incrustar estos widgets en aplicaciones externas (Portafolios, Blogs).</li>
+    <li><b><a href="./docs/05_INFERENCE_ENGINE.md">05_INFERENCE_ENGINE.md</a>:</b> Reglas matemáticas del cerebro algorítmico del backend (Deducción de medallas, horarios, code-life balance, etc).</li>
+    <li><b><a href="./docs/06_ADDING_NEW_WIDGET.md">06_ADDING_NEW_WIDGET.md</a>:</b> Checklist y tutorial paso a paso para crear, estilizar y registrar nuevos widgets en el ecosistema.</li>
+    <li><b><a href="./docs/07_I18N_AND_THEMING.md">07_I18N_AND_THEMING.md</a>:</b> Explicación de la arquitectura de diccionarios multi-idioma (5 idiomas) y el sistema de variables CSS (Oscuro/Claro).</li>
+    <li><b><a href="./docs/08_WIDGETS_CATALOG.md">08_WIDGETS_CATALOG.md</a>:</b> Catálogo descriptivo oficial de los 13 Super Mini Layouts.</li>
+    <li><b><a href="./docs/09_TESTING_STRATEGY.md">09_TESTING_STRATEGY.md</a>:</b> Protocolo inquebrantable de Cero Regresión y Aislamiento Unitario (Vitest + Happy DOM).</li>
+    <li><b><a href="./docs/10_GITHUB_API_INTEGRATION.md">10_GITHUB_API_INTEGRATION.md</a>:</b> Arquitectura híbrida para el consumo masivo de datos mediante GraphQL y REST (Octokit).</li>
+    <li><b><a href="./docs/11_DEPLOYMENT_AND_CI.md">11_DEPLOYMENT_AND_CI.md</a>:</b> Pipeline defensivo (SonarCloud) y estrategia de despliegue bifurcado en Producción (Vercel/Railway).</li>
 </ul>
 
 <hr />
