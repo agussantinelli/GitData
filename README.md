@@ -10,24 +10,24 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Fastify-5.2.1-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Fastify Badge"/>
-  <img src="https://img.shields.io/badge/React-19.2.7-000000?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Badge"/>
-  <img src="https://img.shields.io/badge/Vite-5.4.11-000000?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite Badge"/>
-  <img src="https://img.shields.io/badge/Vitest-2.1.9-000000?style=for-the-badge&logo=vitest&logoColor=729B1B" alt="Vitest Badge"/>
-  <img src="https://img.shields.io/badge/Node.js-v22_LTS-000000?style=for-the-badge&logo=nodedotjs&logoColor=339933" alt="Node Badge"/>
-  <img src="https://img.shields.io/badge/TypeScript-5.7.3-000000?style=for-the-badge&logo=typescript&logoColor=3178C6" alt="TS Badge"/>
-  <img src="https://img.shields.io/badge/GraphQL-API-000000?style=for-the-badge&logo=graphql&logoColor=E10098" alt="GraphQL Badge"/>
-  <img src="https://img.shields.io/badge/Octokit-5.0.5-000000?style=for-the-badge&logo=github&logoColor=white" alt="Octokit Badge"/>
-  <img src="https://img.shields.io/badge/Zod-3.23.8-000000?style=for-the-badge&logo=zod&logoColor=3E67B1" alt="Zod Badge"/>
-  <img src="https://img.shields.io/badge/React_Icons-5.7.0-000000?style=for-the-badge&logo=react&logoColor=E91E63" alt="React Icons Badge"/>
-  <img src="https://img.shields.io/badge/CSS3-Standard-000000?style=for-the-badge&logo=css3&logoColor=1572B6" alt="CSS3 Badge"/>
-  <img src="https://img.shields.io/badge/pnpm-10.30.3-000000?style=for-the-badge&logo=pnpm&logoColor=F69220" alt="pnpm Badge">
-  <img src="https://img.shields.io/badge/GitHub_Actions-CI_CD-000000?style=for-the-badge&logo=githubactions&logoColor=2088FF" alt="GitHub Actions Badge"/>
-  <img src="https://img.shields.io/badge/SonarCloud-Quality_Gate-000000?style=for-the-badge&logo=sonarcloud&logoColor=F3702A" alt="SonarCloud Badge"/>
+  <img src="https://img.shields.io/badge/React-19.2.7-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React Badge"/>
+  <img src="https://img.shields.io/badge/Vite-5.4.11-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite Badge"/>
+  <img src="https://img.shields.io/badge/Vitest-2.1.9-729B1B?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest Badge"/>
+  <img src="https://img.shields.io/badge/Node.js-v22_LTS-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node Badge"/>
+  <img src="https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS Badge"/>
+  <img src="https://img.shields.io/badge/GraphQL-API-E10098?style=for-the-badge&logo=graphql&logoColor=white" alt="GraphQL Badge"/>
+  <img src="https://img.shields.io/badge/Octokit-5.0.5-24292E?style=for-the-badge&logo=github&logoColor=white" alt="Octokit Badge"/>
+  <img src="https://img.shields.io/badge/Zod-3.23.8-3E67B1?style=for-the-badge&logo=zod&logoColor=white" alt="Zod Badge"/>
+  <img src="https://img.shields.io/badge/React_Icons-5.7.0-E91E63?style=for-the-badge&logo=react&logoColor=white" alt="React Icons Badge"/>
+  <img src="https://img.shields.io/badge/CSS3-Standard-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 Badge"/>
+  <img src="https://img.shields.io/badge/pnpm-10.30.3-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm Badge"/>
+  <img src="https://img.shields.io/badge/GitHub_Actions-CI_CD-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions Badge"/>
+  <img src="https://img.shields.io/badge/SonarCloud-Quality_Gate-F3702A?style=for-the-badge&logo=sonarcloud&logoColor=white" alt="SonarCloud Badge"/>
   <img src="https://img.shields.io/badge/Vercel-Deployment-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel Badge"/>
-  <img src="https://img.shields.io/badge/Railway-Hosting-000000?style=for-the-badge&logo=railway&logoColor=white" alt="Railway Badge"/>
+  <img src="https://img.shields.io/badge/Railway-Hosting-131415?style=for-the-badge&logo=railway&logoColor=white" alt="Railway Badge"/>
   <img src="https://img.shields.io/badge/Fastify_Helmet-Security-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Helmet Badge"/>
   <img src="https://img.shields.io/badge/Fastify_RateLimit-Security-000000?style=for-the-badge&logo=fastify&logoColor=white" alt="Rate Limit Badge"/>
-  <img src="https://img.shields.io/badge/Mobile--First-Responsive-000000?style=for-the-badge&logo=css3&logoColor=white" alt="Mobile First Badge"/>
+  <img src="https://img.shields.io/badge/Mobile--First-Responsive-06b6d4?style=for-the-badge&logo=css3&logoColor=white" alt="Mobile First Badge"/>
 </p>
 </div>
 
