@@ -151,19 +151,43 @@
 <h2>🖥️ Landing Page Showcase (Frontend)</h2>
 
 <p align="justify">
-  La capa visual de GitData no es una aplicación web tradicional, sino un imponente <b>Showcase Interactivo</b> construido con React y Vite. Su propósito principal es servir como un catálogo en vivo donde desarrolladores e integradores pueden previsualizar e interactuar con los 13 "Super Mini Layouts" (Widgets). Esta <i>Landing Page</i> demuestra la capacidad de los componentes para adaptarse fluidamente a cualquier pantalla (Mobile-First) y cambiar instantáneamente entre temas (Light/Dark) y 5 idiomas diferentes en tiempo real.
+  La capa visual de GitData va mucho más allá de una simple aplicación web tradicional. Fue concebida como un <b>Showcase Interactivo</b> y un banco de pruebas de diseño, construido sobre la velocidad de <b>React y Vite</b>. Su propósito arquitectónico es actuar como un "Catálogo Vivo", donde desarrolladores e integradores pueden previsualizar, interactuar y auditar los 13 <i>"Super Mini Layouts"</i> (Widgets) en tiempo real antes de inyectarlos en sus propios ecosistemas.
 </p>
+
+<p align="justify">
+  El Showcase es un testimonio técnico de resiliencia frontend. Cada widget funciona de manera completamente autónoma: son capaces de manejar sus propios estados de carga (<i>skeletons</i>), recuperarse elegantemente ante errores (<i>fallbacks visuales</i>) y animarse sutilmente al entrar en el DOM. Además, la Landing Page exhibe la potencia del motor interno del proyecto:
+</p>
+
+<ul>
+  <li><b>Traducción en Caliente (i18n):</b> Integración de diccionarios locales que permiten rotar toda la interfaz en 5 idiomas (Español, Inglés, Portugués, Italiano y Francés) instantáneamente, incluyendo el formateo cultural de números y fechas.</li>
+  <li><b>Arquitectura de Temas (Glassmorphism):</b> Los widgets no utilizan colores absolutos (<i>hardcoded</i>). Consumen un mapa estricto de variables <i>Vanilla CSS</i> que reaccionan a nivel raíz, permitiendo alternar entre el <i>Dark Mode</i> (tonos profundos, bordes translúcidos y brillos sutiles) y el <i>Light Mode</i> sin provocar reflows en el navegador.</li>
+  <li><b>Ingeniería Mobile-First:</b> Rechazamos los frameworks CSS pesados. Toda la grilla de la Landing Page fue estructurada con <code>CSS Grid</code>, flexbox y medias queries matemáticamente calculadas, asegurando que un dashboard tan denso de información se lea impecable tanto en un monitor ultra-wide como en un smartphone antiguo.</li>
+</ul>
 
 <hr>
 
 <h2>🎨 Generación Dinámica de SVGs (Backend)</h2>
 
 <p align="justify">
-  El verdadero superpoder de GitData radica en su capacidad de exportación. Además de alimentar componentes de React, el Backend de Fastify cuenta con un motor de renderizado vectorial capaz de generar los widgets como <b>imágenes SVG nativas al vuelo</b> a través de rutas como <code>/api/svg/profile/:username</code>. 
+  El verdadero <i>"Killer Feature"</i> de GitData, y la joya de la corona del backend, radica en su motor de <b>Generación Dinámica de SVGs al vuelo</b>. Si bien el proyecto provee componentes React hermosos, sabemos que la máxima portabilidad se logra sin JavaScript. Por ello, la API Fastify expone rutas públicas como <code>/api/svg/profile/:username</code>, las cuales funcionan como una fábrica de imágenes vectoriales en el servidor.
 </p>
+
 <p align="justify">
-  Esto permite incrustar analíticas de altísima complejidad directamente en archivos Markdown (como el <code>README.md</code> de tu perfil de GitHub) usando una simple etiqueta de imagen, sin depender de <i>iFrames</i> ni requerir ejecución de JavaScript por parte del cliente, manteniendo siempre una calidad "Pixel-Perfect".
+  <b>¿Cómo funciona bajo el capó?</b> Cuando un usuario solicita el SVG, Fastify invoca la arquitectura limpia: los Casos de Uso consultan la API GraphQL de GitHub, infieren los datos matemáticos y luego inyectan ese "ADN Técnico" en plantillas SVG puras escritas en código. El resultado final es devuelto con cabeceras de tipo <code>image/svg+xml</code>, engañando a los navegadores para que lo rendericen como una imagen nativa.
 </p>
+
+<p align="justify">
+  Esto desbloquea una ventaja técnica masiva: la posibilidad de <b>incrustar dashboards analíticos hipercomplejos directamente dentro de cualquier <code>README.md</code> de GitHub</b> (o cualquier blog Markdown) utilizando una simple etiqueta de imagen estática, por ejemplo: <code>![Mi Perfil](https://api.gitdata.com/svg/profile/agussantinelli)</code>. No se requieren iFrames vulnerables, ni scripts de terceros, garantizando métricas actualizadas con calidad "Pixel-Perfect" infinita.
+</p>
+
+<p align="justify">
+  Para sostener esta ingeniería en entornos de alta demanda sin colapsar el sistema ni agotar la cuota (<i>Rate Limit</i>) de GitHub, el generador SVG implementa dos salvaguardas maestras:
+</p>
+
+<ul>
+  <li><b>Paridad Paramétrica:</b> El endpoint SVG soporta los mismos parámetros que React (ej: <code>?lang=es&theme=dark</code>). El servidor lee la Query, ensambla el CSS correspondiente dentro del SVG y lo pinta en el idioma exacto.</li>
+  <li><b>Defensa con TTLCache:</b> Si tu perfil de GitHub recibe miles de visitas por hora, GitData interceptará esas miles de peticiones HTTP, pero solo consultará a Octokit una vez. El SVG generado se congela en la memoria RAM del servidor con un TTL estricto de 5 minutos, devolviéndolo a latencia cero y salvando la infraestructura.</li>
+</ul>
 
 <hr>
 <h2>📊 Datos Extraídos (ADN Técnico)</h2>
