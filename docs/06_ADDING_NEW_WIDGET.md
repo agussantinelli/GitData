@@ -40,4 +40,8 @@ Agrega los textos requeridos por tu widget en los **5 idiomas soportados** (Espa
 Finalmente, expón tu obra de arte. Ve a `apps/web/src/App.tsx`.
 Crea una nueva sección `<h2 className="section-title">` y mapéalo dentro del iterador de idiomas (`LANGUAGES.map`), instanciando tu widget dos veces: una con `theme="dark"` y otra con `theme="light"`.
 
-¡Listo! Has agregado un nuevo módulo analítico al ecosistema GitData respetando la Arquitectura Limpia.
+## Paso 7: Pruebas Unitarias (Obligatorio)
+Tu widget **no está terminado** sin sus tests.
+Crea el archivo `apps/web/src/components/widgets/tests/ArchivedReposWidget.test.tsx` y utiliza **Vitest** + **React Testing Library** para asegurar que el componente renderice correctamente los casos positivos, los fallbacks, y que no colapse ante datos inválidos.
+
+¡Listo! Has agregado un nuevo módulo analítico al ecosistema GitData respetando la Arquitectura Limpia y el 100% de Cobertura.
