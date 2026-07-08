@@ -8,13 +8,11 @@
   </a>
 </p>
 
-<div align="center" style="margin: 20px 0;">
-  <h2>
-    <a href="https://git-data-web.vercel.app/" target="_blank">
-      ✨ Explora el Catalogo Interactivo
-    </a>
-  </h2>
-</div>
+<p align="center" style="margin: 20px 0;">
+  <a href="https://git-data-web.vercel.app/" target="_blank" style="text-decoration: none;">
+    <img src="https://img.shields.io/badge/✨%20Explora_el_Catálogo_Interactivo-Ver_Demo_en_Vivo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Catalog"/>
+  </a>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS Badge"/>
