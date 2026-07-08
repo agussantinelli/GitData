@@ -14,6 +14,8 @@
   <img src="https://img.shields.io/badge/Vite-6.0.5-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite Badge"/>
   <img src="https://img.shields.io/badge/Vitest-2.1.9-729B1B?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest Badge"/>
   <img src="https://img.shields.io/badge/SonarCloud-F3702A?style=for-the-badge&logo=sonarcloud&logoColor=white" alt="SonarCloud Badge"/>
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel Badge"/>
+  <img src="https://img.shields.io/badge/Railway-131415?style=for-the-badge&logo=railway&logoColor=white" alt="Railway Badge"/>
   <img src="https://img.shields.io/badge/Node.js-22.10.7-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node Badge"/>
   <img src="https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS Badge"/>
   <img src="https://img.shields.io/badge/GraphQL-API-E10098?style=for-the-badge&logo=graphql&logoColor=white" alt="GraphQL Badge"/>
@@ -115,9 +117,14 @@
       <td>Analiza estáticamente los reportes lcov validando los Quality Gates antes de permitir un merge a main.</td>
     </tr>
     <tr>
-      <td><b>Despliegue Continuo</b></td>
+      <td><b>Despliegue Frontend</b></td>
       <td>Vercel</td>
       <td>Plataforma Serverless que expone los widgets e interfaz con zero downtime deployments.</td>
+    </tr>
+    <tr>
+      <td><b>Despliegue Backend</b></td>
+      <td>Railway</td>
+      <td>Plataforma PaaS optimizada para alojar y servir la API Node.js/Fastify con alto rendimiento.</td>
     </tr>
   </tbody>
 </table>
