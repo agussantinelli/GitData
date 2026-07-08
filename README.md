@@ -228,21 +228,21 @@
   El Frontend de GitData no es un sitio web tradicional, sino un ecosistema de <b>Widgets</b> independientes, ultra-compactos y diseñados para ser incrustados en portafolios, blogs o firmas de correo. Cada widget cumple un propósito específico:
 </p>
 
-<ul>
-  <li><b>🪪 Profile Card Widget:</b> Presenta la identidad del desarrollador, su biografía y años de experiencia. Ideal como "tarjeta de presentación técnica".</li>
-  <li><b>🔥 Popular Projects Widget:</b> Destaca los 5 repositorios más exitosos (ordenados por estrellas). Perfecto para demostrar impacto y calidad.</li>
-  <li><b>📂 Categorized Projects Widget:</b> Panel analítico súper compacto que clasifica los proyectos en tres áreas clave: Stars, Updates y Commits.</li>
-  <li><b>📈 Global Stats Widget:</b> Dashboard KPI que recopila los números masivos del perfil (Total de Commits, Estrellas Totales, Issues, PRs y Seguidores).</li>
-  <li><b>📊 Top Languages Widget:</b> Muestra los lenguajes de programación más utilizados basados en el peso real del código (bytes).</li>
-  <li><b>📅 Code Frequency Widget:</b> Gráfico tipo "heatmap" de contribuciones, mostrando también la racha actual y racha máxima de código continuo.</li>
-  <li><b>🏆 Achievements Widget:</b> Motor de inferencia que desbloquea medallas virtuales (ej. "Pull Shark") basado en umbrales de contribución.</li>
-  <li><b>🌤️ Time of Day Widget (Dev Clock):</b> Deduce si el desarrollador suele trabajar por la mañana, tarde o noche, revelando sus hábitos.</li>
-  <li><b>⏱️ Hourly Frequency Widget:</b> Gráfico de barras purista (24 horas) para demostrar los picos exactos de actividad diaria.</li>
-  <li><b>📡 Activity Stream Widget:</b> Una terminal interactiva en vivo que muestra los últimos eventos (Pushes, Issues) consultados mediante la API REST.</li>
-  <li><b>🕸️ Tech Radar Widget:</b> Clasifica matemáticamente el historial de lenguajes en pilares (Frontend, Backend, DevOps) mostrando tu balance técnico.</li>
-  <li><b>🚀 Milestones Timeline Widget:</b> Línea de tiempo cronológica resaltando hitos históricos (Creación, Primer Repo, Primer Fork, Gran Proyecto).</li>
-  <li><b>⚖️ Code-Life Balance Widget:</b> Gráfico de barras que divide estrictamente tu código del último año en dos grupos: Días Laborables y Fines de Semana.</li>
-</ul>
+| Icono | Nombre del Widget | Descripción y Propósito Analítico |
+| :---: | :--- | :--- |
+| 🪪 | **Profile Card Widget** | Presenta la identidad del desarrollador, su biografía y años de experiencia. Ideal como "tarjeta de presentación técnica". |
+| 🔥 | **Popular Projects Widget** | Destaca los 5 repositorios más exitosos (ordenados por estrellas). Perfecto para demostrar impacto y calidad. |
+| 📂 | **Categorized Projects Widget** | Panel analítico súper compacto que clasifica los proyectos en tres áreas clave: Stars, Updates y Commits. |
+| 📈 | **Global Stats Widget** | Dashboard KPI que recopila los números masivos del perfil (Total de Commits, Estrellas Totales, Issues, PRs y Seguidores). |
+| 📊 | **Top Languages Widget** | Muestra los lenguajes de programación más utilizados basados en el peso real del código (bytes). |
+| 📅 | **Code Frequency Widget** | Gráfico tipo "heatmap" de contribuciones, mostrando también la racha actual y racha máxima de código continuo. |
+| 🏆 | **Achievements Widget** | Motor de inferencia que desbloquea medallas virtuales (ej. "Pull Shark") basado en umbrales de contribución. |
+| 🌤️ | **Time of Day Widget** | Deduce si el desarrollador suele trabajar por la mañana, tarde o noche, revelando sus hábitos (Dev Clock). |
+| ⏱️ | **Hourly Frequency Widget** | Gráfico de barras purista (24 horas) para demostrar los picos exactos de actividad diaria. |
+| 📡 | **Activity Stream Widget** | Una terminal interactiva en vivo que muestra los últimos eventos (Pushes, Issues) consultados mediante la API REST. |
+| 🕸️ | **Tech Radar Widget** | Clasifica matemáticamente el historial de lenguajes en pilares (Frontend, Backend, DevOps) mostrando tu balance técnico. |
+| 🚀 | **Milestones Timeline Widget** | Línea de tiempo cronológica resaltando hitos históricos (Creación, Primer Repo, Primer Fork, Gran Proyecto). |
+| ⚖️ | **Code-Life Balance Widget** | Gráfico de barras que divide estrictamente tu código del último año en dos grupos: Días Laborables y Fines de Semana. |
 
 <hr>
 <h2>🎨 Variantes y Personalización (i18n & Temas)</h2>
