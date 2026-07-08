@@ -147,6 +147,25 @@
 </p>
 
 <hr>
+
+<h2>🖥️ Landing Page Showcase (Frontend)</h2>
+
+<p align="justify">
+  La capa visual de GitData no es una aplicación web tradicional, sino un imponente <b>Showcase Interactivo</b> construido con React y Vite. Su propósito principal es servir como un catálogo en vivo donde desarrolladores e integradores pueden previsualizar e interactuar con los 13 "Super Mini Layouts" (Widgets). Esta <i>Landing Page</i> demuestra la capacidad de los componentes para adaptarse fluidamente a cualquier pantalla (Mobile-First) y cambiar instantáneamente entre temas (Light/Dark) y 5 idiomas diferentes en tiempo real.
+</p>
+
+<hr>
+
+<h2>🎨 Generación Dinámica de SVGs (Backend)</h2>
+
+<p align="justify">
+  El verdadero superpoder de GitData radica en su capacidad de exportación. Además de alimentar componentes de React, el Backend de Fastify cuenta con un motor de renderizado vectorial capaz de generar los widgets como <b>imágenes SVG nativas al vuelo</b> a través de rutas como <code>/api/svg/profile/:username</code>. 
+</p>
+<p align="justify">
+  Esto permite incrustar analíticas de altísima complejidad directamente en archivos Markdown (como el <code>README.md</code> de tu perfil de GitHub) usando una simple etiqueta de imagen, sin depender de <i>iFrames</i> ni requerir ejecución de JavaScript por parte del cliente, manteniendo siempre una calidad "Pixel-Perfect".
+</p>
+
+<hr>
 <h2>📊 Datos Extraídos (ADN Técnico)</h2>
 
 <p align="justify">
