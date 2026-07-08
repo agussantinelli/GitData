@@ -42,7 +42,11 @@
 </p>
 
 <p align="justify">
-  Para lograr este nivel de análisis sin sacrificar el rendimiento, el proyecto está estructurado como un ecosistema de <b>Monorepo</b> altamente optimizado. Por un lado, emplea un robusto backend orquestado con <b>Fastify</b> que funciona como un auténtico <b>Motor de Inferencia Matemática</b>, combinando consultas <b>híbridas (GraphQL + REST)</b> para deducir patrones que GitHub no expone nativamente (como horarios de trabajo, ramas tecnológicas y trofeos). Por el otro lado, ofrece un frontend desarrollado en <b>React y Vite</b> que consume esta inteligencia y la renderiza en una <b>Landing Page Showcase</b> de 13 "Super Mini Layouts". Estos widgets inmersivos cuentan con <b>Soporte Multilingüe (i18n en 5 idiomas)</b>, <b>Soporte Multitema (Light / Dark)</b> y un <b>Diseño 100% Responsive (Mobile-First)</b> mediante un diseño premium purista (Vanilla CSS y Glassmorphism), listos para integrarse en portfolios o plataformas externas.
+  Para lograr este nivel de análisis sin sacrificar el rendimiento, el ecosistema está construido sobre un <b>Monorepo</b> altamente optimizado. El corazón del proyecto es un robusto backend orquestado con <b>Fastify</b> que funciona como un auténtico <b>Motor de Inferencia Matemática</b>. Este motor combina consultas <b>híbridas (GraphQL + REST)</b> de alta velocidad para deducir patrones que GitHub no expone de forma nativa, tales como los horarios de trabajo, las ramas tecnológicas preferidas y el desbloqueo de medallas o trofeos.
+</p>
+
+<p align="justify">
+  Por el otro lado, GitData ofrece un frontend impecable desarrollado en <b>React y Vite</b> que consume toda esta inteligencia artificial y la renderiza en una imponente <b>Landing Page Showcase</b> conformada por 13 "Super Mini Layouts". Estos widgets inmersivos fueron creados bajo un diseño premium purista (Vanilla CSS y Glassmorphism) listos para incrustarse en portfolios externos. Además, cuentan de forma nativa con <b>Soporte Multilingüe (i18n en 5 idiomas)</b>, <b>Soporte Multitema (Light / Dark)</b> y un <b>Diseño 100% Responsive (Mobile-First)</b>.
 </p>
 
 <hr>
