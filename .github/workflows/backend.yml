@@ -41,7 +41,16 @@ jobs:
         run: pnpm -C apps/api test:coverage
         
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=agussantinelli_GitData
+            -Dsonar.organization=agussantinelli
+            -Dsonar.sources=apps/web/src,apps/api/src
+            -Dsonar.exclusions=**/tests/**,**/*.test.tsx,**/*.test.ts,**/node_modules/**,**/dist/**,**/build/**
+            -Dsonar.javascript.lcov.reportPaths=apps/web/coverage/lcov.info,apps/api/coverage/lcov.info
+            -Dsonar.tests=apps/web/src,apps/api/src
+            -Dsonar.test.inclusions=**/*.test.tsx,**/*.test.ts
