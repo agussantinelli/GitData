@@ -68,13 +68,18 @@ pnpm build
 
 Esto compilará el TypeScript de Fastify en `apps/api/dist` y empaquetará la web de Vite en `apps/web/dist`.
 
-## 🧪 Pruebas Automatizadas (Testing)
+## 🧪 Pruebas Automatizadas y Cobertura (SonarCloud)
 
-El proyecto cuenta con un entorno de testing basado en **Vitest** con alta cobertura en ambas aplicaciones.
+El proyecto cuenta con un entorno de testing basado en **Vitest** con alta cobertura en ambas aplicaciones. Además, utilizamos **SonarCloud** en el CI para asegurar los *Quality Gates*.
 
-Para correr absolutamente todos los tests del backend y del frontend simultáneamente:
+Para correr todos los tests del backend y del frontend simultáneamente (solo tests):
 ```bash
 pnpm test
 ```
 
-También puedes correrlos de manera individual entrando a los respectivos directorios (`cd apps/api` o `cd apps/web`) y ejecutando `pnpm test`.
+Para generar los reportes de cobertura de código (`lcov.info`) que lee SonarCloud:
+```bash
+pnpm test:coverage
+```
+
+También puedes correrlos de manera individual entrando a los respectivos directorios (`cd apps/api` o `cd apps/web`) y ejecutando `pnpm test` o `pnpm test:coverage`.
