@@ -196,27 +196,25 @@
 </ul>
 
 <hr>
-<h2>📊 Datos Extraídos (ADN Técnico)</h2>
+<h2>🧬 Extracción Profunda (El ADN Técnico)</h2>
 
 <p align="justify">
-  Gracias a la potencia de GraphQL, <b>GitData</b> es capaz de extraer en tiempo real una cantidad masiva de metadata altamente detallada por cada perfil. Toda esta información se procesa mediante <b>Clean Architecture</b> y se expone de forma estructurada:
+  A diferencia de las clásicas "tarjetas de GitHub" que solo muestran estrellas y seguidores, <b>GitData</b> ejecuta una operación de <i>data mining</i> en tiempo real. Gracias a la potencia combinada de GraphQL y nuestro Motor de Inferencia, la API decodifica el verdadero <b>ADN Técnico</b> de cada desarrollador, estructurando la información en 5 dimensiones analíticas fundamentales:
 </p>
 
 <ul>
-  <li><b>Identidad y Trayectoria:</b> Nombre, bio, empresa, ubicación, website, Twitter y <b>fecha exacta de creación de la cuenta</b> (ideal para calcular antigüedad).</li>
-  <li><b>Actividad Real (Último Año):</b> Total de commits (incluyendo contribuciones en <b>repositorios privados</b>), pull requests e issues abiertos.</li>
-  <li><b>Dominio Tecnológico:</b> Top 5 de lenguajes más utilizados (calculado en base al tamaño en bytes de cada repositorio).</li>
-  <li><b>Análisis de Proyectos (Sin Límites):</b> Procesamos hasta 50 repositorios principales ordenados por estrellas, extrayendo de cada uno:
+  <li><b>🪪 Identidad y Trayectoria:</b> Más allá del perfil básico (bio, empresa, ubicación, website, X/Twitter), extraemos la <b>fecha exacta de creación de la cuenta</b> (timestamp) para calcular matemáticamente los años exactos de antigüedad y experiencia en la plataforma.</li>
+  <li><b>🔥 Actividad Orgánica (Último Año):</b> Contabilización exhaustiva y verídica del rendimiento del desarrollador, abarcando el volumen total de commits (incluyendo actividad en <b>repositorios privados</b> mediante el <i>PAT</i>), despliegue de <i>Pull Requests</i> y gestión de <i>Issues</i>.</li>
+  <li><b>🧠 Dominio Tecnológico (Bytes):</b> No adivinamos lenguajes por simple "presencia". El backend audita los repositorios y calcula una tabla de posiciones basada en el <b>tamaño real en bytes</b> de cada lenguaje escrito, exponiendo el verdadero *Top 5* de especialización del perfil.</li>
+  <li><b>📦 Auditoría de Proyectos (Top 50):</b> En un solo barrido, escaneamos los 50 repositorios más exitosos (ordenados por popularidad) y desglosamos la anatomía de cada uno:
     <ul>
-      <li>Estadísticas sociales: Estrellas, Forks, Watchers.</li>
-      <li>Métricas de código: Tamaño exacto en KB, Lenguaje principal, Total de Commits Históricos.</li>
-      <li>Estado de mantenimiento: Issues abiertos, Pull Requests pendientes.</li>
-      <li>Metadatos: Fechas de creación/actualización, Licencia oficial, URL del Deploy (Homepage).</li>
-      <li>Tipología: Banderas booleanas (<code>isArchived</code>, <code>isPrivate</code>, <code>isFork</code>) para filtrado avanzado.</li>
-      <li>Colaboración: Cantidad de colaboradores activos en el repositorio.</li>
+      <li><i>Impacto Social:</i> Estrellas, Forks, Watchers y Colaboradores activos.</li>
+      <li><i>Métricas de Software:</i> Peso exacto en KB, Lenguaje principal, Total histórico de Commits en la rama default.</li>
+      <li><i>Salud del Proyecto:</i> Volumen de Issues abiertos y PRs pendientes de revisión.</li>
+      <li><i>Metadatos y Tipología:</i> Fechas de génesis/actualización, Licencias de Código Abierto (MIT, GPL), URLs de despliegue en producción y banderas lógicas booleanas (<code>isArchived</code>, <code>isPrivate</code>, <code>isFork</code>) para filtrado avanzado.</li>
     </ul>
   </li>
-  <li><b>Inferencia Analítica:</b> Deducciones algorítmicas de horarios de trabajo (Mañana/Tarde/Noche), balance de días laborables vs. fines de semana (Code-Life Balance), pilares arquitectónicos y desbloqueo de trofeos ocultos.</li>
+  <li><b>🔮 Inferencia Heurística:</b> Aquí ocurre la magia. Al carecer de ciertos endpoints en GitHub, el servidor deduce patrones de comportamiento humano: identifica <b>horarios de trabajo</b> preferidos (Mañana/Tarde/Noche), calcula el <b>Code-Life Balance</b> (Días Laborables vs. Fines de Semana), categoriza el historial en pilares (Frontend/Backend) y desbloquea dinámicamente un sistema de <b>Trofeos y Medallas</b> según hitos superados.</li>
 </ul>
 
 <hr>
