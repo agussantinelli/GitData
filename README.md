@@ -146,6 +146,27 @@
 
 <hr>
 
+<h2>✨ Características Principales</h2>
+
+<p align="justify">
+  El ecosistema de GitData está diseñado bajo una arquitectura de alto rendimiento y purismo visual, destacando las siguientes capacidades técnicas:
+</p>
+
+<ul>
+  <li><b>🧬 Motor de Inferencia Matemática:</b> Analiza el historial profundo de GitHub para deducir patrones no expuestos nativamente, como horarios preferidos de trabajo, balance de vida (<i>Code-Life Balance</i>) y ramas tecnológicas.</li>
+  <li><b>🎨 Generación Dinámica de SVGs:</b> Fábrica vectorial en el backend que permite incrustar dashboards analíticos completos y <i>Pixel-Perfect</i> en cualquier <code>README.md</code> usando una simple etiqueta de imagen, sin depender de JavaScript.</li>
+  <li><b>⚡ Arquitectura de Red Híbrida:</b> Combina consultas masivas en GraphQL y eventos en tiempo real mediante API REST (Octokit) para extraer métricas precisas en un solo viaje, evitando cuellos de botella y ahorrando cuota de API.</li>
+  <li><b>🧩 Colección de 13 Widgets Inmersivos:</b> Un catálogo de <i>Super Mini Layouts</i> independientes y listos para integrar, que abarcan desde auditorías de lenguajes en bytes reales hasta trofeos desbloqueables y radares tecnológicos.</li>
+  <li><b>🌍 Internacionalización Nativa (i18n):</b> Soporte integrado y cambio en caliente para 5 idiomas (Español, Inglés, Portugués, Italiano y Francés), aplicando formateo cultural exacto a las cifras y fechas.</li>
+  <li><b>🌗 Motor Multitema (Glassmorphism):</b> Construido sin frameworks pesados. Emplea variables CSS Vanilla puras para alternar fluidamente entre modos oscuro y claro, logrando estéticas de cristal translúcido nativas.</li>
+  <li><b>📱 Ingeniería 100% Mobile-First:</b> Uso intensivo de CSS Grid, Flexbox y funciones algorítmicas de autoadaptación para asegurar que la alta densidad de datos se lea de forma impecable en cualquier tamaño de pantalla.</li>
+  <li><b>🛡️ Hardening y Seguridad Perimetral:</b> Blindaje total del entorno de producción utilizando <code>@fastify/helmet</code> para prevención XSS y <code>@fastify/rate-limit</code> para mitigar ataques de fuerza bruta o DDoS.</li>
+  <li><b>🧠 Escudo Defensivo en Memoria (TTLCache):</b> Congela las respuestas en la memoria RAM del servidor (con un TTL de 5 minutos) para despachar vistas a latencia cero durante picos de tráfico masivos, protegiendo los límites de cuota de GitHub.</li>
+  <li><b>🧪 Política de Cero Regresión:</b> Integración continua inquebrantable que exige el 100% de Cobertura de Código en pruebas unitarias y de renderizado (Vitest), auditada estrictamente por los <i>Quality Gates</i> de SonarCloud.</li>
+</ul>
+
+<hr>
+
 <h2>🐙 El Corazón de los Datos: Octokit</h2>
 
 <p align="justify">
