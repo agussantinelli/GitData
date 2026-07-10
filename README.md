@@ -162,7 +162,7 @@
   <li><b>📱 Ingeniería 100% Mobile-First:</b> Uso intensivo de CSS Grid, Flexbox y funciones algorítmicas de autoadaptación para asegurar que la alta densidad de datos se lea de forma impecable en cualquier tamaño de pantalla.</li>
   <li><b>🛡️ Hardening y Seguridad Perimetral:</b> Blindaje total del entorno de producción utilizando <code>@fastify/helmet</code> para prevención XSS y <code>@fastify/rate-limit</code> para mitigar ataques de fuerza bruta o DDoS.</li>
   <li><b>🧠 Escudo Defensivo en Memoria (TTLCache):</b> Congela las respuestas en la memoria RAM del servidor (con un TTL de 5 minutos) para despachar vistas a latencia cero durante picos de tráfico masivos, protegiendo los límites de cuota de GitHub.</li>
-  <li><b>🧪 Política de Cero Regresión:</b> Integración continua inquebrantable que exige el 100% de Cobertura de Código en pruebas unitarias y de renderizado (Vitest), auditada estrictamente por los <i>Quality Gates</i> de SonarCloud.</li>
+  <li><b>🧪 Política de Cero Regresión:</b> Integración continua inquebrantable respaldada por un ecosistema de <b>más de 500 pruebas unitarias y de renderizado</b> (Vitest). Se exige un estricto 100% de Cobertura de Código, auditado implacablemente por los <i>Quality Gates</i> de SonarCloud antes de cualquier despliegue.</li>
 </ul>
 
 <hr>
